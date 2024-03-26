@@ -12,3 +12,4 @@ resources:
 patches:
 - path: patches/argocd-cmd-params-cm-patch.yaml
 - path: patches/argocd-server-service-type.yaml
+- path: patches/argocd-cm-patch.yaml
