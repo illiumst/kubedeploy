@@ -4,6 +4,6 @@ metadata:
   name: traefik
 name: traefik
 namespace: traefik
-releaseName: latest
+releaseName: 26.1.0
 repo: https://traefik.github.io/charts
 valuesFile: base/values.yaml
