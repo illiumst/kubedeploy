@@ -9,6 +9,6 @@ resources:
 helmCharts:
 - name: traefik/traefik
   includeCRDs: true
-  version: 26.1.0
+  # version: 26.1.0
   repo: https://traefik.github.io/charts
   valuesFile: base/values.yaml
