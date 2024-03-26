@@ -42,7 +42,8 @@ ports:
       enabled: false
   websecure:
     ## -- Enable this entrypoint as a default entrypoint. When a service doesn't explicitly set an entrypoint it will only use this entrypoint.
-    asDefault: true
+    ## ONLY AVAILABLE ON V3
+    asDefault: false
     port: 8443
     expose: true
     exposedPort: 443
