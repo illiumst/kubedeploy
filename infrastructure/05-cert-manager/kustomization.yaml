@@ -9,6 +9,7 @@ resources:
 helmCharts:
 - name: cert-manager
   includeCRDs: true
+  releaseName: lcl
   version: 1.14.4
   repo: https://charts.jetstack.io
   # valuesFile: base/values.yaml

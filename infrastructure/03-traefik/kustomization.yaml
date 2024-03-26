@@ -7,5 +7,6 @@ helmCharts:
 - name: traefik
   includeCRDs: true
   version: 26.1.0
+  releaseName: lcl
   repo: https://traefik.github.io/charts
   valuesFile: base/values.yaml

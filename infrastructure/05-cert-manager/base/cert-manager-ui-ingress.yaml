@@ -10,7 +10,8 @@ spec:
   - match: Host(`cert-manager.steffenillium.de`)
     kind: Rule
     services:
-    - name: cert-manager
+    - name: lcl-cert-manager
+      kind: Service
       port: 80
   tls:
     certResolver: default
