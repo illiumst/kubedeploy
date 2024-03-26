@@ -12,6 +12,6 @@ spec:
     services:
     - name: lcl-cert-manager
       kind: Service
-      port: 80
+      port: 9402
   tls:
     certResolver: default
