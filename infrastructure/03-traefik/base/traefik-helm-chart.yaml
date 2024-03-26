@@ -1,8 +1,8 @@
 apiVersion: builtin
 kind: HelmChartInflationGenerator
 metadata:
-  name: traefik-ingress-controller
-name: traefik-ingress-controller
+  name: traefik
+name: traefik
 namespace: traefik
 releaseName: latest
 repo: https://traefik.github.io/charts
