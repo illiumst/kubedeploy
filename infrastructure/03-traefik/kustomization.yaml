@@ -3,9 +3,6 @@ kind: Kustomization
 
 namespace: traefik
 
-resources:
-- base/argo-cd-ui-ingress.yaml
-
 helmCharts:
 - name: traefik
   includeCRDs: true

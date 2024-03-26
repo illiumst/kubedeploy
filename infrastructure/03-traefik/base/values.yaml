@@ -1,3 +1,11 @@
+logs:
+  general:
+    # -- Alternative logging levels are DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
+    level: INFO
+  access:
+    # -- To enable access logs
+    enabled: true
+
 deployment:
   kind: Deployment
   replicas: 1
@@ -20,3 +28,26 @@ ingressRoute:
 additionalArguments:
 - "--api.insecure=true"
 
+ports:
+  websecure:
+    ## -- Enable this entrypoint as a default entrypoint. When a service doesn't explicitly set an entrypoint it will only use this entrypoint.
+    asDefault: true
+    port: 8443
+    expose: true
+    exposedPort: 443
+    protocol: TCP
+    http3:
+      enabled: false
+    tls:
+      enabled: true
+      # this is the name of a TLSOption definition
+      options: ""
+      certResolver: "default"
+      domains:
+      - main: steffenillium.de
+        sans:
+        - *.steffenillium.de
+    # middlewares:
+    #   - namespace-name1@kubernetescrd
+    #   - namespace-name2@kubernetescrd
+    middlewares: []
