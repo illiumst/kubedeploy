@@ -5,6 +5,9 @@ resources:
 # - base/traefik-clusterrole.yaml
 # - base/traefik-crds.yaml
 # - base/traefik-dashboard-ingress.yaml
-- base/traefik-helm-chart.yaml
 # - base/traefik-service-account.yaml
 - base/argo-cd-ui-ingress.yaml
+
+generators:
+- base/traefik-helm-chart.yaml
+
