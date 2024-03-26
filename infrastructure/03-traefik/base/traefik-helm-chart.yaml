@@ -3,6 +3,6 @@ kind: HelmChartInflationGenerator
 metadata:
   name: traefik
 name: traefik/traefik
-version: 26.1.0
+# version: 26.1.0
 repo: https://traefik.github.io/charts
 valuesFile: base/values.yaml
