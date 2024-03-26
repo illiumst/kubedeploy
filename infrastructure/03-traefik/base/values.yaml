@@ -11,6 +11,7 @@ deployment:
   replicas: 1
 
 rbac:
+  enabled: true
   namespaced: false
 
 autoscaling:
@@ -25,8 +26,15 @@ ingressRoute:
     # Add custom middlewares : authentication and redirection
     # middlewares:
     #   - name: traefik-dashboard-auth
+globalArguments:
+  - "--global.sendanonymoususage=false"
+  - "--global.checknewversion=false"
+
 additionalArguments:
-- "--api.insecure=true"
+  - "--serversTransport.insecureSkipVerify=true"
+  - "--log.level=INFO"
+  - "--api.insecure=true"
+
 
 ports:
   web:
@@ -43,14 +51,15 @@ ports:
       enabled: false
     tls:
       enabled: true
-      # this is the name of a TLSOption definition
-      options: ""
-      certResolver: "default"
-      domains:
-      - main: steffenillium.de
-        sans:
-        - *.steffenillium.de
-    # middlewares:
-    #   - namespace-name1@kubernetescrd
-    #   - namespace-name2@kubernetescrd
+
     middlewares: []
+
+service:
+  enabled: true
+  type: LoadBalancer
+  annotations: {}
+  labels: {}
+  spec:
+    loadBalancerIP: 192.168.178.102
+  loadBalancerSourceRanges: []
+  externalIPs: []
