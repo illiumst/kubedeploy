@@ -6,4 +6,4 @@ name: traefik
 namespace: traefik
 releaseName: latest
 repo: https://traefik.github.io/charts
-valuesFile: ./values.yaml
+valuesFile: base/values.yaml
