@@ -1,2 +1,2 @@
-reUpgradeChecker:
-  jobEnabled: false
+helmPreUpgradeCheckerJob:
+  enabled: false

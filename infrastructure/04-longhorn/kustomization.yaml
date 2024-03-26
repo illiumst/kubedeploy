@@ -9,7 +9,7 @@ resources:
 helmCharts:
 - name: longhorn/longhorn
   includeCRDs: true
-  version: 1.6.0
+  version: 1.5.4
   repo: https://charts.longhorn.io
   valuesFile: base/values.yaml
 
