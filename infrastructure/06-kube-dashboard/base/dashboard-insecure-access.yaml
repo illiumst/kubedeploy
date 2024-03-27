@@ -2,12 +2,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kubernetes-dashboard
-properties:
-  spec:
-    template:
-      spec:
-        containers:
-        - name: kubernetes-dashboard
-          args:
-            - "--enable-insecure-login"
-            - "--insecure-bind-address=0.0.0.0"
+
+spec:
+  template:
+    spec:
+      containers:
+      - name: kubernetes-dashboard
+        args:
+          - "--enable-insecure-login"
+          - "--insecure-bind-address=0.0.0.0"
