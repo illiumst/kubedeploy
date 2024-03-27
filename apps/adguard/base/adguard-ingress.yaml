@@ -11,7 +11,7 @@ spec:
   - match: Host(`adguard.steffenillium.de`) || Host(`dns.steffenillium.de`)
     kind: Rule
     services:
-    - name: adguard
+    - name: adguard-service
       port: 80
 
 ---
@@ -28,5 +28,5 @@ spec:
   - match: Host(`adguard-init.steffenillium.de`)
     kind: Rule
     services:
-    - name: adguard
+    - name: adguard-service
       port: 3000
