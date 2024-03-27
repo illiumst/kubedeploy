@@ -5,7 +5,7 @@ namespace: traefik
 
 resources:
   - base/traefik-middleware-default-headers.yaml
-  - base/traefik-adguard-service-udp-dns,yaml
+  - base/traefik-adguard-service-udp-dns.yaml
 
 helmCharts:
 - name: traefik
