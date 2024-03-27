@@ -54,7 +54,8 @@ ports:
       certResolver: default
 
     middlewares: 
-      - "default-headers"
+      # Must include the namespace
+      - "traefik-default-headers"
 
 service:
   enabled: true
