@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website-deployment
+  labels:
+    app: website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: website
+  template:
+    metadata:
+      labels:
+        app: website
+    spec:
+      nodeName: gatekeeper
+      containers:
+      - name: website
+        image: registry.steffenillium.de/website
+        ports:
+        - containerPort: 80
