@@ -1,0 +1,23 @@
+{
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata": {
+    "name": "gitea-admin-secret",
+    "namespace": "default",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "template": {
+      "metadata": {
+        "name": "gitea-admin-secret",
+        "namespace": "default",
+        "creationTimestamp": null
+      },
+      "type": "Opaque"
+    },
+    "encryptedData": {
+      "password": "AgAeSr97ehy8U/DiBNzS10+4f5YBixOgpR7wRFuv7gumNJOJvgOfsPGEWfRyzMD6VzebddNFhWbnkmZ9RptWs1qOHaXxh+gwpf7+aUOgaOl6QaeXiT5qgov+94bdQKITLmuxDGWaO1TbZQznoqzOjxw0wqU2ZE8pzvoLtips3i0q4ddbWK2WhdijUfTROXLthbdUDmhKUcinzLhU34g7xrYy4FCA0Nlh0MlmDXf33pPWjeVzjXEBAG3AKmG9GHE3yLdBtMCjKX8HGZ6Z/YnhF1AYzhK0UiZQZP+7xYGGm52cXKiDnJbh4A+hm02eQQWseBdHqAxmbPtqEQis9U90TwDoXg14tk+nwNIV4sG798dhxezIPXRHiar2odxAnfWVNdNIu+zNa9s6EvTYG0Bu/ssI1vcsnnvhu4n2DOlLucHCfsgJNqVqyns7PI3/b/qwlPly43UOwkC2B5lP8W5z5ztuLR5Dt2+6JP9CvuYRE8QUYNh5Ge0xx8RaQbM9NMgMWt61BD3n9sknzwA/CxMNc9RhDDxF53dJ5FLqhlSuksaflXSVZ6TAqarHmS5aomu0dDceaFQFhSh/TaUbx3t9g9Dzv0LgKNXQixE3sXDrPfCv184hUO+FjMB2K61NIpnkineC1OWe2Y+ciXtfOOcdaeJi1ey0WMU8LgxpdCHIUae7ZhzrTMraMZKtUKsBN4nJLHlGUSZ2EB5klmNnmUhlaLPD",
+      "username": "AgBYMhLA7nbCu+dhZl4mXHE7kmK9mJeHBjvlxF25KgJ44SqSo4O0rOBNby62bO0P2H4nhU/YbjiUOoqNjdsPgPbkEBWVpnKAHWCRwARGDu93HhDqSD4E3jWjjyqH0++BwcNbpxXOMltSHMGaPWTtLH27Hx3eKrb9+P8Rzb6KVVD75njXMeIeT/cJDOzNOPH9CaFAgIBviSdXnakcGNSVDnTjAcIfcD0VIuaBQBIqc/dLs1nVrJEuG5b5rMvOi3yahyspE2mjUgKeZkX7Yu1RCscMT+e5VY4ArbSWix0tUiIRAG2TmLAH6bF5H8nF1jkzUemBuPilNbyG67llo8ecCUdTYflr5L/aw8KnC1DnkJQ5gC7CxH1G8qMWLDIAz0s1QS8BLliMCMKMc5+K6tIifmdtQCEddmCQ9tHiTu6cvjNiwnwrZR6l51dxhgjpWqNpENvsls4+n/pezvJ4BOQNSZDsiDAXqkMHKFp2Cb4JOJR7fUj1nSLgd65i11DLU8iOfiz7j7tOIMhnSQju0TJVOMAVD47xDWNTO0pTE5UnxHyzGKwMd/4ZCU9eU67mYA3PrprwExlfRLJdOnJxxXBiQ9MrdGV2FMAd2d12atoyrf70JxRSb0EqV9OFaJGH81GFaIGK+edIaAolDjw4n9tD1Tky4dXEwmqgz/kvTsyZdkMoxencb0SrCdEMtHBeL4hO79zFioFDIv+M"
+    }
+  }
+}

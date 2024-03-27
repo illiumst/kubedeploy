@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: gitea
+  namespace: gitea
+spec:
+  entryPoints:
+    - web
+    - websecure
+  routes:
+  - match: Host(`gitea.steffenillium.de`)
+    kind: Rule
+    services:
+    - name: gitea
+      port: 3000

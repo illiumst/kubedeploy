@@ -37,3 +37,5 @@ gitea:
       SSH_LISTEN_PORT: 22
       SSH_PORT: 22
       ENABLE_PPROF: false
+  admin:
+    existingSecret: gitea-admin-secret
