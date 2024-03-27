@@ -1,0 +1,39 @@
+redis-cluster:
+  enabled: false
+postgresql:
+  enabled: true
+  primary:
+    persistence:
+      size: 10 Gi
+postgresql-ha:
+  enabled: false
+
+persistence:
+  enabled: true
+  storageClass: longhorn
+  size: 20Gi
+  volumeName: gitea
+
+gitea:
+  config:
+    database:
+      DB_TYPE: postgres
+    session:
+      PROVIDER: db
+    cache:
+      ADAPTER: memory
+    queue:
+      TYPE: level
+    indexer:
+      ISSUE_INDEXER_TYPE: bleve
+      REPO_INDEXER_ENABLED: true
+    server:
+      APP_DATA_PATH: /data
+      DOMAIN: git.steffenillium.de
+      HTTP_PORT: 3000
+      PROTOCOL: http
+      ROOT_URL: http://git.steffenillium.de
+      SSH_DOMAIN: git.steffenillium.de
+      SSH_LISTEN_PORT: 22
+      SSH_PORT: 22
+      ENABLE_PPROF: false
