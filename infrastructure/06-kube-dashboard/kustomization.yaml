@@ -6,3 +6,6 @@ namespace: kubernetes-dashboard
 resources:
 - base/kube-dashboard-ui-ingress.yaml
 - https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+
+patches:
+- path: base/dashboard-insecure-access.yaml
