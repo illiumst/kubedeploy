@@ -5,6 +5,9 @@ namespace: kubernetes-dashboard
 
 resources:
 - base/kube-dashboard-ui-ingress.yaml
+- base/kube-dashboard-user-secret.yaml
+- base/kube-dashboard-rolebinding.yaml
+- base/kube-dashboard-serviceaccount.yaml
 - https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
 
 patches:
