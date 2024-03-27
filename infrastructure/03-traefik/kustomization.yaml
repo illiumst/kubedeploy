@@ -3,6 +3,9 @@ kind: Kustomization
 
 namespace: traefik
 
+resources:
+  - base/traefik-middleware-default-headers.yaml
+
 helmCharts:
 - name: traefik
   includeCRDs: true
