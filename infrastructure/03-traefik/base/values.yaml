@@ -22,7 +22,9 @@ ingressRoute:
     enabled: true
     # Custom match rule with host domain
     matchRule: Host(`tr.steffenillium.de`)
-    entryPoints: ["websecure", "web"]
+    entryPoints: 
+      - "websecure"
+      - "web"
     # Add custom middlewares : authentication and redirection
     # middlewares:
     #   - name: traefik-dashboard-auth
@@ -38,12 +40,15 @@ additionalArguments:
 
 ports:
   web:
+    port: 8000
+    expose: true
+    exposedPort: 80
+    protocol: TCP
+    http3:
+      enabled: false
     tls:
       enabled: false
   websecure:
-    ## -- Enable this entrypoint as a default entrypoint. When a service doesn't explicitly set an entrypoint it will only use this entrypoint.
-    ## ONLY AVAILABLE ON V3
-    asDefault: false
     port: 8443
     expose: true
     exposedPort: 443
@@ -52,8 +57,10 @@ ports:
       enabled: false
     tls:
       enabled: true
+      certResolver: default
 
-    middlewares: []
+    middlewares: 
+      - "default-headers"
 
 service:
   enabled: true

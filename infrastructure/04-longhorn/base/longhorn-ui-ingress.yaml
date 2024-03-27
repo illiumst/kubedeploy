@@ -12,5 +12,3 @@ spec:
     services:
     - name: ui
       port: 80
-  tls:
-    certResolver: default
