@@ -4,7 +4,10 @@ postgresql:
   enabled: true
   primary:
     persistence:
-      size: 10 Gi
+      enabled: true
+      storageClass: longhorn
+      size: 20Gi
+      volumeName: gitea-db
 postgresql-ha:
   enabled: false
 
