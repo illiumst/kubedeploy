@@ -16,6 +16,6 @@ spec:
           - name: kubernetes-dashboard
             args:
             # - '--auto-generate-certificates'
-            - '--namespace=kubernetes-dashboard'
+            # - '--namespace=kubernetes-dashboard'
             - "--enable-insecure-login"
             - "--insecure-bind-address=0.0.0.0"
