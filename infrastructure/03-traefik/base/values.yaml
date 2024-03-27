@@ -35,19 +35,13 @@ globalArguments:
 additionalArguments:
   - "--serversTransport.insecureSkipVerify=true"
   - "--log.level=INFO"
-  - "--api.insecure=true"
+  # - "--api.insecure=true"
 
 
 ports:
   web:
-    port: 8000
-    expose: true
-    exposedPort: 80
-    protocol: TCP
-    http3:
-      enabled: false
-    tls:
-      enabled: false
+   tls:
+     enabled: false
   websecure:
     port: 8443
     expose: true
@@ -71,3 +65,15 @@ service:
     loadBalancerIP: 192.168.178.102
   loadBalancerSourceRanges: []
   externalIPs: []
+
+providers:
+  kubernetesCRD:
+    enabled: true
+    ingressClass: ''
+    allowExternalNameServices: true
+  kubernetesIngress:
+    enabled: true
+    allowExternalNameServices: true
+    publishedService:
+      enabled: false
+

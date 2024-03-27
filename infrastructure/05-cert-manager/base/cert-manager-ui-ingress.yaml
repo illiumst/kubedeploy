@@ -12,4 +12,4 @@ spec:
     services:
     - name: lcl-cert-manager
       kind: Service
-      port: 9402
+      port: 443
