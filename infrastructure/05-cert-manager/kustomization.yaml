@@ -6,6 +6,8 @@ namespace: cert-manager
 resources:
 - base/cert-manager-ui-ingress.yaml
 - base/ionos-secret-sealed.yaml
+- base/ionos-certificate.yaml
+- base/ionos-issuer.yaml
 
 helmCharts:
 - name: cert-manager
