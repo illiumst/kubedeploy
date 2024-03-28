@@ -6,6 +6,7 @@ namespace: nextcloud
 resources:
   - base/nextcloud-ingress.yaml
   - base/nextcloud-admin-sealed.yaml
+  - base/nextcloud-namespace.yaml
 
 helmCharts:
 - name: nextcloud
