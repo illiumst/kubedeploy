@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: vaultwarden
+
+resources:
+- base/vaultwarden-data-pvc.yaml
+- base/vaultwarden-deployment.yaml
+- base/vaultwarden-namespace.yaml
+- base/vaultwarden-secret-sealed.yaml
+- base/vaultwarden-service.yaml
