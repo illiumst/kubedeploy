@@ -2,8 +2,8 @@ ingress:
   enabled: false
 
 phpClientHttpsFix:
-  enabled: false
-  protocol: https
+  enabled: true
+  protocol: http
 
 nextcloud:
   host: newcloud.steffenillium.de
