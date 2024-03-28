@@ -2,12 +2,6 @@ redis-cluster:
   enabled: false
 postgresql:
   enabled: true
-  primary:
-    persistence:
-      enabled: true
-      storageClass: longhorn
-      size: 20Gi
-      volumeName: gitea-db
 postgresql-ha:
   enabled: false
 

@@ -5,7 +5,7 @@ namespace: gitea
 
 resources:
   - base/gitea-ingress.yaml
-  - base/admin-sealed.yaml
+  - base/gitea-admin-sealed.yaml
 
 helmCharts:
 - name: gitea
