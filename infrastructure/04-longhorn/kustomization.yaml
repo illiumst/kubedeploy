@@ -13,3 +13,8 @@ helmCharts:
   repo: https://charts.longhorn.io
   valuesFile: base/values.yaml
 
+patches:
+- path: patches/nodeselector.yaml
+  target:
+    kind: (StatefulSet|Deployment|Job)
+

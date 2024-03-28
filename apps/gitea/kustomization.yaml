@@ -9,3 +9,8 @@ resources:
   - base/gitea-deployment.yaml
   - base/gitea-data-pvc.yaml
   - base/gitea-namespace.yaml
+
+patches:
+- path: patches/nodeselector.yaml
+  target:
+    kind: (StatefulSet|Deployment|Job)

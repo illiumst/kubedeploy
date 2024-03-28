@@ -1,0 +1,8 @@
+apiVersion: apps/v1
+kind: not-important
+metadata:
+  name: not-important
+  template:
+    spec:
+      nodeSelector:
+        region: local

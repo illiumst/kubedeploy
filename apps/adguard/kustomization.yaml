@@ -10,3 +10,8 @@ resources:
 - base/adguard-namespace.yaml
 - base/adguard-pvc.yaml
 - base/adguard-service.yaml
+
+patches:
+- path: patches/nodeselector.yaml
+  target:
+    kind: (StatefulSet|Deployment|Job)

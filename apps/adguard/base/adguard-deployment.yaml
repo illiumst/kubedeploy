@@ -34,6 +34,7 @@ spec:
         volumeMounts:
         - name: adguard-pvc
           mountPath: /opt/adguardhome/work
+        resources: {}
       volumes:
       - name: adguard-pvc
         persistentVolumeClaim:

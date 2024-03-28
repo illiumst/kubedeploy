@@ -10,3 +10,8 @@ resources:
 - base/vaultwarden-namespace.yaml
 - base/vaultwarden-secret-sealed.yaml
 - base/vaultwarden-service.yaml
+
+patches:
+- path: patches/nodeselector.yaml
+  target:
+    kind: (StatefulSet|Deployment|Job)

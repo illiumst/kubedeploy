@@ -14,3 +14,8 @@ helmCharts:
   releaseName: lcl
   repo: https://traefik.github.io/charts
   valuesFile: base/values.yaml
+
+patches:
+- path: patches/nodeselector.yaml
+  target:
+    kind: (StatefulSet|Deployment|Job)
