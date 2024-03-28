@@ -9,7 +9,6 @@ persistence:
   enabled: true
   storageClass: longhorn
   size: 20Gi
-  volumeName: gitea
 
 gitea:
   config:
