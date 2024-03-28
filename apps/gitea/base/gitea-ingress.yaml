@@ -12,4 +12,4 @@ spec:
     kind: Rule
     services:
     - name: gitea
-      port: 3000
+      port: 80
