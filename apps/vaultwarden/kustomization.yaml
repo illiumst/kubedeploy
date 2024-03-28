@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: vaultwarden
 
 resources:
+- base/vaultwarden-ingress.yaml
 - base/vaultwarden-data-pvc.yaml
 - base/vaultwarden-deployment.yaml
 - base/vaultwarden-namespace.yaml
