@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: gitea
-  name: server
+  name: gitea
 spec:
   ports:
     - name: web
