@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: gitea-data-pvc
 spec:
-  storageClass: longhorn
+  storageClassName: longhorn
   accessModes:
     - ReadWriteOnce
   resources:
