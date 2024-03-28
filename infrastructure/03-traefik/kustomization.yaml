@@ -6,6 +6,9 @@ namespace: traefik
 resources:
   - base/traefik-middleware-default-headers.yaml
   - base/traefik-adguard-service-udp-dns.yaml
+  ### Routes and Services for out of cluster deployments/legacy
+  - foreign/home-assistant/home-assistant-ingress.yaml
+  - foreign/home-assistant/home-assistant-service.yaml
 
 helmCharts:
 - name: traefik

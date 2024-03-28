@@ -1,15 +1,16 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: cert-manager-ui
+  name: home-assitant
+  namespace: external
 spec:
   entryPoints:
     - web
     - websecure
   routes:
-  - match: Host(`cert-manager.steffenillium.de`)
+  - match: Host(`home.steffenillium.de`)
     kind: Rule
     services:
-    - name: lcl-cert-manager
-      kind: Service
-      port: 443
+    - name: home-assitant
+      port: 80
+
