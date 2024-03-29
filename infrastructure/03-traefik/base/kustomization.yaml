@@ -7,7 +7,6 @@ resources:
 - traefik-adguard-service-udp-dns.yaml
 - traefik-middleware-default-headers.yaml
 - traefik-service.yaml
-- foreign
 - networking
 - security
 
