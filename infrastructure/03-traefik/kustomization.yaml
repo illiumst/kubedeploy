@@ -1,3 +1,7 @@
+
+namespace: traefik
+
 resources:
   - overlay-internal
   - overlay-external
+  

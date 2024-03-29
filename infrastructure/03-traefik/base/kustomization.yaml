@@ -1,16 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
 resources:
-  - traefik-adguard-service-udp-dns.yaml
-  - traefik-middleware-default-headers.yaml
+# Deployment
+- deployment-traefik.yaml
+# Objects
+- traefik-adguard-service-udp-dns.yaml
+- traefik-middleware-default-headers.yaml
+- traefik-service.yaml
+- foreign
+- networking
+- security
 
-helmCharts:
-- name: traefik
-  includeCRDs: true
-  version: 26.1.0
-  releaseName: lcl
-  repo: https://traefik.github.io/charts
-  valuesFile: base/values.yaml
 
-patches:
-- path: ../patches/nodeselector.yaml
-  target:
-    kind: (StatefulSet|Deployment|Job)

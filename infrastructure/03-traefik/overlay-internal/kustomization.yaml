@@ -7,8 +7,13 @@ namePrefix: local-
 
 resources:
   #### OVERLAYS for internal traefik only
-  
-  ### Routes and Services for out of cluster deployments/legacy
-  - ../foreign
+
   ### Traefik base
   - ../base
+  - crds
+  - traefik-namespace.yaml
+
+patches:
+  - path: patches/nodeselector.yaml
+    target:
+      kind: (StatefulSet|Deployment|Job)

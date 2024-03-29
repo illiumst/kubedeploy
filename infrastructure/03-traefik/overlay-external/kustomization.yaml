@@ -8,11 +8,12 @@ namePrefix: front-
 resources:
   #### OVERLAYS for internal traefik only
   
-  ### Routes and Services for out of cluster deployments/legacy
-  - ../foreign
   ### Traefik base
   - ../base
 
 
 patches:
- - path: patches/traefik-labelselector.yaml
+  - path: patches/traefik-deployment-patch.yaml
+  - path: patches/nodeselector.yaml
+    target:
+      kind: (StatefulSet|Deployment|Job)

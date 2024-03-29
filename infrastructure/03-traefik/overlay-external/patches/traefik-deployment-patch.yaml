@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: traefik
+  namespace: traefik
+spec:
+  template:
+    spec:
+      hostNetwork: true
+      containers:
+        - name: traefik
+          args:
+            - '--providers.kubernetescrd.labelSelector=expose=true'
+            - '--serversTransport.insecureSkipVerify=false'
+            # Shared
+            - --global.sendanonymoususage=false
+            - --global.checknewversion=false
+            - --entrypoints.dns.address=:53/udp
+            - --entrypoints.metrics.address=:9100/tcp
+            - --entrypoints.traefik.address=:9000/tcp
+            - --entrypoints.web.address=:8000/tcp
+            - --entrypoints.websecure.address=:8443/tcp
+            - --api.dashboard=true
+            - --ping=true
+            - --metrics.prometheus=true
+            - --metrics.prometheus.entrypoint=metrics
+            - --providers.kubernetescrd
+            - --providers.kubernetescrd.allowExternalNameServices=true
+            - --providers.kubernetesingress
+            - --providers.kubernetesingress.allowExternalNameServices=true
+            - --entrypoints.websecure.http.middlewares=traefik-default-headers
+            - --entrypoints.websecure.http.tls=true
+            - --entrypoints.websecure.http.tls.certResolver=default
+            - --log.level=WARN
+            - --accesslog=true
+            - --accesslog.fields.defaultmode=keep
+            - --accesslog.fields.headers.defaultmode=drop
+            - --log.level=INFO
+
+
