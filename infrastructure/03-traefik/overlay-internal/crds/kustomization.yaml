@@ -1,13 +1,23 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
+---
 kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
 resources:
-- crd_ingressroutes.traefik.io.yaml
-- crd_ingressroutetcps.traefik.io.yaml
-- crd_ingressrouteudps.traefik.io.yaml
-- crd_middlewares.traefik.io.yaml
-- crd_middlewaretcps.traefik.io.yaml
-- crd_serverstransports.traefik.io.yaml
-- crd_serverstransporttcps.traefik.io.yaml
-- crd_tlsoptions.traefik.io.yaml
-- crd_tlsstores.traefik.io.yaml
-- crd_traefikservices.traefik.io.yaml
+  - traefik.containo.us_ingressroutes.yaml
+  - traefik.containo.us_ingressroutetcps.yaml
+  - traefik.containo.us_ingressrouteudps.yaml
+  - traefik.containo.us_middlewares.yaml
+  - traefik.containo.us_middlewaretcps.yaml
+  - traefik.containo.us_serverstransports.yaml
+  - traefik.containo.us_tlsoptions.yaml
+  - traefik.containo.us_tlsstores.yaml
+  - traefik.containo.us_traefikservices.yaml
+  - traefik.io_ingressroutes.yaml
+  - traefik.io_ingressroutetcps.yaml
+  - traefik.io_ingressrouteudps.yaml
+  - traefik.io_middlewares.yaml
+  - traefik.io_middlewaretcps.yaml
+  - traefik.io_serverstransports.yaml
+  - traefik.io_serverstransporttcps.yaml
+  - traefik.io_tlsoptions.yaml
+  - traefik.io_tlsstores.yaml
+  - traefik.io_traefikservices.yaml
