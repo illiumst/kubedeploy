@@ -6,17 +6,17 @@ namespace: argocd
 # - base/argo-cd-ui-ingress.yaml
 resources:
 # Applications
-- applications/projcts-website.yaml
+- applications/projects-website.yaml
 # Base functionality
 - base/argo-cd-k-with-helm.yaml
-- base/argo-cd-image-updater-cm.yaml
-- patches/argocd-cmd-params-cm.yaml
 - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 - base/argo-cd-namespace.yaml
+- base/ghcr-io-secret-sealed.yaml
 
 patches:
 - path: patches/argocd-server-service.yaml
 - path: patches/argocd-cm-patch.yaml
+- path: patches/argocd-cmd-params-cm.yaml
 - path: patches/nodeselector.yaml
   target:
     kind: (StatefulSet|Deployment|Job)

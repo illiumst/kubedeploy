@@ -21,4 +21,6 @@ spec:
             - containerPort: 80
               protocol: TCP
           resources: {}
+      imagePullSecrets:
+        - name: ghcr.io-secret
       restartPolicy: Always
