@@ -22,5 +22,5 @@ spec:
               protocol: TCP
           resources: {}
       imagePullSecrets:
-        - name: ghcr.io-secret
+        - name: ghcr-io-secret
       restartPolicy: Always
