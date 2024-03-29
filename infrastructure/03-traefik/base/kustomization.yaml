@@ -1,0 +1,16 @@
+resources:
+  - traefik-adguard-service-udp-dns.yaml
+  - traefik-middleware-default-headers.yaml
+
+helmCharts:
+- name: traefik
+  includeCRDs: true
+  version: 26.1.0
+  releaseName: lcl
+  repo: https://traefik.github.io/charts
+  valuesFile: base/values.yaml
+
+patches:
+- path: ../patches/nodeselector.yaml
+  target:
+    kind: (StatefulSet|Deployment|Job)

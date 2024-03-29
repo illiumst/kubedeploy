@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: traefik
+
+namePrefix: local-
+
+resources:
+  #### OVERLAYS for internal traefik only
+  
+  ### Routes and Services for out of cluster deployments/legacy
+  - ../foreign
+  ### Traefik base
+  - ../base

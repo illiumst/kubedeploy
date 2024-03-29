@@ -17,4 +17,7 @@ patches:
 - path: patches/nodeselector.yaml
   target:
     kind: (StatefulSet|Deployment|Job)
+- path: patches/podselector.yaml
+  target:
+    kind: Pod
 

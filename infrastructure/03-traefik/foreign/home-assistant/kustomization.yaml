@@ -1,0 +1,3 @@
+resources:
+  - home-assistant-ingress.yaml
+  - home-assistant-service.yaml

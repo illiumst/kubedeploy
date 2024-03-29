@@ -11,7 +11,6 @@ resources:
 - base/argo-cd-k-with-helm.yaml
 - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 - base/argo-cd-namespace.yaml
-- base/ghcr-io-secret-sealed.yaml
 
 patches:
 - path: patches/argocd-server-service.yaml

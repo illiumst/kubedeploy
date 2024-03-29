@@ -1,24 +1,3 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-
-namespace: traefik
-
 resources:
-  - base/traefik-middleware-default-headers.yaml
-  - base/traefik-adguard-service-udp-dns.yaml
-  ### Routes and Services for out of cluster deployments/legacy
-  - foreign/home-assistant/home-assistant-ingress.yaml
-  - foreign/home-assistant/home-assistant-service.yaml
-
-helmCharts:
-- name: traefik
-  includeCRDs: true
-  version: 26.1.0
-  releaseName: lcl
-  repo: https://traefik.github.io/charts
-  valuesFile: base/values.yaml
-
-patches:
-- path: patches/nodeselector.yaml
-  target:
-    kind: (StatefulSet|Deployment|Job)
+  - overlay-internal
+  - overlay-external

@@ -1,7 +1,7 @@
 logs:
   general:
     # -- Alternative logging levels are DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
-    level: INFO
+    level: WARN
   access:
     # -- To enable access logs
     enabled: true
@@ -25,6 +25,8 @@ ingressRoute:
     entryPoints: 
       - "websecure"
       - "web"
+    labels:
+      - private
     # Add custom middlewares : authentication and redirection
     # middlewares:
     #   - name: traefik-dashboard-auth

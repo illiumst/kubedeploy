@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lcl-traefik
+  namespace: traefik
+spec:
+  template:
+    spec:
+      containers:
+        - args:
+            - '--providers.kubernetescrd.labelSelector=appexpose=true'
+            - '--global.sendanonymoususage=false'
+            - '--global.checknewversion=false'
+            - '--entrypoints.dns.address=:53/udp'
+            - '--entrypoints.traefik.address=:9000/tcp'
+            - '--entrypoints.web.address=:8000/tcp'
+            - '--entrypoints.websecure.address=:8443/tcp'
+            - '--api.dashboard=true'
+            - '--ping=true'
+            - '--providers.kubernetescrd'
+            - '--providers.kubernetescrd.allowExternalNameServices=true'
+            - '--providers.kubernetesingress'
+            - '--providers.kubernetesingress.allowExternalNameServices=true'
+            - '--entrypoints.websecure.http.middlewares=traefik-default-headers'
+            - '--entrypoints.websecure.http.tls=true'
+            - '--entrypoints.websecure.http.tls.certResolver=default'
+            - '--log.level=INFO'
+            - '--accesslog=true'
+            - '--accesslog.fields.defaultmode=keep'
+            - '--accesslog.fields.headers.defaultmode=drop'
+            - '--serversTransport.insecureSkipVerify=false'
+
+
