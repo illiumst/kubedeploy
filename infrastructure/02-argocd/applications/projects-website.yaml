@@ -1,0 +1,20 @@
+API Version: argoproj.io/v1alpha1
+Name: website
+Namespace: argocd
+Annotations:
+  argocd-image-updater.argoproj.io/image-list: website=illiumst/website
+  argocd-image-updater.argoproj.io/website.update-strategy: latest
+
+Kind: Application
+Spec:
+  Destination:
+    Name: in-cluster
+    Namespace: website
+  Project: default
+  Source:
+    Path: projects/website
+    Repo URL: https://github.com/illiumst/kubedeploy.git
+    Target Revision: HEAD
+  Sync Policy:
+    Sync Options:
+      CreateNamespace=true
