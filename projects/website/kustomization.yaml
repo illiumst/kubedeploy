@@ -8,6 +8,7 @@ resources:
 - base/website-ingress.yaml
 - base/website-namespace.yaml
 - base/website-service.yaml
+- base/website-registry-secret-sealed.yaml
 
 patches:
 - path: patches/nodeselector.yaml
