@@ -7,12 +7,13 @@ namePrefix: front-
 
 resources:
   #### OVERLAYS for internal traefik only
-  
+
   ### Traefik base
   - ../base
 
 
 patches:
+  - path: patches/traefik-service-patch.yaml
   - path: patches/traefik-deployment-patch.yaml
   - path: patches/nodeselector.yaml
     target:
