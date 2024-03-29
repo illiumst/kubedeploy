@@ -39,8 +39,6 @@ spec:
         - --metrics.prometheus.entrypoint=metrics
         - --providers.kubernetescrd
         - --providers.kubernetescrd.allowExternalNameServices=true
-        - --providers.kubernetesingress
-        - --providers.kubernetesingress.allowExternalNameServices=true
         - --entrypoints.websecure.http.middlewares=local-default-headers
         - --entrypoints.websecure.http.tls=true
         - --entrypoints.websecure.http.tls.certResolver=default
