@@ -14,6 +14,8 @@ resources:
 
 patches:
   - path: patches/traefik-service-patch.yaml
+  - path: patches/adguard-service-patch.yaml
+  
   - path: patches/traefik-deployment-patch.yaml
   - path: patches/nodeselector.yaml
     target:
