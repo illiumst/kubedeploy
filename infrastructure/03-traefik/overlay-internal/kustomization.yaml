@@ -9,9 +9,7 @@ resources:
   #### OVERLAYS for internal traefik only
 
   ### Traefik base
-  - foreign
   - ../base
-  - crds
   - traefik-namespace.yaml
 
 patches:
