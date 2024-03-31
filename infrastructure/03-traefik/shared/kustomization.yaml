@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - crds
   - foreign
+  - traefik-namespace.yaml

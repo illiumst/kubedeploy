@@ -6,9 +6,6 @@ namespace: traefik
 namePrefix: front-
 
 resources:
-  #### OVERLAYS for internal traefik only
-
-  ### Traefik base
   - ../base
 
 

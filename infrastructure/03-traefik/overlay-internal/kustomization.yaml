@@ -6,11 +6,7 @@ namespace: traefik
 namePrefix: local-
 
 resources:
-  #### OVERLAYS for internal traefik only
-
-  ### Traefik base
   - ../base
-  - traefik-namespace.yaml
 
 patches:
   - path: patches/traefik-service-patch.yaml
