@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+  namespace: argocd
+spec:
+  destination:
+    name: in-cluster
+    namespace: traefik
+  project: default
+  source:
+    path: infrastructure/03-traefik
+    repoURL: https://github.com/illiumst/kubedeploy.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

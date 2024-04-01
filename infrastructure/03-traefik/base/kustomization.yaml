@@ -5,7 +5,6 @@ kind: Kustomization
 components:
   - crds
 
-
 resources:
 # Deployment
 - deployment-traefik.yaml

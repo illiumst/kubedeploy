@@ -8,12 +8,12 @@ resources:
 # Applications
 - applications/projects-website.yaml
 # Base functionality
+- argocd-server-service.yaml
 - base/argo-cd-k-with-helm.yaml
 - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 - base/argo-cd-namespace.yaml
 
 patches:
-- path: patches/argocd-server-service.yaml
 - path: patches/argocd-cm-patch.yaml
 - path: patches/argocd-cmd-params-cm.yaml
 - path: patches/nodeselector.yaml
