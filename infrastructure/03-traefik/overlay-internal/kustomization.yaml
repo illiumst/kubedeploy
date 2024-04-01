@@ -6,6 +6,7 @@ namespace: traefik
 namePrefix: local-
 
 resources:
+  - traefik-ingressroute-traefik-dashboard.yaml
   - ../base
 
 patches:
