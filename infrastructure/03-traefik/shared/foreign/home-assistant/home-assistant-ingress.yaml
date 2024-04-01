@@ -1,8 +1,10 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: home-assitant-ingress
-  namespace: external
+  name: home-assistant-ingress
+  namespace: traefik
+  labels:
+    expose: "true"
 spec:
   entryPoints:
     - web
@@ -12,5 +14,5 @@ spec:
     kind: Rule
     services:
     - name: home-assistant-service
-      port: 80
+      port: http
 

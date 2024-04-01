@@ -3,6 +3,8 @@ kind: IngressRoute
 metadata:
   name: vaultwarden-ingress
   namespace: vaultwarden
+  labels:
+    expose: "true"
 spec:
   entryPoints:
     - web

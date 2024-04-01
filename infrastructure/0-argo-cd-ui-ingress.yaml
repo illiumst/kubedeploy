@@ -3,6 +3,8 @@ kind: IngressRoute
 metadata:
   name: argocd-ui
   namespace: argocd
+  labels:
+    expose: "false"
 spec:
   entryPoints:
     - web

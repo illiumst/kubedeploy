@@ -3,6 +3,8 @@ kind: IngressRoute
 metadata:
   name: gitea
   namespace: gitea
+  labels:
+    expose: "true"
 spec:
   entryPoints:
     - web

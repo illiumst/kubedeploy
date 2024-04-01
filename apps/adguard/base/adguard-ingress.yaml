@@ -3,6 +3,8 @@ kind: IngressRoute
 metadata:
   name: adguard-ui
   namespace: adguard
+  labels:
+    expose: "true"
 spec:
   entryPoints:
     - web
@@ -21,6 +23,8 @@ kind: IngressRoute
 metadata:
   name: adguard-ui-init
   namespace: adguard
+  labels:
+    expose: "true"
 spec:
   entryPoints:
     - web

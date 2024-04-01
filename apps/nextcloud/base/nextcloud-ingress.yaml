@@ -3,6 +3,8 @@ kind: IngressRoute
 metadata:
   name: nextcloud-ingress
   namespace: nextcloud
+  labels:
+    expose: "true"
 spec:
   entryPoints:
     - web

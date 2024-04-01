@@ -3,7 +3,6 @@ kind: Kustomization
 
 namespace: argocd
 
-# - base/argo-cd-ui-ingress.yaml
 resources:
 # Base functionality
 - base/argo-cd-k-with-helm.yaml
