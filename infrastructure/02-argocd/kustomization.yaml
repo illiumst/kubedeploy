@@ -5,8 +5,6 @@ namespace: argocd
 
 # - base/argo-cd-ui-ingress.yaml
 resources:
-# Applications
-- applications/projects-website.yaml
 # Base functionality
 - base/argocd-server-service.yaml
 - base/argo-cd-k-with-helm.yaml
