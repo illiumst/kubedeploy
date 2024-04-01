@@ -5,7 +5,6 @@ resources:
 # Deployment
 - deployment-traefik.yaml
 # Objects
-- traefik-middleware-default-headers.yaml
 - traefik-service.yaml
 - networking
 - security
