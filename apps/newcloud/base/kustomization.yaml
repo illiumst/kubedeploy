@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: nextcloud
+
+resources:
+- pvccollabora-deployment.yaml
+- pvccollabora-service.yaml
+- pvcnextcloud-app-deployment.yaml
+# - pvcnextcloud-app-pvc.yaml
+- pvcnextcloud-app-service.yaml
+- pvcnextcloud-db-deployment.yaml
+# - pvcnextcloud-db-pvc
+- pvcnextcloud-ingress.yaml
+- pvcnextcloud-secret.yaml
+- pvcredis-deployment.yaml

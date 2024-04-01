@@ -8,7 +8,7 @@ resources:
 - base/adguard-deployment.yaml
 - base/adguard-ingress.yaml
 - base/adguard-namespace.yaml
-- base/adguard-pvc.yaml
+# - base/adguard-pvc.yaml
 - base/adguard-service.yaml
 
 patches:
