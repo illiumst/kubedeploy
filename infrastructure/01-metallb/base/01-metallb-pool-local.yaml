@@ -1,8 +1,7 @@
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  name: my-pool
+  name: local-pool
 spec:
   addresses:
-  - 192.168.178.101-192.168.178.105
-  - 82.165.0.71/
+    - 192.168.178.101-192.168.178.105
