@@ -4,4 +4,6 @@ metadata:
   name: traefik
   namespace: traefik
 spec:
+  selector:
+    app: traefik
   type: LoadBalancer
