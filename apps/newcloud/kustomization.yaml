@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: nextcloud
+
+resources:
+- base/collabora-deployment.yaml
+- base/collabora-service.yaml
+- base/nextcloud-app-deployment.yaml
+- base/nextcloud-app-pvc.yaml
+- base/nextcloud-app-service.yaml
+- base/nextcloud-db-deployment.yaml
+- base/nextcloud-db-pvc
+- base/nextcloud-ingress.yaml
+- base/nextcloud-secret.yaml
+- base/redis-deployment.yaml
