@@ -44,11 +44,6 @@ longhornManager:
   nodeSelector: 
     region: local
 
-longhornDriver:
-  # -- Node selector for Longhorn Driver. Specify the nodes allowed to run Longhorn Driver.
-  nodeSelector:
-    region: local
-
 longhornUI:
   # -- Replica count for Longhorn UI.
   replicas: 1
