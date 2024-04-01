@@ -4,5 +4,5 @@ metadata:
   name: front-pool
 spec:
   addresses:
-  - 82.165.0.71
+  - 82.165.0.71/32
   autoAssign: false
