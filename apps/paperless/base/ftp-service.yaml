@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ftp-server-service
+  namespace: paperless
+  labels:
+    app: ftp-server
+spec:
+  type: NodePort
+  ports:
+    - port: 21
+      targetPort: 21
+  selector:
+    app: ftp-server

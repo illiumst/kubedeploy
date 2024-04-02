@@ -7,7 +7,7 @@ resources:
   - base/gitea-ingress.yaml
   - base/gitea-service.yaml
   - base/gitea-deployment.yaml
-  - base/gitea-data-pvc.yaml
+  # - base/gitea-data-pvc.yaml
   - base/gitea-namespace.yaml
 
 patches:

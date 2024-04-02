@@ -1,0 +1,39 @@
+
+apiVersion: apps/v1beta1 # for versions before 1.6.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ftp-server
+  namespace: paperless
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ftp-server
+    spec:
+      containers:
+      - name: ftp-server-container
+        image: fauria/vsftpd
+        ports:
+        - containerPort: 21
+          protocol: TCP
+          name: ftp-server
+        env:
+        - name: FTP_USER
+          valueFrom: 
+              secretKeyRef:
+                name: ftp-secret
+                key: FTP_USER
+        - name: FTP_PASS
+          valueFrom: 
+            secretKeyRef:
+              name: ftp-secret
+              key: FTP_PASS
+        volumeMounts:
+          - mountPath: "/home/vsftpd"
+            name: cache-volume
+        resources: {}
+      volumes:
+        - name: cache-volume
+          emptyDir:
+            sizeLimit: 100Mi
