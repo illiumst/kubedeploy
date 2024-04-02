@@ -12,5 +12,5 @@ resources:
 - pvcnextcloud-db-deployment.yaml
 # - pvcnextcloud-db-pvc
 - pvcnextcloud-ingress.yaml
-- pvcnextcloud-secret.yaml
+- pvcnextcloud-secret-sealed.yaml
 - pvcredis-deployment.yaml
