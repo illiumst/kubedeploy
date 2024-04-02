@@ -42,14 +42,19 @@ defaultSettings:
 longhornManager:
     # -- Node selector for Longhorn Manager. Specify the nodes allowed to run Longhorn Manager.
   nodeSelector: 
-    region: local
+    region: "local"
+
+longhornDriverDeployer:
+  # -- Node selector for Longhorn UI. Specify the nodes allowed to run Longhorn UI.
+  nodeSelector:
+    region: "local"
 
 longhornUI:
   # -- Replica count for Longhorn UI.
   replicas: 1
   # -- Node selector for Longhorn UI. Specify the nodes allowed to run Longhorn UI.
   nodeSelector:
-    region: local
+    region: "local"
 
 metrics:
   serviceMonitor:
