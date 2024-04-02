@@ -34,7 +34,7 @@ spec:
         volumeMounts:
         - name: adguard-pvc
           mountPath: /opt/adguardhome/work
-          subPath: /data
+          subPath: data
         - name: adguard-pvc
           mountPath: /opt/adguardhome/conf
         resources: {}
