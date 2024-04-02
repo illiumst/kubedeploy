@@ -44,6 +44,11 @@ spec:
               value: Europe/Berlin
             - name: PAPERLESS_URL
               value: https://documents.steffenillium.de
+            - name: PAPERLESS_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: paperless-secret
+                  key: PAPERLESS_SECRET_KEY
           image: ghcr.io/paperless-ngx/paperless-ngx:latest
           livenessProbe:
             exec:
