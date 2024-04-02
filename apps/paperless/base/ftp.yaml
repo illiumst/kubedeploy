@@ -25,13 +25,13 @@ spec:
         env:
         - name: FTP_USER
           valueFrom: 
-              secretKeyRef:
-                name: ftp-secret
-                key: FTP_USER
+            secretKeyRef:
+              name: paperless-secret
+              key: FTP_USER
         - name: FTP_PASS
           valueFrom: 
             secretKeyRef:
-              name: ftp-secret
+              name: paperless-secret
               key: FTP_PASS
         volumeMounts:
           - mountPath: "/home/vsftpd"
