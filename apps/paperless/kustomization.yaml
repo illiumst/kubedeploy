@@ -13,3 +13,4 @@ resources:
 - base/webserver-pvc.yaml
 - base/webserver-service.yaml
 - base/webserver.yaml
+- base/paperless-namespace.yaml
