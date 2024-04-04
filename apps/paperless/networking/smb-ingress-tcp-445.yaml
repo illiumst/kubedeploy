@@ -13,4 +13,3 @@ spec:
     services:
     - name: smb-server-service-tcp445
       port: 445
-  tls: {}
