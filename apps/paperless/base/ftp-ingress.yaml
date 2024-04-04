@@ -11,7 +11,7 @@ spec:
     - web
     - websecure
   routes:
-  - match: Host(documents-ftp.steffenillium.de`)
+  - match: Host(`documents-ftp.steffenillium.de`)
     kind: Rule
     services:
     - name: ftp-server-service

@@ -10,7 +10,7 @@ spec:
     - web
     - websecure
   routes:
-  - match: Host(documents.steffenillium.de`)
+  - match: Host(`documents.steffenillium.de`)
     kind: Rule
     services:
     - name: paperless-service
