@@ -82,7 +82,7 @@ spec:
             readOnly: false
         - name: paperless-webserver-consume
           nfs:
-            server: ftp-server.paperless.svc.cluster.local
+            server: ftp-server-service.paperless.svc.cluster.local
             path: /tmp
             readOnly: false
 
