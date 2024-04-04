@@ -10,7 +10,6 @@ spec:
     - ftp
   routes:
   - match: HostSNI(`documents-ftp.steffenillium.de`)
-    kind: Rule
     services:
     - name: ftp-server-service
       port: 21

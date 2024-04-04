@@ -9,7 +9,7 @@ spec:
   type: ClusterIP
   ports:
     - port: 21
-      type: TCP
+      protocol: TCP
       targetPort: 21
   selector:
     app: ftp-server

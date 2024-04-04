@@ -21,6 +21,8 @@ spec:
           protocol: TCP
           name: ftp-server
         env:
+        - name: LOG_STDOUT
+          value: "true"
         - name: FTP_USER
           valueFrom: 
             secretKeyRef:
