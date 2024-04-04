@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: smb-ingress-udp137
+  labels:
+    expose: "false"
+  namespace: paperless
+spec:
+  entryPoints:
+    - smb-udp137
+  routes:
+  - match: HostSNI(`*`)
+    services:
+    - name: smb-server-service-udp137
+      port: 137

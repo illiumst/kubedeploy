@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: smb-server-service-udp137
+  namespace: paperless
+  labels:
+    app: smb-server-service-udp137
+spec:
+  type: ClusterIP
+  ports:
+    - port: 137
+      protocol: UDP
+      targetPort: 137
+  selector:
+    app: smb-server

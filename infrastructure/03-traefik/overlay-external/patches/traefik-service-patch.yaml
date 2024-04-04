@@ -22,9 +22,4 @@ spec:
     protocol: UDP
     targetPort: dns
     nodeport: 53
-  - name: traefik
-    port: 9000
-    protocol: TCP
-    targetPort: traefik
-    nodeport: 9000
 
