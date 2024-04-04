@@ -8,6 +8,8 @@ spec:
   selector:
     matchLabels:
       app: ftp-server
+    strategy:
+      type: Recreate
   template:
     metadata:
       labels:
@@ -33,9 +35,9 @@ spec:
               key: FTP_PASS
         volumeMounts:
           - mountPath: "/home/vsftpd"
-            name: cache-volume
+            name: shared-ftp-pvc
         resources: {}
       volumes:
-        - name: cache-volume
-          emptyDir:
-            sizeLimit: 100Mi
+        - name: shared-ftp-pvc
+          persistentVolumeClaim:
+            claimName: shared-ftp-pvc

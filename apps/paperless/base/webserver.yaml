@@ -81,10 +81,6 @@ spec:
             path: /mnt/storage/paperless
             readOnly: false
         - name: paperless-webserver-consume
-          nfs:
-            server: ftp-server-service.paperless.svc.cluster.local
-            path: /tmp
-            readOnly: false
+          persistentVolumeClaim:
+            claimName: shared-ftp-pvc
 
-        
-status: {}
