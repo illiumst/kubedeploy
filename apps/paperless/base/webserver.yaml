@@ -65,16 +65,16 @@ spec:
           resources: {}
           volumeMounts:
             - mountPath: /usr/src/paperless/data
-              name: paperless-webserver-pvc
+              name: paperless-app-pvc
             - mountPath: /usr/src/paperless/media
               name: paperless-webserver-media
             - mountPath: /usr/src/paperless/consume
               name: paperless-webserver-consume
       restartPolicy: Always
       volumes:
-        - name: paperless-webserver-pvc
+        - name: paperless-app-pvc
           persistentVolumeClaim:
-            claimName: paperless-webserver-pvc
+            claimName: paperless-app-pvc
         - name: paperless-webserver-media
           nfs:
             server: 192.168.178.4
