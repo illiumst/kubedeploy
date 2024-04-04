@@ -14,5 +14,5 @@ spec:
     services:
     - name: ftp-server-service
       port: 21
-    tls: {}
+  tls: {}
   
