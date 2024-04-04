@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: paperless
 
 resources:
+- base/ftp-ingress.yaml
 - base/ftp-service.yaml
 - base/ftp.yaml
 - base/paperless-secret-sealed.yaml
