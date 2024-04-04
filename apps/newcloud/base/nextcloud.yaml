@@ -76,9 +76,16 @@ spec:
           volumeMounts:
             - mountPath: /var/www/html
               name: nextcloud-app-pvc
+            - mountPath: /var/www/html/data
+              name: nextcloud-data-pvc
       hostname: newcloud.steffenillium.de
       restartPolicy: Always
       volumes:
+        - name: nextcloud-data-pvc
+          nfs:
+            server: 192.168.178.4
+            path: /mnt/storage/nextcloud
+            readOnly: false
         - name: nextcloud-app-pvc
           persistentVolumeClaim:
             claimName: nextcloud-app-pvc
