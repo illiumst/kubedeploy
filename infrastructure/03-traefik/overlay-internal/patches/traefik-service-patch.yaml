@@ -15,7 +15,7 @@ spec:
     port: 138
     protocol: UDP
   - name: smb139
-    port: 441395
+    port: 139
     protocol: TCP
   - name: smb445
     port: 445
