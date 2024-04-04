@@ -41,4 +41,3 @@ spec:
         - name: paperless-db-pvc
           persistentVolumeClaim:
             claimName: paperless-db-pvc
-status: {}
