@@ -5,15 +5,10 @@ namespace: paperless
 
 resources:
 - base/ftp-service.yaml
-- base/ftp.yaml
-- base/paperless-broker.yaml
-- base/paperless-db.yaml
 - base/paperless-secret-sealed.yaml
 - base/webserver-service.yaml
-- base/webserver.yaml
-# - base/webserver-pvc.yaml
+- base/single-pod-deployment.yaml
 - base/shared-ftp-pvc.yaml
-# - base/paperless-db-pvc.yaml
 - base/paperless-namespace.yaml
 
 components:
