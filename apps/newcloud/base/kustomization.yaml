@@ -4,13 +4,14 @@ kind: Kustomization
 namespace: nextcloud
 
 resources:
-- pvccollabora-deployment.yaml
-- pvccollabora-service.yaml
-- pvcnextcloud-app-deployment.yaml
-# - pvcnextcloud-app-pvc.yaml
-- pvcnextcloud-app-service.yaml
-- pvcnextcloud-db-deployment.yaml
-# - pvcnextcloud-db-pvc
-- pvcnextcloud-ingress.yaml
-- pvcnextcloud-secret-sealed.yaml
-- pvcredis-deployment.yaml
+- collabora-deployment.yaml
+- collabora-service.yaml
+- nextcloud-app-deployment.yaml
+# - nextcloud-app-pvc.yaml
+- nextcloud-app-service.yaml
+- nextcloud-db-deployment.yaml
+# - nextcloud-db-pvc
+- nextcloud-ingress.yaml
+- nextcloud-secret-sealed.yaml
+- redis-deployment.yaml
+- nextcloud-namespace.yaml
