@@ -1,5 +1,5 @@
 apiVersion: traefik.io/v1alpha1
-kind: IngressRoute
+kind: IngressRouteTCP
 metadata:
   name: ftp-ingress
   labels:
@@ -10,7 +10,7 @@ spec:
     - web
     - websecure
   routes:
-  - match: Host(`documents-ftp.steffenillium.de`)
+  - match: HostSNI(`documents-ftp.steffenillium.de`)
     kind: Rule
     services:
     - name: ftp-server-service
