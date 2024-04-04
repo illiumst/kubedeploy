@@ -4,7 +4,7 @@ metadata:
   name: ftp-server-service
   namespace: paperless
   labels:
-    app: ftp-server
+    app: ftp-server-service
 spec:
   type: ClusterIP
   ports:
