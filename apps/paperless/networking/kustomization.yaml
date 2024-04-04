@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- smb-ingress-tcp-139.yaml
+- smb-ingress-tcp-445.yaml
+- smb-ingress-udp-137.yaml
+- smb-ingress-udp-138.yaml
+- smb-service-tcp139.yaml
+- smb-service-tcp445.yaml
+- smb-service-udp137.yaml
+- smb-service-udp138.yaml

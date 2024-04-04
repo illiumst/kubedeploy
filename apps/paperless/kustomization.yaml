@@ -4,8 +4,7 @@ kind: Kustomization
 namespace: paperless
 
 resources:
-- base/smb-ingress.yaml
-- base/smb-service.yaml
+- networking
 - base/smb.yaml
 - base/paperless-secret-sealed.yaml
 - base/webserver-ingress.yaml
