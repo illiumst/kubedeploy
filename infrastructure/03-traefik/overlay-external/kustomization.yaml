@@ -6,7 +6,7 @@ namespace: traefik
 namePrefix: front-
 
 components:
-  - ../../components/front-region-selector.yaml
+  - ../../../components/front-region-selector.yaml
 
 resources:
   - ../base

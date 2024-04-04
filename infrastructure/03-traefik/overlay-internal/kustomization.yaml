@@ -6,7 +6,7 @@ namespace: traefik
 namePrefix: local-
 
 components:
-  - ../../components/local-region-selector.yaml
+  - ../../../components/local-region-selector.yaml
 
 resources:
   - traefik-ingress-dashboard-local.yaml
