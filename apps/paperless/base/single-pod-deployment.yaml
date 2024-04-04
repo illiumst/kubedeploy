@@ -83,6 +83,9 @@ spec:
                   key: PAPERLESS_SECRET_KEY
         - image: docker.io/library/redis:7
           name: paperless-broker
+          ports:
+            - containerPort: 6379
+              protocol: TCP
           resources: {}
       restartPolicy: Always
       volumes:
