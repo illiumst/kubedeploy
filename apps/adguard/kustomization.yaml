@@ -1,6 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+components:
+  - ../../components/local-region-selector.yaml
+
 namespace: adguard
 
 resources:
@@ -10,8 +13,3 @@ resources:
 - base/adguard-namespace.yaml
 # - base/adguard-pvc.yaml
 - base/adguard-service.yaml
-
-patches:
-- path: patches/nodeselector.yaml
-  target:
-    kind: (StatefulSet|Deployment|Job)

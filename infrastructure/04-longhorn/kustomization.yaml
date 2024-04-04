@@ -3,6 +3,9 @@ kind: Kustomization
 
 namespace: longhorn-system
 
+components:
+  - ../../components/local-region-selector.yaml
+
 resources:
 - base/longhorn-ui-ingress.yaml
 
@@ -12,12 +15,3 @@ helmCharts:
   version: 1.6.0
   repo: https://charts.longhorn.io
   valuesFile: base/values.yaml
-
-patches:
-- path: patches/nodeselector.yaml
-  target:
-    kind: (StatefulSet|Deployment|Job)
-- path: patches/podselector.yaml
-  target:
-    kind: Pod
-

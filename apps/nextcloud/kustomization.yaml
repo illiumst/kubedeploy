@@ -16,7 +16,5 @@ helmCharts:
   valuesFile: base/values.yaml
   releaseName: lcl
 
-patches:
-- path: patches/nodeselector.yaml
-  target:
-    kind: (StatefulSet|Deployment|Job)
+components:
+  - ../../components/local-region-selector.yaml

@@ -5,6 +5,9 @@ namespace: traefik
 
 namePrefix: front-
 
+components:
+  - ../../components/front-region-selector.yaml
+
 resources:
   - ../base
 
@@ -12,6 +15,3 @@ resources:
 patches:
   - path: patches/traefik-service-patch.yaml
   - path: patches/traefik-deployment-patch.yaml
-  - path: patches/nodeselector.yaml
-    target:
-      kind: (StatefulSet|Deployment|Job)

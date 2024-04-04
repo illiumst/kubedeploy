@@ -13,6 +13,6 @@ resources:
 patches:
 - path: patches/dashboard-insecure-access.yaml
 - path: patches/dashboard-insecure-service.yaml
-- path: patches/nodeselector.yaml
-  target:
-    kind: (StatefulSet|Deployment|Job)
+
+components:
+  - ../../components/local-region-selector.yaml

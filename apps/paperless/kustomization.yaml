@@ -14,3 +14,6 @@ resources:
 - base/webserver-service.yaml
 - base/webserver.yaml
 - base/paperless-namespace.yaml
+
+components:
+  - ../../components/local-region-selector.yaml

@@ -3,6 +3,9 @@ kind: Kustomization
 
 namespace: argocd
 
+components:
+  - ../../components/local-region-selector.yaml
+
 resources:
 # Base functionality
 - base/argo-cd-k-with-helm.yaml
@@ -13,6 +16,3 @@ patches:
 - path: patches/argocd-server-service.yaml
 - path: patches/argocd-cm-patch.yaml
 - path: patches/argocd-cmd-params-cm.yaml
-- path: patches/nodeselector.yaml
-  target:
-    kind: (StatefulSet|Deployment|Job)

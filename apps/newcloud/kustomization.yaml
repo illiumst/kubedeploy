@@ -5,3 +5,6 @@ namespace: nextcloud
 
 resources:
 - base
+
+components:
+  - ../../components/local-region-selector.yaml

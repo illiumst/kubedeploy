@@ -5,12 +5,12 @@ namespace: traefik
 
 namePrefix: local-
 
+components:
+  - ../../components/local-region-selector.yaml
+
 resources:
   - traefik-ingress-dashboard-local.yaml
   - ../base
 
 patches:
   - path: patches/traefik-service-patch.yaml
-  - path: patches/nodeselector.yaml
-    target:
-      kind: (StatefulSet|Deployment|Job)
