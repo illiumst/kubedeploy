@@ -3,7 +3,6 @@ kind: IngressRoute
 metadata:
   name: ftp-ingress
   labels:
-    app: ftp-ingress
     expose: "false"
   namespace: paperless
 spec:
