@@ -7,6 +7,7 @@ resources:
 - base/ftp-service.yaml
 - base/ftp.yaml
 - base/paperless-secret-sealed.yaml
+- base/webserver-ingress.yaml
 - base/webserver-service.yaml
 - base/single-pod-deployment.yaml
 - base/shared-ftp-pvc.yaml
