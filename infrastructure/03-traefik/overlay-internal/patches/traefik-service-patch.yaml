@@ -8,7 +8,16 @@ spec:
   type: LoadBalancer
 
   ports:
-  - name: smb
+  - name: smb137
+    port: 137
+    protocol: UDP
+  - name: smb138
+    port: 138
+    protocol: UDP
+  - name: smb139
+    port: 441395
+    protocol: TCP
+  - name: smb445
     port: 445
     protocol: TCP
   - name: web
