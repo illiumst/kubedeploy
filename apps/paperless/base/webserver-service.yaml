@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: paperless-webserver
-  name: paperless_webserver
+  name: paperless-webserver
 spec:
   ports:
     - name: http
