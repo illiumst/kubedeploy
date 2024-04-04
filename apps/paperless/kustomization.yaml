@@ -5,6 +5,7 @@ namespace: paperless
 
 resources:
 - base/ftp-service.yaml
+- base/ftp.yaml
 - base/paperless-secret-sealed.yaml
 - base/webserver-service.yaml
 - base/single-pod-deployment.yaml
