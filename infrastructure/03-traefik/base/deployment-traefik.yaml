@@ -26,9 +26,9 @@ spec:
         - --global.sendanonymoususage=false
         - --global.checknewversion=false
         - --entrypoints.smb-udp137.address=:137/udp
-        - --entrypoints.smb-udp137.address=:138/udp
-        - --entrypoints.smb-udp137.address=:139/tcp
-        - --entrypoints.smb-udp137.address=:445/tcp
+        - --entrypoints.smb-udp138.address=:138/udp
+        - --entrypoints.smb-tcp139.address=:139/tcp
+        - --entrypoints.smb-tcp445.address=:445/tcp
         - --entrypoints.dns.address=:53/udp
         - --entrypoints.metrics.address=:9100/tcp
         - --entrypoints.traefik.address=:9000/tcp
