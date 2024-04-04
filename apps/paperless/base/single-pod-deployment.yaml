@@ -17,7 +17,7 @@ spec:
         app: paperless-webserver
     spec:
       containers:
-        - iamge: docker.io/library/postgres:13
+        - image: docker.io/library/postgres:13
           name: paperless-db
           resources: {}
           volumeMounts:
