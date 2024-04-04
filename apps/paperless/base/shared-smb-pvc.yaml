@@ -2,8 +2,8 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   labels:
-    app: shared-ftp-pvc
-  name: shared-ftp-pvc
+    app: shared-smb-pvc
+  name: shared-smb-pvc
 spec:
   storageClassName: longhorn
   accessModes:

@@ -102,7 +102,7 @@ spec:
             readOnly: false
         - name: paperless-webserver-consume
           persistentVolumeClaim:
-            claimName: shared-ftp-pvc
+            claimName: shared-smb-pvc
         - name: paperless-db-pvc
           persistentVolumeClaim:
             claimName: paperless-db-pvc

@@ -8,8 +8,8 @@ spec:
   type: LoadBalancer
 
   ports:
-  - name: ftp
-    port: 21
+  - name: smb
+    port: 445
     protocol: TCP
   - name: web
     port: 80

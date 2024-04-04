@@ -25,7 +25,7 @@ spec:
         args:
         - --global.sendanonymoususage=false
         - --global.checknewversion=false
-        - --entrypoints.ftp.address=:21/tcp
+        - --entrypoints.smb.address=:445/tcp
         - --entrypoints.dns.address=:53/udp
         - --entrypoints.metrics.address=:9100/tcp
         - --entrypoints.traefik.address=:9000/tcp
@@ -69,8 +69,8 @@ spec:
           timeoutSeconds: 2
         name: traefik
         ports:
-        - containerPort: 21
-          name: ftp
+        - containerPort: 445
+          name: smb
         - containerPort: 53
           name: dns
           protocol: UDP

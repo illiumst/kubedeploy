@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ftp-server-service
+  name: smb-server-service
   namespace: paperless
   labels:
-    app: ftp-server-service
+    app: smb-server-service
 spec:
   type: ClusterIP
   ports:
-    - port: 21
+    - port: 445
       protocol: TCP
-      targetPort: 21
+      targetPort: 445
   selector:
-    app: ftp-server
+    app: smb-server

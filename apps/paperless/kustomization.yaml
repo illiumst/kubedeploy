@@ -4,14 +4,14 @@ kind: Kustomization
 namespace: paperless
 
 resources:
-- base/ftp-ingress.yaml
-- base/ftp-service.yaml
-- base/ftp.yaml
+- base/smb-ingress.yaml
+- base/smb-service.yaml
+- base/smb.yaml
 - base/paperless-secret-sealed.yaml
 - base/webserver-ingress.yaml
 - base/webserver-service.yaml
-- base/single-pod-deployment.yaml
-- base/shared-ftp-pvc.yaml
+- base/paperless.yaml
+- base/shared-smb-pvc.yaml
 - base/paperless-namespace.yaml
 
 components:
