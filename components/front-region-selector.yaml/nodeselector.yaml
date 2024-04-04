@@ -3,5 +3,7 @@ kind: not-important
 metadata:
   name: not-important
 spec:
-  nodeSelector:
-    region: local
+  template:
+    spec:
+      nodeSelector:
+        region: front
