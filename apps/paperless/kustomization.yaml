@@ -12,7 +12,7 @@ resources:
 - base/webserver-service.yaml
 - base/webserver.yaml
 # - base/webserver-pvc.yaml
-- base/shared-ftp-pvc
+- base/shared-ftp-pvc.yaml
 # - base/paperless-db-pvc.yaml
 - base/paperless-namespace.yaml
 
