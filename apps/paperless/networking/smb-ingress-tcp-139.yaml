@@ -11,5 +11,5 @@ spec:
   routes:
   - match: HostSNI(`*`)
     services:
-    - name: smb-server-service-udp139
+    - name: smb-server-service-tcp139
       port: 139

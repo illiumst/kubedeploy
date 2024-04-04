@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nextcloud-db
+  name: nextcloud-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nextcloud-db
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: nextcloud-db
+    spec:
+      containers:
+        - args:
+            - --transaction-isolation=READ-COMMITTED
+            - --binlog-format=ROW
+            - --innodb-file-per-table=1
+            - --skip-innodb-read-only-compressed
+          env:
+            - name: MYSQL_DATABASE
+              value: nextcloud
+            - name: MYSQL_USER
+              value: nextcloud
+            - name: REDIS_HOST
+              value: redis
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: nextcloud_secret
+                  key: MYSQL_PASSWORD
+          image: mariadb
+          name: nextcloud-db
+          resources: {}
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: nextcloud-db-pvc
+      restartPolicy: Always
+      volumes:
+        - name: nextcloud-db-pvc
+          persistentVolumeClaim:
+            claimName: nextcloud-db-pvc

@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: collabora
+  name: collabora
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: collabora
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: collabora
+    spec:
+      containers:
+        - env:
+            - name: TZ
+              value: Europe/Berlin
+            - name: VIRTUAL_HOST
+              value: office.steffenillium.de
+            - name: VIRTUAL_PORT
+              value: "9980"
+            - name: VIRTUAL_PROTO
+              value: http
+            - name: dictionaries
+              value: en_US,de_DE
+            - name: domain
+              value: newcloud.steffenillium.de
+            - name: extra_params
+              value: --o:ssl.enable=false --o:ssl.termination=true
+          image: collabora/code
+          name: collabora
+          ports:
+            - containerPort: 9980
+              protocol: TCP
+          resources: {}
+          securityContext:
+            capabilities:
+              add:
+                - MKNOD
+      restartPolicy: Always

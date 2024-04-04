@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nextcloud-app
+  name: nextcloud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nextcloud-app
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: nextcloud-app
+    spec:
+      containers:
+        - image: nextcloud
+          name: nextcloud-app
+          env:
+            - name: MYSQL_DATABASE
+              value: nextcloud
+            - name: MYSQL_HOST
+              value: nextcloud-db
+            - name: MYSQL_USER
+              value: nextcloud
+            - name: PHP_MEMORY_LIMIT
+              value: 2G
+            - name: PHP_UPLOAD_LIMIT
+              value: 100G
+            - name: REDIS_HOST
+              value: redis
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: nextcloud_secret
+                  key: MYSQL_PASSWORD
+          ports:
+            - containerPort: 80
+              hostPort: 8500
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - mountPath: /var/www/html
+              name: nextcloud-app-pvc
+      hostname: newcloud.steffenillium.de
+      restartPolicy: Always
+      volumes:
+        - name: nextcloud-app-pvc
+          persistentVolumeClaim:
+            claimName: nextcloud-app-pvc
