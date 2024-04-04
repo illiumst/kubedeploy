@@ -9,7 +9,6 @@ spec:
   entryPoints:
     - smb-udp138
   routes:
-  - match: HostSNI(`*`)
-    services:
+  - services:
     - name: smb-server-service-udp138
       port: 138

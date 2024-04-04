@@ -9,7 +9,6 @@ spec:
   entryPoints:
     - smb-udp137
   routes:
-  - match: HostSNI(`*`)
-    services:
-    - name: smb-server-service-udp137
-      port: 137
+    - services:
+      - name: smb-server-service-udp137
+        port: 137
