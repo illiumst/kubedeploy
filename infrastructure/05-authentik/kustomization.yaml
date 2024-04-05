@@ -7,7 +7,7 @@ components:
   - ../../components/front-region-selector.yaml
 
 resources:
-  - base/authentik-secret.yaml
+  - base/authentik-secret-sealed.yaml
 
 helmCharts:
 - name: authentik
