@@ -8,4 +8,4 @@ resources:
   - base/01-metallb-pool-local.yaml
   - base/01-metallb-pool-front.yaml
 
-  - https://github.com/metallb/metallb/config/native
+  - github.com/metallb/metallb/config/native?ref=v0.14.4

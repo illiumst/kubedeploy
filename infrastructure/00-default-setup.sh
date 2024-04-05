@@ -4,4 +4,4 @@
 kubectl apply -k ./01-metallb
 
 # Install argoCD for deployment and secret management
-kustomize apply -f ./02-argocd
+kubectl apply -k ./02-argocd
