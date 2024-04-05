@@ -3,7 +3,7 @@ kind: IngressRoute
 metadata:
   name: longhorn-frontend
   labels:
-    expose: "false"
+    local: "true"
 spec:
   entryPoints:
     - web

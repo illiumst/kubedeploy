@@ -4,7 +4,7 @@ metadata:
   name: adguard-ui
   namespace: adguard
   labels:
-    expose: "true"
+    local: "true"
 spec:
   entryPoints:
     - web
@@ -15,7 +15,25 @@ spec:
     services:
     - name: adguard-service
       port: 80
-
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: adguard-ui-front
+  namespace: adguard
+  labels:
+    expose: "true"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`adguard.steffenillium.de`)
+    kind: Rule
+    middlewares:
+      - name: authentik-middleware 
+    services:
+    - name: adguard-service
+      port: 80
 ---
 
 apiVersion: traefik.io/v1alpha1
@@ -24,7 +42,7 @@ metadata:
   name: adguard-ui-init
   namespace: adguard
   labels:
-    expose: "true"
+    local: "true"
 spec:
   entryPoints:
     - web

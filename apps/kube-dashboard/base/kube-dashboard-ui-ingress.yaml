@@ -3,7 +3,8 @@ kind: IngressRoute
 metadata:
   name: kubernetes-dashboard
   labels:
-    expose: "true"
+    expose: "false"
+    local: "true"
 spec:
   entryPoints:
     - web

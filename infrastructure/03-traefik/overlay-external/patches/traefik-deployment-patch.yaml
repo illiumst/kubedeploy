@@ -10,7 +10,6 @@ spec:
       containers:
         - name: traefik
           args:
-            - --providers.kubernetescrd.labelSelector=expose=true
             - --serversTransport.insecureSkipVerify=false
             # Shared
             - --global.sendanonymoususage=false
@@ -19,20 +18,24 @@ spec:
             - --entrypoints.metrics.address=:9100/tcp
             - --entrypoints.traefik.address=:9000/tcp
             - --entrypoints.web.address=:8000/tcp
+            - --entrypoints.web.http.redirections.entryPoint.to=websecure
+            - --entrypoints.web.http.redirections.entryPoint.scheme=https
             - --entrypoints.websecure.address=:8443/tcp
+            - --entrypoints.websecure.http.middlewares=traefik-default-headers
+            - --entrypoints.websecure.http.tls=true
+            - --entrypoints.websecure.http.tls.certResolver=default
             - --api.dashboard=true
             - --ping=true
             - --metrics.prometheus=true
             - --metrics.prometheus.entrypoint=metrics
             - --providers.kubernetescrd
+            - --providers.kubernetescrd.labelSelector=expose=true
             - --providers.kubernetescrd.allowExternalNameServices=true
-            - --entrypoints.websecure.http.middlewares=traefik-default-headers
-            - --entrypoints.websecure.http.tls=true
-            - --entrypoints.websecure.http.tls.certResolver=default
+            - --providers.kubernetescrd.allowCrossNamespace=false
+
             - --log.level=WARN
             - --accesslog=true
             - --accesslog.fields.defaultmode=keep
             - --accesslog.fields.headers.defaultmode=drop
-            - --log.level=INFO
 
 

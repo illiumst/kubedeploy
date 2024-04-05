@@ -34,7 +34,7 @@ server:
         ingressClassName: traefik
         enabled: true
         hosts:
-            - authentik.steffenillium.de
+            - auth.steffenillium.de
 
 postgresql:
     enabled: true

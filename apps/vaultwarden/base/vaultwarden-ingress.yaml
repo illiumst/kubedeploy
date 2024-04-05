@@ -5,6 +5,7 @@ metadata:
   namespace: vaultwarden
   labels:
     expose: "true"
+    local: "true"
 spec:
   entryPoints:
     - web

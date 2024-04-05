@@ -39,6 +39,7 @@ spec:
         - --metrics.prometheus=true
         - --metrics.prometheus.entrypoint=metrics
         - --providers.kubernetescrd
+        - --providers.kubernetescrd.labelSelector=local=true
         - --providers.kubernetescrd.allowExternalNameServices=true
         - --entrypoints.websecure.http.middlewares=traefik-default-headers
         - --entrypoints.websecure.http.tls=true

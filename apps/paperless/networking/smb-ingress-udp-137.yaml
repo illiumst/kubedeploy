@@ -4,6 +4,7 @@ metadata:
   name: smb-ingress-udp137
   labels:
     expose: "false"
+    local: "true"
   namespace: paperless
 spec:
   entryPoints:

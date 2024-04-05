@@ -5,6 +5,7 @@ metadata:
   namespace: traefik
   labels:
     expose: "true"
+    local: "true"
 spec:
   entryPoints:
     - web

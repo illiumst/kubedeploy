@@ -5,6 +5,7 @@ metadata:
   namespace: argocd
   labels:
     expose: "false"
+    local: "true"
 spec:
   entryPoints:
     - web
