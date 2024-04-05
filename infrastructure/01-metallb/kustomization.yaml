@@ -4,6 +4,8 @@ kind: Kustomization
 namespace: metallb-system
 
 resources:
-- base/01-metallb-advert.yaml
-- base/01-metallb-pool-local.yaml
-- base/01-metallb-pool-front.yaml
+  - base/01-metallb-advert.yaml
+  - base/01-metallb-pool-local.yaml
+  - base/01-metallb-pool-front.yaml
+
+  - https://github.com/metallb/metallb/config/native
