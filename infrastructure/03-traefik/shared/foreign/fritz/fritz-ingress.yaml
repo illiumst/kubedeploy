@@ -31,7 +31,7 @@ spec:
   - match: Host(`fritz.steffenillium.de`)
     kind: Rule
     middlewares:
-    - authentik-middleware
+    - name: authentik-middleware
     services:
     - name: fritz-service
       port: http
