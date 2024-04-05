@@ -3,6 +3,10 @@ kind: Middleware
 metadata:
   name: default-headers
   namespace: traefik
+  labels:
+    local: "true"
+    expose: "true"
+
 spec:
   headers:
     browserXssFilter: true

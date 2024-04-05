@@ -3,6 +3,8 @@ kind: Middleware
 metadata:
   name: authentik-middleware
   namespace: traefik
+  labels:    
+    expose: "true"
 spec:
   forwardAuth:
     address: https://auth.steffenillium.de/outpost.goauthentik.io/auth/traefik
