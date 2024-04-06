@@ -39,17 +39,17 @@ defaultSettings:
   # -- Default number of replicas for volumes created using the Longhorn UI. For Kubernetes configuration, modify the `numberOfReplicas` field in the StorageClass. The default value is "3".
   defaultReplicaCount: 1
 
-  systemManagedComponentsNodeSelector: "region:local"
+#  systemManagedComponentsNodeSelector: "region:local"
   
-longhornManager:
-    # -- Node selector for Longhorn Manager. Specify the nodes allowed to run Longhorn Manager.
-  nodeSelector: 
-    "region": "local"
+# longhornManager:
+#     # -- Node selector for Longhorn Manager. Specify the nodes allowed to run Longhorn Manager.
+#   nodeSelector: 
+#     "region": "local"
 
-longhornDriverDeployer:
-  # -- Node selector for Longhorn UI. Specify the nodes allowed to run Longhorn UI.
-  nodeSelector: 
-    "region": "local"
+# longhornDriverDeployer:
+#   # -- Node selector for Longhorn UI. Specify the nodes allowed to run Longhorn UI.
+#   nodeSelector: 
+#     "region": "local"
 
 longhornUI:
   # -- Replica count for Longhorn UI.
