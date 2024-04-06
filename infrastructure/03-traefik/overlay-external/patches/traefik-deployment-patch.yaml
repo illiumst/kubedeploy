@@ -56,4 +56,4 @@ spec:
           volumes:
           - name: treafik-pvc
             persistentVolumeClaim:
-              claimName: treafik-pvc
+              claimName: front-treafik-pvc
