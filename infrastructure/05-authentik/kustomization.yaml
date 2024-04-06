@@ -8,6 +8,8 @@ components:
 
 resources:
   - base/authentik-secret-sealed.yaml
+  - base/authentik-namespace.yaml
+  - base/authentik-service.yaml
 
 helmCharts:
 - name: authentik
