@@ -18,3 +18,6 @@ helmCharts:
   releaseName: "authentik"
   repo: https://charts.goauthentik.io
   valuesFile: base/values.yaml
+
+patches:
+  - path: patches/change-pvc-storageclass.yaml
