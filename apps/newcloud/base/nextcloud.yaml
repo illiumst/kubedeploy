@@ -43,6 +43,7 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: nextcloud-db-pvc
+              subPath: db-storage
         - image: redis:alpine
           name: redis
           resources: {}
