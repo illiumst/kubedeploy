@@ -9,7 +9,6 @@ components:
   - ../../../components/front-region-selector.yaml
 
 resources:
-  - traefik-ingress-dashboard-front.yaml
   - ../base
 
 
