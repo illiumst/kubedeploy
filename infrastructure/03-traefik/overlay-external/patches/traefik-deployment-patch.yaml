@@ -30,6 +30,8 @@ spec:
             - --entrypoints.websecure.http.middlewares=traefik-default-headers
             - --entrypoints.websecure.http.tls=true
             - --entrypoints.websecure.http.tls.certResolver=default
+            - --entrypoints.websecure.http.tls.domains.[0].main="steffenillium.de"
+            - --entrypoints.websecure.http.tls.domains.[0].sans="*.steffenillium.de"
 
             - --api.dashboard=false
             - --ping=true
