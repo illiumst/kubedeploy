@@ -9,6 +9,12 @@ spec:
       hostNetwork: false
       containers:
         - name: traefik
+          env:
+            - name: IONOS_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: dc-secret
+                  key: IONOS_API_KEY
           args:
             - --serversTransport.insecureSkipVerify=false
             # Shared
@@ -24,7 +30,8 @@ spec:
             - --entrypoints.websecure.http.middlewares=traefik-default-headers
             - --entrypoints.websecure.http.tls=true
             - --entrypoints.websecure.http.tls.certResolver=default
-            - --api.dashboard=true
+
+            - --api.dashboard=false
             - --ping=true
             - --metrics.prometheus=true
             - --metrics.prometheus.entrypoint=metrics
@@ -38,4 +45,15 @@ spec:
             - --accesslog.fields.defaultmode=keep
             - --accesslog.fields.headers.defaultmode=drop
 
-
+            - --certificatesResolvers.default.acme.email=steffen.illium@gmail.com
+            - --certificatesResolvers.default.acme.dnsChallenge.provider=ionos
+            - --certificatesResolvers.default.acme.storage=/certs/acme.json
+            - --certificatesResolvers.default.acme.caServer=https://acme-staging-v02.api.letsencrypt.org/directory
+          volumeMounts:
+            - name: treafik-pvc
+              mountPath: /certs
+          resources: {}
+          volumes:
+          - name: treafik-pvc
+            persistentVolumeClaim:
+              claimName: treafik-pvc
