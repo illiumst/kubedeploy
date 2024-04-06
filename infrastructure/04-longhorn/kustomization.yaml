@@ -3,9 +3,6 @@ kind: Kustomization
 
 namespace: longhorn-system
 
-components:
-  - ../../components/local-region-selector.yaml
-
 resources:
 - base/longhorn-ui-ingress.yaml
 
@@ -13,8 +10,6 @@ helmCharts:
 - name: longhorn
   includeCRDs: true
   version: 1.6.0
+  releaseName: longhorn
   repo: https://charts.longhorn.io
   valuesFile: base/values.yaml
-
-patches:
-  - path: patches/driver-deployer.yaml
