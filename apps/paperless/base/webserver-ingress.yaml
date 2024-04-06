@@ -30,9 +30,9 @@ spec:
   routes:
   - match: Host(`documents.steffenillium.de`)
     kind: Rule
-    middlewares:
-      - name: authentik-middleware
-        namespace: authentik
+    # middlewares:
+    #   - name: authentik-middleware
+    #     namespace: authentik
     services:
     - name: paperless-service
       port: 8000
