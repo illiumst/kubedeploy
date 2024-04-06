@@ -15,3 +15,6 @@ helmCharts:
   version: 1.6.0
   repo: https://charts.longhorn.io
   valuesFile: base/values.yaml
+
+patches:
+  - path: patches/driver-deployer.yaml
