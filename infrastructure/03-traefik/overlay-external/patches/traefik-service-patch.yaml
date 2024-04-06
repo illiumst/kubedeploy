@@ -7,8 +7,12 @@ spec:
   type: NodePort
 
   ports:
-  - name: traefik
+  - name: traefik-dash
     port: 9000
+    protocol: TCP
+    targetPort: traefik-dash
+  - name: traefik
+    port: 9090
     protocol: TCP
     targetPort: traefik
   - name: web

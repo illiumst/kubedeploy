@@ -32,4 +32,4 @@ spec:
     match: Host(`tr-front.steffenillium.de`)
     services:
     - name: front-traefik
-      port: 9000
+      port: 9080

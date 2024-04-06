@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  labels:
+    local: "true"
+  name: traefik-dashboard-front-internal
+  namespace: traefik
+spec:
+  entryPoints:
+  - traefik
+  routes:
+  - kind: Rule
+    match: Host(`tr-front.steffenillium.de`)
+    services:
+    - kind: TraefikService
+      name: api@internal
