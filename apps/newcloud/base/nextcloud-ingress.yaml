@@ -11,7 +11,7 @@ spec:
     - web
     - websecure
   routes:
-  - match: Host(newcloud.steffenillium.de`)
+  - match: Host(`newcloud.steffenillium.de`)
     kind: Rule
     services:
     - name: nextcloud-service
