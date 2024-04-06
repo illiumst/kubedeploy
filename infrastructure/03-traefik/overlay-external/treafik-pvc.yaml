@@ -3,8 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     app: traefik
-  name: treafik-pvc
-  namespace: treafik
+  name: traefik-pvc
+  namespace: traefik
 spec:
   storageClassName: local-path
   accessModes:
