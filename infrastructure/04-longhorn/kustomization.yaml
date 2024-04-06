@@ -3,6 +3,9 @@ kind: Kustomization
 
 namespace: longhorn-system
 
+components:
+  - ../../components/local-region-selector.yaml
+
 resources:
 - base/longhorn-ui-ingress.yaml
 
