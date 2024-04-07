@@ -52,10 +52,17 @@ spec:
             - --certificatesResolvers.default.acme.storage=/data/certs/acme.json
             - --certificatesResolvers.default.acme.caServer=https://acme-staging-v02.api.letsencrypt.org/directory
           volumeMounts:
-            - name: traefik-pvc
-              mountPath: /certs
+            - mountPath: /certs
+              name: traefik-pvc
+              subPath: certs
+            - mountPath: /data
+              name: traefik-pvc
+              subPath: data
+            - mountPath: /tmp
+              name: traefik-pvc
+              subPath: tmp
           resources: {}
-          volumes:
-          - name: traefik-pvc
-            persistentVolumeClaim:
-              claimName: traefik-pvc
+      volumes:
+      - name: traefik-pvc
+        persistentVolumeClaim:
+          claimName: local-path-pvc
