@@ -6,5 +6,5 @@ resources:
   - base/traefik-middleware-default-headers.yaml
   - base/traefik-pvc.yaml
   - crds
-  - base/dc-secret-sealed
+  - base/dc-secret-sealed.yaml
   - base/traefik-namespace.yaml
