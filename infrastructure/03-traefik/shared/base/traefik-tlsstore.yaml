@@ -10,4 +10,5 @@ spec:
     domain:
       main: steffenillium.de
       sans:
-        - *.steffenillium.de
+        - '*.steffenillium.de'
+  
