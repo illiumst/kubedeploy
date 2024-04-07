@@ -5,6 +5,7 @@ resources:
   - foreign
   - base/traefik-middleware-default-headers.yaml
   - base/traefik-pvc.yaml
+  - base/traefik-tlsstore.yaml
   - crds
   - base/dc-secret-sealed.yaml
   - base/traefik-namespace.yaml
