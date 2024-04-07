@@ -72,6 +72,10 @@ spec:
           successThreshold: 1
           timeoutSeconds: 2
         name: traefik
+        dnsPolicy: None
+        nameservers:
+          - 10.43.0.10
+          - 192.0.2.1
         ports:
         - containerPort: 445
           name: smb
