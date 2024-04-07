@@ -10,8 +10,6 @@ components:
 
 resources:
   - ../base
-  - dc-secret-sealed.yaml
-  - traefik-pvc.yaml
 
 
 

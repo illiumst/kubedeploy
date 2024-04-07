@@ -3,6 +3,8 @@ kind: Kustomization
 
 resources:
   - foreign
-  - traefik-middleware-default-headers.yaml
+  - base/traefik-middleware-default-headers.yaml
+  - base/traefik-pvc.yaml
   - crds
-  - traefik-namespace.yaml
+  - base/dc-secret-sealed
+  - base/traefik-namespace.yaml
