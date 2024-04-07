@@ -65,4 +65,4 @@ spec:
       volumes:
       - name: traefik-pvc
         persistentVolumeClaim:
-          claimName: local-path-pvc
+          claimName: traefik-pvc
