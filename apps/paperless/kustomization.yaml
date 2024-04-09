@@ -6,8 +6,8 @@ namespace: paperless
 resources:
 - networking
 - base/paperless-secret-sealed.yaml
-- base/webserver-ingress.yaml
-- base/webserver-service.yaml
+- base/paperless-ingress.yaml
+- base/paperless-service.yaml
 - base/paperless.yaml
 - base/paperless-namespace.yaml
 

@@ -54,7 +54,7 @@ spec:
               name: paperless-pvc
               subPath: media
             - mountPath: /usr/src/paperless/consume
-              name: paperless-webserver-consume
+              name: paperless-pvc
               subPath: consume
           env:
             - name: DEBUG
