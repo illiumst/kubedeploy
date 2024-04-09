@@ -76,10 +76,10 @@ spec:
           resources: {}
           volumeMounts:
             - mountPath: /var/www/html
-              name: nextcloud-pv
+              name: nextcloud-pvc
               subPath: html
             - mountPath: /var/www/html/data
-              name: nextcloud-pv
+              name: nextcloud-pvc
               subPath: data
       restartPolicy: Always
       volumes:
