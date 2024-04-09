@@ -1,17 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: traefik
+  name: vaultwarden
   namespace: argocd
 spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: traefik
+    namespace: vaultwarden
   project: default
   source:
-    path: infrastructure/03-traefik
+    path: apps/vaultwarden
     repoURL: https://github.com/illiumst/kubedeploy.git
     targetRevision: HEAD
   syncPolicy:
-    syncOptions:
+      automated:
+        selfHeal: true
+        prune: true
+      syncOptions:
       - CreateNamespace=true
