@@ -7,6 +7,6 @@ helmCharts:
 - name: sealed-secrets
   includeCRDs: true
   version: 2.15.2
-  releaseName: "lcl"
+  releaseName: "sealed-secrets"
   repo: https://bitnami-labs.github.io/sealed-secrets
   # valuesFile: base/values.yaml
