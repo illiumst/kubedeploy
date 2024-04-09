@@ -42,7 +42,7 @@ spec:
               protocol: TCP
           volumeMounts:
             - mountPath: /var/lib/mysql
-              name: nextcloud-db-pvc
+              name: nextcloud-pvc
               subPath: db-storage
         - image: redis:alpine
           name: redis
