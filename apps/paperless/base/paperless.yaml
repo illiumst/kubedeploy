@@ -23,7 +23,7 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: paperless-pvc
-              subPath: pg-data
+              subPath: pgdata
           ports:
             - containerPort: 5432
               protocol: TCP
