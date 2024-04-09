@@ -84,11 +84,13 @@ spec:
           resources: {}
           volumeMounts:
             - mountPath: /data
-              name: vaultwarden-data-pvc
+              name: vaultwarden-pvc
       restartPolicy: Always
       volumes:
-        - name: vaultwarden-data-pvc
-          persistentVolumeClaim:
-            claimName: vaultwarden-data-pvc
+        - name: vaultwarden-pvc
+          nfs:
+            server: 192.168.178.4
+            path: /mnt/storage/service/vaultwarden
+            readOnly: false
         
 

@@ -38,6 +38,8 @@ spec:
           mountPath: /opt/adguardhome/conf
         resources: {}
       volumes:
-      - name: adguard-pvc
-        persistentVolumeClaim:
-          claimName: adguard-pvc
+        - name: adguard-pvc
+          nfs:
+            server: 192.168.178.4
+            path: /mnt/storage/service/adguard
+            readOnly: false

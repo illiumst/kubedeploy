@@ -5,12 +5,10 @@ namespace: paperless
 
 resources:
 - networking
-- base/smb.yaml
 - base/paperless-secret-sealed.yaml
 - base/webserver-ingress.yaml
 - base/webserver-service.yaml
 - base/paperless.yaml
-- base/shared-smb-pvc.yaml
 - base/paperless-namespace.yaml
 
 components:
