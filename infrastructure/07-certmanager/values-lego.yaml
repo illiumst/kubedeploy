@@ -2,3 +2,7 @@ groupName: acme.steffenillium.de
 
 certManager:
   namespace: cert-manager
+
+webhook:
+  image:
+    tag: main
