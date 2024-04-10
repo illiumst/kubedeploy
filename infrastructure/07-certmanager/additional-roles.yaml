@@ -3,7 +3,9 @@ kind: ClusterRole
 metadata:
   name: dns-challenge-illium
 rules:
-- apiGroups: ["acme.steffenillium.de"] # "" indicates the core API group
+- apiGroups:
+    - "steffenillium.de"
+    - "cert-manager.io" # "" indicates the core API group
   resources: ["ionos"]
   verbs: ["*"]
 ---
