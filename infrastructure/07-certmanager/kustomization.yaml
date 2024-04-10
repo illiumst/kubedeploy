@@ -6,12 +6,8 @@ namespace: cert-manager
 resources:
   - dns-issuer.yaml
   - ionos-secret-sealed.yaml
-  - https://github.com/cert-manager/cert-manager/releases/download/v1.14.4/cert-manager.yaml
-  # - https://github.com/cert-manager/cert-manager/releases/download/v1.14.4/cert-manager.crds.yaml
-  # - namespace.yaml
+  - https://github.com/cert-manager/cert-manager/releases/download/v1.14.4/cert-manager.crds.yaml
+  - namespace.yaml
 
-# patches:
-#   - path: patches/mutating-webhook-namespace.yaml
-
-# transformers:
-#   - patches/annotation-transfom.yaml
+transformers:
+  - patches/annotation-transfom.yaml
