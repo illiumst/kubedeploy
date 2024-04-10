@@ -3,6 +3,9 @@ kind: Kustomization
 
 namespace: cert-manager
 
+components:
+  - ../../components/local-region-selector.yaml
+
 resources:
   - wildcard-cert.yaml
   - dns-issuer.yaml
