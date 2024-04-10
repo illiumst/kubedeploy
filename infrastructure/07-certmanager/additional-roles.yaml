@@ -4,8 +4,7 @@ metadata:
   name: dns-challenge-illium
 rules:
 - apiGroups:
-    - "steffenillium.de"
-    - "cert-manager.io" # "" indicates the core API group
+    - "" # wildcard
   resources: ["ionos"]
   verbs: ["*"]
 ---
