@@ -12,12 +12,12 @@ resources:
   - namespace.yaml
 
 helmCharts:
-- name: cert-manager-webhook-ionos
+- name: cert-manager-lego-webhook
   includeCRDs: false
-  version: 1.0.2
-  releaseName: cert-manager-webhook-ionos
-  repo: https://fabmade.github.io/cert-manager-webhook-ionos
-  valuesFile: values-ionos.yaml
+  version: 1.0.1
+  releaseName: cert-manager-lego-webhook
+  repo: https://yxwuxuanl.github.io/cert-manager-lego-webhook/
+  valuesFile: values-lego.yaml
 - name: cert-manager
   includeCRDs: false
   version: 1.14.4

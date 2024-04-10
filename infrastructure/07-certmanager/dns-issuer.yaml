@@ -16,15 +16,12 @@ spec:
       - dns01:
           webhook:
             groupName: acme.steffenillium.de
-            solverName: ionos
+            solverName: lego-solver
             config:
-              apiUrl: https://api.hosting.ionos.com/dns/v1
-              publicKeySecretRef:
-                key: PREFIX 
-                name: ionos-secret
-              secretKeySecretRef:
-                key: SECRET
-                name: ionos-secret
+              provider: ionos
+              envFrom:
+                secret:
+                  name: ionos-secret
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -44,12 +41,9 @@ spec:
       - dns01:
           webhook:
             groupName: acme.steffenillium.de
-            solverName: ionos
+            solverName: lego-solver
             config:
-              apiUrl: https://api.hosting.ionos.com/dns/v1
-              publicKeySecretRef:
-                key: PREFIX 
-                name: ionos-secret
-              secretKeySecretRef:
-                key: SECRET
-                name: ionos-secret
+              provider: ionos
+              envFrom:
+                secret:
+                  name: ionos-secret

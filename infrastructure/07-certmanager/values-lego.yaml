@@ -1,0 +1,4 @@
+groupName: acme.steffenillium.de
+
+certManager:
+  namespace: cert-manager
