@@ -2,4 +2,4 @@ groupName: acme.steffenillium.de
 
 webhook:
   image:
-    tag: main
+    tag: latest
