@@ -1,5 +1,18 @@
-webhook:
-  securePort: 10260
 global:
   leaderElection:
     namespace: cert-manager
+
+cainjector:
+  config:
+    metricsTLSConfig:
+      dynamic:
+        secretNamespace: "cert-manager"
+        secretName: "cert-manager-webhook-ca"
+
+webhook:
+  securePort: 10260
+  validatingWebhookConfigurationAnnotations: 
+  cert-manager.io/inject-ca-from-secret: cert-manager/cert-manager-webhook-ca
+
+    
+
