@@ -5,10 +5,13 @@ metadata:
   namespace: default
 
 spec:
+  secretName: letsencrypt-ionos-key
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-prod
   defaultGeneratedCert:
     resolver: default
     domain:
       main: steffenillium.de
       sans:
         - '*.steffenillium.de'
-  
