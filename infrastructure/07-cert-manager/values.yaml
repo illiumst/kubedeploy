@@ -1,5 +1,0 @@
-webhook:
-  securePort: 10260
-global:
-  leaderElection:
-    namespace: cert-manager

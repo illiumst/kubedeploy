@@ -5,7 +5,4 @@ global:
 webhook:
   securePort: 10260
   validatingWebhookConfigurationAnnotations: 
-  cert-manager.io/inject-ca-from-secret: cert-manager/cert-manager-webhook-ca
-
-    
-
+    cert-manager.io/inject-ca-from-secret: cert-manager/cert-manager-webhook-ca

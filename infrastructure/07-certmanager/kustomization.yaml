@@ -16,3 +16,9 @@ helmCharts:
   releaseName: "cert-manager"
   repo: https://charts.jetstack.io
   valuesFile: values.yaml
+
+# patches:
+#   - path: patches/mutating-webhook-namespace.yaml
+
+transformers:
+  - patches/annotation-transfom.yaml
