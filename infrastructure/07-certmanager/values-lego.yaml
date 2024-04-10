@@ -5,5 +5,5 @@ webhook:
     tag: main
 
 certManager:
-  namespace: 'cert-manager'
-  serviceAccountName: cert-manager
+  namespace: cert-manager
+  # serviceAccountName: cert-manager

@@ -10,7 +10,7 @@ resources:
   - wildcard-cert.yaml
   - dns-issuer.yaml
   - ionos-secret-sealed.yaml
-  # - additional-roles.yaml
+  - additional-roles.yaml
   - https://github.com/cert-manager/cert-manager/releases/download/v1.14.4/cert-manager.crds.yaml
   - namespace.yaml
 
