@@ -9,5 +9,13 @@ resources:
   - https://github.com/cert-manager/cert-manager/releases/download/v1.14.4/cert-manager.crds.yaml
   - namespace.yaml
 
+helmCharts:
+- name: cert-manager
+  includeCRDs: false
+  version: 1.14.4
+  releaseName: "cert-manager"
+  repo: https://charts.jetstack.io
+  valuesFile: values.yaml
+
 transformers:
   - patches/annotation-transfom.yaml
