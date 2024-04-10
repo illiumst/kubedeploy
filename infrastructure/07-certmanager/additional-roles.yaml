@@ -5,7 +5,6 @@ metadata:
 rules:
 - apiGroups:
     - "cert-manager.io"
-    - "acme.cert-manager.io/v1"
     - "acme.cert-manager.io"
   resources: ["ionos"]
   verbs: ["*"]
