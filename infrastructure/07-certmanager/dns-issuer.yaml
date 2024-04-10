@@ -15,7 +15,7 @@ spec:
     solvers:
       - dns01:
           webhook:
-            groupName: cert-manager.io
+            groupName: steffenillium.de
             solverName: ionos
             config:
               apiUrl: https://api.hosting.ionos.com/dns/v1
@@ -43,7 +43,7 @@ spec:
     solvers:
       - dns01:
           webhook:
-            groupName: cert-manager.io
+            groupName: steffenillium.de
             solverName: ionos
             config:
               apiUrl: https://api.hosting.ionos.com/dns/v1
