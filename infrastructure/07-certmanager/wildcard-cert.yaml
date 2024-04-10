@@ -20,3 +20,5 @@ metadata:
 spec:
   defaultCertificate:
     secretName: wildcard-cert
+  certificates:
+    - secretName: wildcard-cert
