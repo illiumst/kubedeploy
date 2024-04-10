@@ -4,10 +4,10 @@ global:
 
 webhook:
   securePort: 10260
-  validatingWebhookConfigurationAnnotations: 
-    cert-manager.io/inject-ca-from-secret: cert-manager/cert-manager-webhook-ca
+  # validatingWebhookConfigurationAnnotations: 
+  #   cert-manager.io/inject-ca-from-secret: cert-manager/cert-manager-webhook-ca
 
 
-clusterResourceNamespace: "cert-manager"
+clusterResourceNamespace: cert-manager
 
-namespace: "cert-manager"
+namespace: cert-manager

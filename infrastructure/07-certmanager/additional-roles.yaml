@@ -12,7 +12,7 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: ert-manager-lego-webhook-challenges-binding
+  name: cert-manager-lego-webhook-challenges-binding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -20,4 +20,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: cert-manager
-  namespace: cert-manager-lego-webhook
+  namespace: cert-manager

@@ -18,15 +18,15 @@ helmCharts:
 - name: cert-manager-lego-webhook
   includeCRDs: false
   version: 1.0.1
-  releaseName: cert-manager-lego-webhook
+  releaseName: cert-manager
   repo: https://yxwuxuanl.github.io/cert-manager-lego-webhook/
   valuesFile: values-lego.yaml
 - name: cert-manager
   includeCRDs: false
   version: 1.14.4
-  releaseName: "cert-manager"
+  releaseName: cert-manager
   repo: https://charts.jetstack.io
   valuesFile: values.yaml
 
-transformers:
-  - patches/annotation-transfom.yaml
+# transformers:
+#   - patches/annotation-transfom.yaml
