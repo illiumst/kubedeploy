@@ -1,0 +1,10 @@
+apiVersion: builtin
+kind: AnnotationsTransformer
+metadata:
+  name: v1alpha1.acme.steffenillium.de
+annotations:
+  cert-manager.io/inject-ca-from: cert-manager/cert-manager
+fieldSpecs:
+- path: metadata/annotations
+  create: true
+  kind: APIService

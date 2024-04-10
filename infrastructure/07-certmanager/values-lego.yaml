@@ -5,5 +5,5 @@ webhook:
     tag: main
 
 certManager:
-  namespace: cert-manager
-  serviceAccountName: cert-manager-lego-webhook
+  namespace: "cert-manager"
+  serviceAccountName: "cert-manager-lego-webhook"
