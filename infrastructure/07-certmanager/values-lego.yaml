@@ -3,7 +3,4 @@ groupName: acme.steffenillium.de
 webhook:
   image:
     tag: main
-
-certManager:
-  namespace: cert-manager
-  # serviceAccountName: cert-manager
+    
