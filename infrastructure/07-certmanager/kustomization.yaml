@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: cert-manager
 
 resources:
+  - wildcard-cert.yaml
   - dns-issuer.yaml
   - ionos-secret-sealed.yaml
   - https://github.com/cert-manager/cert-manager/releases/download/v1.14.4/cert-manager.crds.yaml
