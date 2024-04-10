@@ -18,7 +18,7 @@ helmCharts:
 - name: "cert-manager-lego-webhook"
   includeCRDs: false
   version: 1.0.1
-  releaseName: "cert-manager"
+  releaseName: "cert-manager-lego-webhook"
   repo: https://yxwuxuanl.github.io/cert-manager-lego-webhook/
   valuesFile: values-lego.yaml
 - name: "cert-manager"

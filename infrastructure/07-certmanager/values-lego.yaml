@@ -6,4 +6,4 @@ webhook:
 
 certManager:
   namespace: "cert-manager"
-  serviceAccountName: "cert-manager-lego-webhook"
+  serviceAccountName: "cert-manager-lego"
