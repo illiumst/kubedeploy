@@ -3,8 +3,8 @@ kind: Kustomization
 
 resources:
   - foreign
+  - cert
   - base/traefik-middleware-default-headers.yaml
   - base/traefik-pvc.yaml
   - crds
-  - base/dc-secret-sealed.yaml
   - base/traefik-namespace.yaml
