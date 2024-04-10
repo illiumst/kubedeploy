@@ -11,7 +11,6 @@ spec:
   issuerRef:
     name: letsencrypt-staging
     kind: ClusterIssuer
-    group: cert-manager.io
 ---
 apiVersion: traefik.io/v1alpha1
 kind: TLSStore
