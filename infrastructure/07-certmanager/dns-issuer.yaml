@@ -33,7 +33,7 @@ metadata:
 spec:
   acme:
     # The ACME server URL
-    server: https://acme-v02.api.letsencrypt.org/
+    server: https://acme-v02.api.letsencrypt.org/directory
     # Email address used for ACME registration
     email: steffen.illium@gmail.com
     # Name of a secret used to store the ACME account private key
@@ -43,7 +43,7 @@ spec:
     solvers:
       - dns01:
           webhook:
-            # groupName: acme.fabmade.de
+            groupName: acme.
             solverName: ionos
             config:
               apiUrl: https://api.hosting.ionos.com/dns/v1
