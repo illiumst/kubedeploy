@@ -1,1 +1,9 @@
 groupName: acme.steffenillium.de
+
+certManager:
+  namespace: cert-manager
+  serviceAccountName: cert-manager-webhook-ionos
+
+nameOverride: ""
+fullnameOverride: ""
+
