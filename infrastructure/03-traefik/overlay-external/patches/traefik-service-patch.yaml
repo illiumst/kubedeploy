@@ -5,6 +5,8 @@ metadata:
   namespace: traefik
 spec:
   type: LoadBalancer
+  selector:
+    app: front-traefik
   ports:
   - name: traefik
     port: 9000

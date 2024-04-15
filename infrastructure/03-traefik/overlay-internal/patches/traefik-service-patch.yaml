@@ -6,7 +6,8 @@ metadata:
 spec:
   loadBalancerIP: 192.168.178.102
   type: LoadBalancer
-
+  selector:
+    app: local-traefik
   ports:
   - name: smb137
     port: 137
