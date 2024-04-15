@@ -4,11 +4,17 @@ metadata:
   name: traefik
   namespace: traefik
 spec:
+  selector:
+    matchLabels:
+      app: front-traefik
   template:
+    metadata:
+      labels:
+        app: front-traefik
     spec:
       hostNetwork: false
       containers:
-        - name: traefik
+        - name: front-traefik
           env:
             - name: IONOS_API_KEY
               valueFrom:

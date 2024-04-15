@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: traefik
+  namespace: traefik
+spec:
+  selector:
+    matchLabels:
+      app: local-traefik
+  template:
+    metadata:
+      labels:
+        app: local-traefik
