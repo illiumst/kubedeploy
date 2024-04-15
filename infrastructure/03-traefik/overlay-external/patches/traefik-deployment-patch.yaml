@@ -15,9 +15,6 @@ spec:
       hostNetwork: true
       containers:
         - name: traefik
-          securityContext:
-          capabilities:
-            add: ["NET_BIND_SERVICE"]
           env:
             - name: IONOS_API_KEY
               valueFrom:

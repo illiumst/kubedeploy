@@ -25,11 +25,6 @@ spec:
         args:
         - --global.sendanonymoususage=false
         - --global.checknewversion=false
-        - --entrypoints.smb-udp137.address=:137/udp
-        - --entrypoints.smb-udp138.address=:138/udp
-        - --entrypoints.smb-tcp139.address=:139/tcp
-        - --entrypoints.smb-tcp445.address=:445/tcp
-        - --entrypoints.dns.address=:53/udp
         - --entrypoints.metrics.address=:9100/tcp
         - --entrypoints.traefik.address=:9000/tcp
         - --entrypoints.web.address=:8000/tcp
@@ -117,6 +112,8 @@ spec:
         runAsGroup: 65532
         runAsNonRoot: true
         runAsUser: 65532
+        capabilities:
+            add: ["NET_BIND_SERVICE"]
       serviceAccountName: traefik
       terminationGracePeriodSeconds: 60
       volumes:
