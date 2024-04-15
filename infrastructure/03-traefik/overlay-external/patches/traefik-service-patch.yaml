@@ -4,6 +4,7 @@ metadata:
   name: traefik
   namespace: traefik
 spec:
+  type: ClusterIP
   ports:
   - name: traefik
     port: 9000
