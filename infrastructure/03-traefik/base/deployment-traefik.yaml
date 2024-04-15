@@ -100,13 +100,14 @@ spec:
           capabilities:
             drop:
             - ALL
+            add:
+            - NET_BIND_SERVICE
           readOnlyRootFilesystem: true
         volumeMounts:
         - mountPath: /data
           name: data
         - mountPath: /tmp
           name: tmp
-      hostNetwork: false
       securityContext:
         fsGroupChangePolicy: OnRootMismatch
         runAsGroup: 65532

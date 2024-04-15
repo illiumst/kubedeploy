@@ -12,7 +12,7 @@ spec:
       labels:
         app: front-traefik
     spec:
-      hostNetwork: false
+      hostNetwork: true
       containers:
         - name: traefik
           env:

@@ -5,8 +5,6 @@ metadata:
   namespace: traefik
 spec:
   type: ClusterIP
-  selector:
-    app: front-traefik
   ports:
   - name: traefik
     port: 9000
