@@ -11,8 +11,6 @@ components:
 resources:
   - ../base
 
-
-
 patches:
   - path: patches/traefik-service-patch.yaml
   - path: patches/traefik-deployment-patch.yaml
