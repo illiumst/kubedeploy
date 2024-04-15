@@ -5,6 +5,7 @@ metadata:
   namespace: traefik
 spec:
   type: LoadBalancer
+  loadBalancerIP: 82.165.0.71
   ports:
   - name: traefik
     port: 9000
