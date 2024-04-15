@@ -32,4 +32,4 @@ spec:
     match: Host(`tr-front.steffenillium.de`)
     services:
     - name: traefik-dashboard-front-internal
-      port: 9080
+      port: 9000

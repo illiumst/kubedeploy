@@ -4,7 +4,7 @@ metadata:
   name: traefik
   namespace: traefik
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: front-traefik
   ports:
@@ -24,4 +24,5 @@ spec:
     port: 53
     protocol: UDP
     targetPort: dns
-  loadBalancerIP: 82.165.0.71
+  externalIPs: 
+    - 82.165.0.71
