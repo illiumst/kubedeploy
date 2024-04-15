@@ -29,10 +29,10 @@ spec:
             # - --entrypoints.dns.address=:53/udp
             - --entrypoints.metrics.address=:9100/tcp
             - --entrypoints.traefik.address=:9000/tcp
-            - --entrypoints.web.address=:80/tcp
+            - --entrypoints.web.address=:8000/tcp
             - --entrypoints.web.http.redirections.entryPoint.to=websecure
             - --entrypoints.web.http.redirections.entryPoint.scheme=https
-            - --entrypoints.websecure.address=:443/tcp
+            - --entrypoints.websecure.address=:8443/tcp
             - --entrypoints.websecure.http.middlewares=traefik-default-headers
             - --entrypoints.websecure.http.tls=true
 
