@@ -9,18 +9,6 @@ spec:
   selector:
     app: local-traefik
   ports:
-  - name: smb137
-    port: 137
-    protocol: UDP
-  - name: smb138
-    port: 138
-    protocol: UDP
-  - name: smb139
-    port: 139
-    protocol: TCP
-  - name: smb445
-    port: 445
-    protocol: TCP
   - name: web
     port: 80
     protocol: TCP
