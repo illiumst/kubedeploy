@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
 - apps-adguard.yaml
 - apps-gitea.yaml
-- apps-newcloud.yaml
+- apps-nextloud.yaml
 - apps-paperless.yaml
 - apps-vaultwarden.yaml
 - infrastructure-traefik.yaml
