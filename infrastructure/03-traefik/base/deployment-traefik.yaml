@@ -28,7 +28,14 @@ spec:
         - --entrypoints.metrics.address=:9100/tcp
         - --entrypoints.traefik.address=:9000/tcp
         - --entrypoints.web.address=:8000/tcp
+        - --entrypoints.web.transport.respondingTimeouts.readTimeout=300
+        - --entrypoints.web.transport.respondingTimeouts.idleTimeout=0
         - --entrypoints.websecure.address=:8443/tcp
+        - --entrypoints.websecure.http.middlewares=traefik-default-headers
+        - --entrypoints.websecure.http.tls=true
+        - --entrypoints.websecure.transport.respondingTimeouts.readTimeout=300
+        - --entrypoints.websecure.transport.respondingTimeouts.idleTimeout=0
+
         - --api.dashboard=true
         - --ping=true
         - --metrics.prometheus=true
@@ -36,9 +43,7 @@ spec:
         - --providers.kubernetescrd
         - --providers.kubernetescrd.labelSelector=local=true
         - --providers.kubernetescrd.allowExternalNameServices=true
-        - --entrypoints.websecure.http.middlewares=traefik-default-headers
-        - --entrypoints.websecure.http.tls=true
-
+        
         - --log.level=WARN
         - --accesslog=true
         - --accesslog.fields.defaultmode=keep
@@ -68,8 +73,6 @@ spec:
           timeoutSeconds: 2
         name: traefik
         ports:
-        - containerPort: 445
-          name: smb
         - containerPort: 53
           name: dns
           protocol: UDP
