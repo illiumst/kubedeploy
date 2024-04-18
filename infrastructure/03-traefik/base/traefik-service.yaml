@@ -32,10 +32,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: traefik
+  name: traefik-front
   namespace: traefik
 spec:
-  loadBalancerIP: 192.168.178.102
   type: LoadBalancer
   selector:
     app: traefik
@@ -49,8 +48,3 @@ spec:
     port: 8443
     protocol: TCP
     targetPort: websecure-front
-
-  - name: dns
-    port: 53
-    protocol: UDP
-    targetPort: 53

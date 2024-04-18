@@ -7,10 +7,10 @@ metadata:
 spec:
   ports:
     - name: web
-      port: 80
+      port: 8400
       targetPort: 3000
     - name: ssh
-      port: 22
+      port: 8422
       targetPort: 22
   selector:
     app: gitea

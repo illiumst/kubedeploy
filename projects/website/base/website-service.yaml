@@ -6,8 +6,8 @@ metadata:
   name: website
 spec:
   ports:
-    - name: "http"
-      port: 80
+    - name: http
+      port: 9999
       targetPort: 80
   selector:
     app: website
