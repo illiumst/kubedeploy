@@ -9,14 +9,25 @@ spec:
   selector:
     app: local-traefik
   ports:
-  - name: web
+  # Local
+  - name: web-local
     port: 80
     protocol: TCP
-    targetPort: 8000
-  - name: websecure
+    targetPort: web-local
+  - name: websecure-local
     port: 443
     protocol: TCP
-    targetPort: 8443
+    targetPort: websecure-local
+  # Front
+  - name: web-front
+    port: 8000
+    protocol: TCP
+    targetPort: web-front
+  - name: websecure-front
+    port: 8443
+    protocol: TCP
+    targetPort: websecure-front
+
   - name: dns
     port: 53
     protocol: UDP
@@ -24,4 +35,4 @@ spec:
   - name: traefik
     port: 9000
     protocol: TCP
-    targetPort: 9000
+    targetPort: traefik

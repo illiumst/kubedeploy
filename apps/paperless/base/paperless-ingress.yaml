@@ -3,12 +3,10 @@ kind: IngressRoute
 metadata:
   name: paperless-ingress
   namespace: paperless
-  labels:
-    local: "true"
 spec:
   entryPoints:
-    - web
-    - websecure
+    - web-local
+    - websecure-local
   routes:
   - match: Host(`documents.steffenillium.de`)
     kind: Rule
@@ -21,12 +19,10 @@ kind: IngressRoute
 metadata:
   name: paperless-ingress-front
   namespace: paperless
-  labels:
-    expose: "true"
 spec:
   entryPoints:
-    - web
-    - websecure
+    - web-front
+    - websecure-front
   routes:
   - match: Host(`documents.steffenillium.de`)
     kind: Rule

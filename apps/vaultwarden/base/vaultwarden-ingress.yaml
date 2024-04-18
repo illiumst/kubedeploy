@@ -3,13 +3,12 @@ kind: IngressRoute
 metadata:
   name: vaultwarden-ingress
   namespace: vaultwarden
-  labels:
-    expose: "true"
-    local: "true"
 spec:
   entryPoints:
-    - web
-    - websecure
+    - web-front
+    - websecure-front
+    - web-local
+    - websecure-local
   routes:
   - match: Host(`vault.steffenillium.de`)
     kind: Rule

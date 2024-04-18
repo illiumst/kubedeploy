@@ -2,13 +2,10 @@ apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: kubernetes-dashboard
-  labels:
-    expose: "false"
-    local: "true"
 spec:
   entryPoints:
-    - web
-    - websecure
+    - web-local
+    - websecure-local
   routes:
   - match: Host(`kubernetes-dashboard.steffenillium.de`)
     kind: Rule

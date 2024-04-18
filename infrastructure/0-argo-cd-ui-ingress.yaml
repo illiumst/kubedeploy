@@ -3,13 +3,10 @@ kind: IngressRoute
 metadata:
   name: argocd-ui
   namespace: argocd
-  labels:
-    expose: "false"
-    local: "true"
 spec:
   entryPoints:
-    - web
-    - websecure
+    - web-local
+    - websecure-local
   routes:
   - match: Host(`argocd.steffenillium.de`)
     kind: Rule

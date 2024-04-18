@@ -3,13 +3,12 @@ kind: IngressRoute
 metadata:
   name: gitea
   namespace: gitea
-  labels:
-    expose: "true"
-    local: "true"
 spec:
   entryPoints:
-    - web
-    - websecure
+    - web-front
+    - websecure-front
+    - web-local
+    - websecure-local
   routes:
   - match: Host(`gitea.steffenillium.de`)
     kind: Rule
