@@ -3,17 +3,15 @@ kind: Kustomization
 
 namespace: metallb-system
 
-components:
-  - ../../components/local-region-selector.yaml
-
 resources:
   - base/01-metallb-advert.yaml
   - base/01-metallb-pool-local.yaml
   - github.com/metallb/metallb/config/native?ref=v0.14.4
-configMapGenerator:
-- name: config
-  literals:	
-    - lb-class=metallb
 
-generatorOptions:
- disableNameSuffixHash: true
+# configMapGenerator:
+# - name: config
+#   literals:
+#     - lb-class=metallb
+
+# generatorOptions:
+#  disableNameSuffixHash: true
