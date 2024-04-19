@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard
+spec:
+  entryPoints:
+    - web-local
+    - websecure-local
+  routes:
+  - match: Host(`traefik.steffenillium.de`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))
+    kind: Rule
+    services:
+    - name: api@internal
+      kind: TraefikService
+---

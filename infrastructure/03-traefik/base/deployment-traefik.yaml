@@ -30,17 +30,29 @@ spec:
         - --entrypoints.traefik.address=:9000/tcp
         - --entrypoints.dns.address=:53/udp
 
-        - --entrypoints.web-local.address=:8000/tcp
+        - --entrypoints.web-local.address=:80/tcp
         - --entrypoints.web-local.transport.respondingTimeouts.readTimeout=300
         - --entrypoints.web-local.transport.respondingTimeouts.idleTimeout=0
         - --entrypoints.web-local.http.redirections.entryPoint.to=websecure-local
         - --entrypoints.web-local.http.redirections.entryPoint.scheme=https
 
-        - --entrypoints.websecure-local.address=:8443/tcp
+        - --entrypoints.websecure-local.address=:443/tcp
         - --entrypoints.websecure-local.http.middlewares=traefik-default-headers
         - --entrypoints.websecure-local.http.tls=true
         - --entrypoints.websecure-local.transport.respondingTimeouts.readTimeout=300
         - --entrypoints.websecure-local.transport.respondingTimeouts.idleTimeout=0
+
+        - --entrypoints.web-front.address=:8000/tcp
+        - --entrypoints.web-front.transport.respondingTimeouts.readTimeout=300
+        - --entrypoints.web-front.transport.respondingTimeouts.idleTimeout=0
+        - --entrypoints.web-front.http.redirections.entryPoint.to=websecure-local
+        - --entrypoints.web-front.http.redirections.entryPoint.scheme=https
+
+        - --entrypoints.websecure-front.address=:8443/tcp
+        - --entrypoints.websecure-front.http.middlewares=traefik-default-headers
+        - --entrypoints.websecure-front.http.tls=true
+        - --entrypoints.websecure-front.transport.respondingTimeouts.readTimeout=300
+        - --entrypoints.websecure-front.transport.respondingTimeouts.idleTimeout=0
 
         - --certificatesResolvers.default.acme.caServer=https://acme-staging-v02.api.letsencrypt.org/directory
         - --certificatesResolvers.default.acme.email=steffen.illium@gmail.com

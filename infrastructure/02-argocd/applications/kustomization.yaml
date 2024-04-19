@@ -7,4 +7,5 @@ resources:
 - apps-paperless.yaml
 - apps-vaultwarden.yaml
 - infrastructure-traefik.yaml
+- infrastructure-secrets.yaml
 - projects-website.yaml
