@@ -5,7 +5,7 @@ metadata:
 spec:
   ports:
     - name: http
-      port: 8500
+      port: 80
       targetPort: http
   selector:
     app: nextcloud-app

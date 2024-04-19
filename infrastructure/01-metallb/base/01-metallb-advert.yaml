@@ -6,4 +6,3 @@ metadata:
 spec:
   ipAddressPools:
     - local-pool
-    - front-pool

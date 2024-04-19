@@ -4,7 +4,7 @@ metadata:
   name: traefik-local
   namespace: traefik
 spec:
-  loadBalancerIP: 192.168.178.102
+  loadBalancerIP: 192.168.178.101
   loadBalancerClass: metallb
   type: LoadBalancer
   selector:
@@ -19,7 +19,6 @@ spec:
     port: 443
     protocol: TCP
     targetPort: websecure-local
-
   - name: dns
     port: 53
     protocol: UDP
@@ -35,16 +34,23 @@ metadata:
   name: traefik-front
   namespace: traefik
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: traefik
   ports:
   # Front
   - name: web-front
-    port: 8000
+    port: 8080
     protocol: TCP
     targetPort: web-front
+    nodePort: 30080
   - name: websecure-front
     port: 8443
     protocol: TCP
     targetPort: websecure-front
+    nodePort: 30443
+  - name: dns
+    port: 8053
+    protocol: UDP
+    targetPort: dns
+    nodePort: 30053
