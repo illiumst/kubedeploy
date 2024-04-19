@@ -43,8 +43,8 @@ spec:
         - --entrypoints.web-front.address=:8000/tcp
         - --entrypoints.web-front.transport.respondingTimeouts.readTimeout=300
         - --entrypoints.web-front.transport.respondingTimeouts.idleTimeout=0
-        - --entrypoints.web-front.http.redirections.entryPoint.to=websecure-local
-        - --entrypoints.web-front.http.redirections.entryPoint.scheme=https
+        #- --entrypoints.web-front.http.redirections.entryPoint.to=websecure-front
+        #- --entrypoints.web-front.http.redirections.entryPoint.scheme=https
 
         - --entrypoints.websecure-front.address=:8443/tcp
         - --entrypoints.websecure-front.http.middlewares=traefik-default-headers
