@@ -8,7 +8,7 @@ spec:
   ports:
     - name: http
       port: 80
-      targetPort: 8000
+      targetPort: http
   selector:
     app: paperless-webserver
 status:
