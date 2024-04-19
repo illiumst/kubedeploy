@@ -11,11 +11,11 @@ spec:
     app: traefik
   ports:
   # Local
-  - name: web-local
+  - name: web
     port: 80
     protocol: TCP
     targetPort: web-local
-  - name: websecure-local
+  - name: websecure
     port: 443
     protocol: TCP
     targetPort: websecure-local
@@ -39,18 +39,18 @@ spec:
     app: traefik
   ports:
   # Front
-  - name: web-front
-    port: 8080
+  - name: web
+    port: 80
     protocol: TCP
     targetPort: web-front
     nodePort: 30080
-  - name: websecure-front
-    port: 8443
+  - name: websecure
+    port: 443
     protocol: TCP
     targetPort: websecure-front
     nodePort: 30443
   - name: dns
-    port: 8053
+    port: 53
     protocol: UDP
     targetPort: dns
     nodePort: 30053
