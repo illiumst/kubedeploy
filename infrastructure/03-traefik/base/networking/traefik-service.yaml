@@ -21,7 +21,7 @@ spec:
   - name: dns
     port: 53
     protocol: UDP
-    targetPort: 53
+    targetPort: dns
   - name: traefik
     port: 9000
     protocol: TCP

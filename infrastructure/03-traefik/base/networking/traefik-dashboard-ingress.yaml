@@ -8,7 +8,7 @@ spec:
     - web-local
     - websecure-local
   routes:
-  - match: Host(`traefik.steffenillium.de`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))
+  - match: Host(`traefik.steffenillium.de`)
     kind: Rule
     services:
     - name: api@internal
