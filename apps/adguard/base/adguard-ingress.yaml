@@ -14,7 +14,7 @@ spec:
     kind: Rule
     services:
     - name: adguard-service
-      port: 80
+      port: http
 ---
 
 apiVersion: traefik.io/v1alpha1
@@ -31,4 +31,4 @@ spec:
     kind: Rule
     services:
     - name: adguard-service
-      port: 3000
+      port: http-initial

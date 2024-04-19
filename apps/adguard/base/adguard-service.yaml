@@ -9,15 +9,15 @@ spec:
   ports:
   - protocol: TCP
     port: 3000
-    targetPort: 3000
+    targetPort: http-initial
     name: http-initial
   - protocol: TCP
     port: 80
-    targetPort: 80
+    targetPort: http
     name: http
   - protocol: UDP
     port: 53
-    targetPort: 53
+    targetPort: dns
     name: dns
   type: LoadBalancer
   loadBalancerIP: 192.168.178.101
