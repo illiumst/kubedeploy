@@ -33,8 +33,6 @@ spec:
         - --entrypoints.web-local.address=:80/tcp
         - --entrypoints.web-local.transport.respondingTimeouts.readTimeout=300
         - --entrypoints.web-local.transport.respondingTimeouts.idleTimeout=0
-        - --entrypoints.web-local.http.redirections.entryPoint.to=websecure-local
-        - --entrypoints.web-local.http.redirections.entryPoint.scheme=https
 
         - --entrypoints.websecure-local.address=:443/tcp
         - --entrypoints.websecure-local.http.middlewares=traefik-default-headers
