@@ -35,7 +35,7 @@ spec:
             - name: MYSQL_USER
               value: nextcloud
             - name: REDIS_HOST
-              value: 127.0.0.1:6379
+              value: 127.0.0.1
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -69,7 +69,7 @@ spec:
             - name: PHP_UPLOAD_LIMIT
               value: 100G
             - name: REDIS_HOST
-              value: 127.0.0.1:6379
+              value: 127.0.0.1
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
