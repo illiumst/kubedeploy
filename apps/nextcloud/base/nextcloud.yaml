@@ -35,7 +35,7 @@ spec:
             - name: MYSQL_USER
               value: nextcloud
             - name: REDIS_HOST
-              value: localhost:6379
+              value: 127.0.0.1:6379
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -61,7 +61,7 @@ spec:
             - name: MYSQL_DATABASE
               value: nextcloud
             - name: MYSQL_HOST
-              value: localhost:3306
+              value: 127.0.0.1:3306
             - name: MYSQL_USER
               value: nextcloud
             - name: PHP_MEMORY_LIMIT
@@ -69,7 +69,7 @@ spec:
             - name: PHP_UPLOAD_LIMIT
               value: 100G
             - name: REDIS_HOST
-              value: localhost:6379
+              value: 127.0.0.1:6379
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
