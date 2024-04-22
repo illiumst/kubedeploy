@@ -38,11 +38,6 @@ spec:
     app: traefik
   ports:
   # Front
-  - name: web
-    port: 80
-    protocol: TCP
-    targetPort: web-front
-    nodePort: 30080
   - name: websecure
     port: 443
     protocol: TCP

@@ -13,21 +13,3 @@ spec:
     services:
     - name: fritz-service
       port: http
----
-apiVersion: traefik.io/v1alpha1
-kind: IngressRoute
-metadata:
-  name: fritz-ingress-front
-  namespace: traefik
-spec:
-  entryPoints:
-    - web-front
-    - websecure-front
-  routes:
-  - match: Host(`fritz.steffenillium.de`)
-    kind: Rule
-    # middlewares:
-    # - name: authentik-middleware
-    services:
-    - name: fritz-service
-      port: http
