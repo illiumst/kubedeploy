@@ -25,6 +25,11 @@ spec:
             - --innodb-file-per-table=1
             - --skip-innodb-read-only-compressed
           env:
+            - name: MARIADB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: nextcloud-secret
+                  key: MARIADB_ROOT_PASSWORD
             - name: MYSQL_DATABASE
               value: nextcloud
             - name: MYSQL_USER
