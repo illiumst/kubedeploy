@@ -52,7 +52,7 @@ spec:
         - --entrypoints.websecure-front.transport.respondingTimeouts.readTimeout=300
         - --entrypoints.websecure-front.transport.respondingTimeouts.idleTimeout=0
 
-        - --certificatesResolvers.default.acme.caServer=https://acme-staging-v02.api.letsencrypt.org/directory
+        - --certificatesResolvers.default.acme.caServer=https://acme-v02.api.letsencrypt.org/directory
         - --certificatesResolvers.default.acme.email=steffen.illium@gmail.com
         - --certificatesResolvers.default.acme.dnsChallenge.provider=ionos
         - --certificatesResolvers.default.acme.storage=/certs/acme.json
