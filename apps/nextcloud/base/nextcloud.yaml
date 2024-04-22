@@ -52,6 +52,7 @@ spec:
               protocol: TCP
         - image: nextcloud
           name: nextcloud-app
+          hostname: newcloud.steffenillium.de
           env:
             - name: MYSQL_DATABASE
               value: nextcloud
