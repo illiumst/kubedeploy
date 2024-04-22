@@ -22,29 +22,49 @@ spec:
     spec: 
       containers:
       - resources: {}
+        name: traefik         
         args:
         - --global.sendanonymoususage=false
         - --global.checknewversion=false
-        - --entrypoints.smb-udp137.address=:137/udp
-        - --entrypoints.smb-udp138.address=:138/udp
-        - --entrypoints.smb-tcp139.address=:139/tcp
-        - --entrypoints.smb-tcp445.address=:445/tcp
-        - --entrypoints.dns.address=:53/udp
         - --entrypoints.metrics.address=:9100/tcp
         - --entrypoints.traefik.address=:9000/tcp
-        - --entrypoints.web.address=:8000/tcp
-        - --entrypoints.websecure.address=:8443/tcp
+        - --entrypoints.dns.address=:53/udp
+
+        - --entrypoints.web-local.address=:80/tcp
+        - --entrypoints.web-local.transport.respondingTimeouts.readTimeout=300
+        - --entrypoints.web-local.transport.respondingTimeouts.idleTimeout=0
+
+        - --entrypoints.websecure-local.address=:443/tcp
+        - --entrypoints.websecure-local.http.middlewares=traefik-default-headers
+        - --entrypoints.websecure-local.http.tls=true
+        - --entrypoints.websecure-local.transport.respondingTimeouts.readTimeout=300
+        - --entrypoints.websecure-local.transport.respondingTimeouts.idleTimeout=0
+
+        - --entrypoints.web-front.address=:8000/tcp
+        - --entrypoints.web-front.transport.respondingTimeouts.readTimeout=300
+        - --entrypoints.web-front.transport.respondingTimeouts.idleTimeout=0
+        #- --entrypoints.web-front.http.redirections.entryPoint.to=websecure-front
+        #- --entrypoints.web-front.http.redirections.entryPoint.scheme=https
+
+        - --entrypoints.websecure-front.address=:8443/tcp
+        - --entrypoints.websecure-front.http.middlewares=traefik-default-headers
+        - --entrypoints.websecure-front.http.tls=true
+        - --entrypoints.websecure-front.transport.respondingTimeouts.readTimeout=300
+        - --entrypoints.websecure-front.transport.respondingTimeouts.idleTimeout=0
+
+        - --certificatesResolvers.default.acme.caServer=https://acme-staging-v02.api.letsencrypt.org/directory
+        - --certificatesResolvers.default.acme.email=steffen.illium@gmail.com
+        - --certificatesResolvers.default.acme.dnsChallenge.provider=ionos
+        - --certificatesResolvers.default.acme.storage=/certs/acme.json
+
         - --api.dashboard=true
         - --ping=true
         - --metrics.prometheus=true
         - --metrics.prometheus.entrypoint=metrics
         - --providers.kubernetescrd
-        - --providers.kubernetescrd.labelSelector=local=true
+        # - --providers.kubernetescrd.labelSelector=local=true
         - --providers.kubernetescrd.allowExternalNameServices=true
-        - --entrypoints.websecure.http.middlewares=traefik-default-headers
-        - --entrypoints.websecure.http.tls=true
-        - --entrypoints.websecure.http.tls.certResolver=default
-        - --log.level=WARN
+        
         - --accesslog=true
         - --accesslog.fields.defaultmode=keep
         - --accesslog.fields.headers.defaultmode=drop
@@ -59,6 +79,11 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
+        - name: IONOS_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: ionos-secret
+              key: IONOS_API_KEY
         image: docker.io/traefik:latest
         imagePullPolicy: IfNotPresent
         livenessProbe:
@@ -71,10 +96,7 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 2
-        name: traefik
         ports:
-        - containerPort: 445
-          name: smb
         - containerPort: 53
           name: dns
           protocol: UDP
@@ -84,11 +106,17 @@ spec:
         - containerPort: 9000
           name: traefik
           protocol: TCP
+        - containerPort: 80
+          name: web-local
+          protocol: TCP
+        - containerPort: 443
+          name: websecure-local
+          protocol: TCP
         - containerPort: 8000
-          name: web
+          name: web-front
           protocol: TCP
         - containerPort: 8443
-          name: websecure
+          name: websecure-front
           protocol: TCP
         readinessProbe:
           failureThreshold: 1
@@ -103,15 +131,19 @@ spec:
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
-            drop:
-            - ALL
+            add:
+            - NET_BIND_SERVICE
           readOnlyRootFilesystem: true
         volumeMounts:
-        - mountPath: /data
-          name: data
-        - mountPath: /tmp
-          name: tmp
-      hostNetwork: false
+          - mountPath: /certs
+            name: traefik-pvc
+            subPath: certs
+          - mountPath: /data
+            name: traefik-pvc
+            subPath: data
+          - mountPath: /tmp
+            name: traefik-pvc
+            subPath: tmp
       securityContext:
         fsGroupChangePolicy: OnRootMismatch
         runAsGroup: 65532
@@ -120,8 +152,7 @@ spec:
       serviceAccountName: traefik
       terminationGracePeriodSeconds: 60
       volumes:
-      - emptyDir: {}
-        name: data
-      - emptyDir: {}
-        name: tmp
+        - name: traefik-pvc
+          persistentVolumeClaim:
+            claimName: traefik-pvc
 

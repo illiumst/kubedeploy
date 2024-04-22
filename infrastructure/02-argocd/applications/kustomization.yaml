@@ -1,10 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- apps-adguard copy 3.yaml
+- apps-adguard.yaml
 - apps-gitea.yaml
-- apps-newcloud.yaml
+- apps-nextcloud.yaml
 - apps-paperless.yaml
 - apps-vaultwarden.yaml
 - infrastructure-traefik.yaml
+- infrastructure-secrets.yaml
 - projects-website.yaml

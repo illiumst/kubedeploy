@@ -3,30 +3,26 @@ kind: IngressRoute
 metadata:
   name: paperless-ingress
   namespace: paperless
-  labels:
-    local: "true"
 spec:
   entryPoints:
-    - web
-    - websecure
+    - web-local
+    - websecure-local
   routes:
   - match: Host(`documents.steffenillium.de`)
     kind: Rule
     services:
     - name: paperless-service
-      port: 8000
+      port: http
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: paperless-ingress-front
   namespace: paperless
-  labels:
-    expose: "true"
 spec:
   entryPoints:
-    - web
-    - websecure
+    - web-front
+    - websecure-front
   routes:
   - match: Host(`documents.steffenillium.de`)
     kind: Rule
@@ -35,4 +31,4 @@ spec:
     #     namespace: authentik
     services:
     - name: paperless-service
-      port: 8000
+      port: http

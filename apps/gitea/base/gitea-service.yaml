@@ -6,12 +6,12 @@ metadata:
   name: gitea
 spec:
   ports:
-    - name: web
+    - name: http
       port: 80
-      targetPort: 3000
+      targetPort: http
     - name: ssh
       port: 22
-      targetPort: 22
+      targetPort: ssh
   selector:
     app: gitea
 status:

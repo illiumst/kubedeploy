@@ -9,8 +9,3 @@ resources:
 - base/website-namespace.yaml
 - base/website-service.yaml
 - base/website-registry-secret-sealed.yaml
-
-patches:
-- path: patches/nodeselector.yaml
-  target:
-    kind: (StatefulSet|Deployment|Job)

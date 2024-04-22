@@ -3,37 +3,18 @@ kind: IngressRoute
 metadata:
   name: adguard-ui
   namespace: adguard
-  labels:
-    local: "true"
 spec:
   entryPoints:
-    - web
-    - websecure
+    - web-front
+    - websecure-front
+    - web-local
+    - websecure-local
   routes:
   - match: Host(`adguard.steffenillium.de`) || Host(`dns.steffenillium.de`)
     kind: Rule
     services:
     - name: adguard-service
-      port: 80
----
-apiVersion: traefik.io/v1alpha1
-kind: IngressRoute
-metadata:
-  name: adguard-ui-front
-  namespace: adguard
-  labels:
-    expose: "true"
-spec:
-  entryPoints:
-    - websecure
-  routes:
-  - match: Host(`adguard.steffenillium.de`)
-    kind: Rule
-    # middlewares:
-    #   - name: authentik-middleware 
-    services:
-    - name: adguard-service
-      port: 80
+      port: http
 ---
 
 apiVersion: traefik.io/v1alpha1
@@ -41,14 +22,13 @@ kind: IngressRoute
 metadata:
   name: adguard-ui-init
   namespace: adguard
-  labels:
-    local: "true"
 spec:
   entryPoints:
-    - web
+    - web-local
+    - websecure-local
   routes:
   - match: Host(`adguard-init.steffenillium.de`)
     kind: Rule
     services:
     - name: adguard-service
-      port: 3000
+      port: http-initial

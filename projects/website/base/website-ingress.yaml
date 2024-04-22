@@ -1,17 +1,17 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  labels:
-    expose: "true"
   name: website-ingress
   namespace: website
 spec:
   entryPoints:
-    - web
-    - websecure
+    - web-front
+    - websecure-front
+    - web-local
+    - websecure-local
   routes:
   - match: Host(`www.steffenillium.de`) || Host(`steffenillium.de`) 
     kind: Rule
     services:
     - name: website
-      port: 80
+      port: http

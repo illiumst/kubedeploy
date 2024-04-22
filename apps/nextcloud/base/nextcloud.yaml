@@ -71,7 +71,8 @@ spec:
                   name: nextcloud-secret
                   key: MYSQL_PASSWORD
           ports:
-            - containerPort: 80
+            - name: http
+              containerPort: 80
               protocol: TCP
           resources: {}
           volumeMounts:
