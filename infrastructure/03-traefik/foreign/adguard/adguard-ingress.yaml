@@ -8,7 +8,7 @@ spec:
     - web-local
     - websecure-local
   routes:
-  - match: Host(`adguard.steffenillium.de`)
+  - match: Host(`adguard.steffenillium.de`) || Host(`dns.steffenillium.de`)
     kind: Rule
     services:
     - name: adguard-service
