@@ -1,3 +1,4 @@
 resources:
   - home-assistant
   - fritz
+  - adguard
