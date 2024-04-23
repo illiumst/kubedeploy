@@ -1,3 +1,3 @@
 resources:
-  - adguard-ingress.yaml
-  - adguard-service.yaml
+  - ingress.yaml
+  - service.yaml

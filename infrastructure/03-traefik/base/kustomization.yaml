@@ -6,9 +6,9 @@ namespace: traefik
 resources:
 - cert
 - crds
-- deployment-traefik.yaml
+- deployment.yaml
 - networking
 - security
-- traefik-middleware-default-headers.yaml
-- traefik-namespace.yaml
-- traefik-pvc.yaml
+- mid-default-headers.yaml
+- namespace.yaml
+- pvc.yaml
