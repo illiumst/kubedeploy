@@ -7,7 +7,7 @@ spec:
   type: ExternalName
   externalName: 10.6.0.1
   ports:
-    - port: 80
+    - port: 5182
       targetPort: 5182
       protocol: TCP
       name: http
