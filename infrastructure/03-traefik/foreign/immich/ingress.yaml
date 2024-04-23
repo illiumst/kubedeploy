@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - web-local
     - websecure-local
-    - websecure-remote
+    - websecure-front
   routes:
   - match: Host(`photos.steffenillium.de`) || Host(`immich.steffenillium.de`)
     kind: Rule
