@@ -7,7 +7,7 @@ spec:
   type: ExternalName
   externalName: 192.168.178.4
   ports:
-    - port: 80
+    - port: 8200
       targetPort: 8200
       protocol: TCP
       name: http
