@@ -1,7 +1,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: minio-frontend
+  name: minio
 spec:
   entryPoints:
     - web-local
@@ -10,5 +10,5 @@ spec:
   - match: Host(`minio.steffenillium.de`)
     kind: Rule
     services:
-    - name: minio-operator
+    - name: operator
       port: http
