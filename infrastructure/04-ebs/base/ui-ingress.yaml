@@ -1,13 +1,13 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: minio
+  name: ebs
 spec:
   entryPoints:
     - web-local
     - websecure-local
   routes:
-  - match: Host(`minio.steffenillium.de`)
+  - match: Host(`ebs.steffenillium.de`)
     kind: Rule
     services:
     - name: console
