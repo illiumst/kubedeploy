@@ -10,5 +10,5 @@ spec:
   - match: Host(`minio.steffenillium.de`)
     kind: Rule
     services:
-    - name: operator
+    - name: console
       port: http
