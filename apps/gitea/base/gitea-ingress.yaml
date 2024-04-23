@@ -5,7 +5,6 @@ metadata:
   namespace: gitea
 spec:
   entryPoints:
-    - web-front
     - websecure-front
     - web-local
     - websecure-local

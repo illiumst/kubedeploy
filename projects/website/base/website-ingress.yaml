@@ -5,7 +5,6 @@ metadata:
   namespace: website
 spec:
   entryPoints:
-    - web-front
     - websecure-front
     - web-local
     - websecure-local

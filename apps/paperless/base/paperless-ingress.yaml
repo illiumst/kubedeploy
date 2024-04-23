@@ -21,7 +21,6 @@ metadata:
   namespace: paperless
 spec:
   entryPoints:
-    - web-front
     - websecure-front
   routes:
   - match: Host(`documents.steffenillium.de`)
