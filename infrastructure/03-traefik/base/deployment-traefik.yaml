@@ -59,7 +59,7 @@ spec:
         # - --providers.kubernetescrd.labelSelector=local=true
         - --providers.kubernetescrd.allowExternalNameServices=true
         
-        - --accesslog=true
+        - --accesslog=false
         - --accesslog.fields.defaultmode=keep
         - --accesslog.fields.headers.defaultmode=drop
         - --serversTransport.insecureSkipVerify=true

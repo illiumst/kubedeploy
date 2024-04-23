@@ -2,3 +2,4 @@ resources:
   - home-assistant
   - fritz
   - adguard
+  - wgui
