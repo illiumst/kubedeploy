@@ -34,7 +34,7 @@ data:
   # Enable the default version of the CSI RBD driver. To start another version of the CSI driver, see image properties below.
   ROOK_CSI_ENABLE_RBD: "true"
   # Enable the CSI NFS driver. To start another version of the CSI driver, see image properties below.
-  ROOK_CSI_ENABLE_NFS: "false"
+  ROOK_CSI_ENABLE_NFS: "true"
   # Disable the CSI driver.
   ROOK_CSI_DISABLE_DRIVER: "false"
 
@@ -75,7 +75,7 @@ data:
   # CSI_DRIVER_NAME_PREFIX: "rook-ceph"
 
   # Set replicas for csi provisioner deployment.
-  CSI_PROVISIONER_REPLICAS: "2"
+  CSI_PROVISIONER_REPLICAS: "3"
 
   # OMAP generator will generate the omap mapping between the PV name and the RBD image.
   # CSI_ENABLE_OMAP_GENERATOR need to be enabled when we are using rbd mirroring feature.
@@ -130,7 +130,7 @@ data:
   # ROOK_CSI_ATTACHER_IMAGE: "registry.k8s.io/sig-storage/csi-attacher:v4.5.0"
 
   # To indicate the image pull policy to be applied to all the containers in the csi driver pods.
-  # ROOK_CSI_IMAGE_PULL_POLICY: "IfNotPresent"
+  ROOK_CSI_IMAGE_PULL_POLICY: "IfNotPresent"
 
   # (Optional) set user created priorityclassName for csi plugin pods.
   CSI_PLUGIN_PRIORITY_CLASSNAME: "system-node-critical"
@@ -500,7 +500,7 @@ data:
   # The timeout value (in seconds) of Ceph commands. It should be >= 1. If this variable is not set or is an invalid value, it's default to 15.
   ROOK_CEPH_COMMANDS_TIMEOUT_SECONDS: "15"
   # Enable the csi addons sidecar.
-  CSI_ENABLE_CSIADDONS: "false"
+  CSI_ENABLE_CSIADDONS: "true"
   # Enable watch for faster recovery from rbd rwo node loss
   ROOK_WATCH_FOR_NODE_FAILURE: "true"
   # ROOK_CSIADDONS_IMAGE: "quay.io/csiaddons/k8s-sidecar:v0.8.0"
