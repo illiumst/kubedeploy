@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: rook-dashboard
+  namespace: rook-ceph
+spec:
+  entryPoints:
+    - web-local
+    - websecure-local
+  routes:
+  - match: Host(`rook.steffenillium.de`)
+    kind: Rule
+    services:
+    - name: rook-ceph-dashboard
+      port: 80
