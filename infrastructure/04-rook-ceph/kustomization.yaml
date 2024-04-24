@@ -5,6 +5,7 @@ namespace: rook-ceph
 
 resources:
   - base/ingress.yaml
+  - base/toolbox.yaml
   - base/cluster.yaml
   - base/operator.yaml
   - base/common.yaml
