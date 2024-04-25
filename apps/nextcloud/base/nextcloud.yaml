@@ -87,8 +87,8 @@ spec:
               protocol: TCP
           resources:
             limits:
-              cpu: "0.5"
-              memory: "6Gi"
+              cpu: "0.4"
+              memory: "4Gi"
           volumeMounts:
             - mountPath: /var/www/html
               name: nextcloud-pvc
