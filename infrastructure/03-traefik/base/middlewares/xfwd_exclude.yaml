@@ -7,6 +7,8 @@ metadata:
 spec:
   ipAllowList:
     ipStrategy:
+      sourceRange:
+        - 0.0.0.0/0
       excludedIPs:
         - 127.0.0.1/32
         - 10.0.0.0/8
