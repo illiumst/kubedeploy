@@ -85,10 +85,7 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
-          resources:
-            limits:
-              cpu: "0.4"
-              memory: "4Gi"
+          resources: {}
           volumeMounts:
             - mountPath: /var/www/html
               name: nextcloud-pvc
