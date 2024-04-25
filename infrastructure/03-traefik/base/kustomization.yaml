@@ -9,6 +9,6 @@ resources:
 - deployment.yaml
 - networking
 - security
-- mid-default-headers.yaml
+- middlewares
 - namespace.yaml
 - pvc.yaml

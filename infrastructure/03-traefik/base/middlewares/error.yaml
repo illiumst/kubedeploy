@@ -1,0 +1,13 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: error
+  namespace: traefik
+spec:
+  errors:
+    status:
+      - "400-599"
+    service: 
+      name: website
+      port: 80
+    query: "https://steffenillium.de/404.html"
