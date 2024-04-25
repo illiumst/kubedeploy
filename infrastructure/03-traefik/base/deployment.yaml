@@ -38,7 +38,7 @@ spec:
           - --entrypoints.web-local.transport.respondingTimeouts.idleTimeout=0
 
           - --entrypoints.websecure-local.address=:443/tcp
-          - --entrypoints.websecure-local.http.middlewares=no-auth-chain
+          - --entrypoints.websecure-local.http.middlewares=default-headers
           - --entrypoints.websecure-local.http.tls=true
           - --entrypoints.websecure-local.transport.respondingTimeouts.readTimeout=300
           - --entrypoints.websecure-local.transport.respondingTimeouts.idleTimeout=0
