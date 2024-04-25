@@ -5,7 +5,7 @@ metadata:
   name: xfwd-exclude
   namespace: traefik
 spec:
-  IPAllowList:
+  ipAllowList:
     ipStrategy:
       excludedIPs:
         - 127.0.0.1/32
