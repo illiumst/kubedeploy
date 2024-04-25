@@ -6,9 +6,9 @@ metadata:
 spec:
   chain:
     middlewares:
-      - rate_limit
-      - compress
-      - error
-      - xfwd_exclude
-      - default-headers
+      - name: rate_limit
+      - name: compress
+      - name: error
+      - name: xfwd_exclude
+      - name: default-headers
       
