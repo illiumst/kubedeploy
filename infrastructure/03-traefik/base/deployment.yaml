@@ -44,7 +44,7 @@ spec:
           - --entrypoints.websecure-local.transport.respondingTimeouts.idleTimeout=0
 
           - --entrypoints.websecure-front.address=:8443/tcp
-          - --entrypoints.websecure-front.http.middlewares=no-auth-chain
+          - --entrypoints.websecure-front.http.middlewares=default-headers
           - --entrypoints.websecure-front.http.tls=true
           - --entrypoints.websecure-front.transport.respondingTimeouts.readTimeout=300
           - --entrypoints.websecure-front.transport.respondingTimeouts.idleTimeout=0
@@ -59,7 +59,7 @@ spec:
           - --metrics.prometheus=true
           - --metrics.prometheus.entrypoint=metrics
           - --providers.kubernetescrd
-          - --providers.kubernetescrd.labelSelector=local=true
+          # - --providers.kubernetescrd.labelSelector=local=true
           - --providers.kubernetescrd.allowExternalNameServices=true
           
           - --accesslog=false
