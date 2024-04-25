@@ -2,7 +2,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: xfwd_exclude
+  name: xfwd-exclude
 spec:
   ipWhiteList:
     ipStrategy:
