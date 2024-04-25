@@ -59,12 +59,11 @@ spec:
           - --metrics.prometheus=true
           - --metrics.prometheus.entrypoint=metrics
           - --providers.kubernetescrd
-          # - --providers.kubernetescrd.labelSelector=local=true
           - --providers.kubernetescrd.allowExternalNameServices=true
           
           - --accesslog=false
           - --accesslog.fields.defaultmode=keep
-          - --accesslog.fields.headers.defaultmode=drop
+          - --accesslog.fields.headers.defaultmode=keep
           - --serversTransport.insecureSkipVerify=true
           - --log.level=INFO
         env:
