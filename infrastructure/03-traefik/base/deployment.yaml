@@ -38,13 +38,13 @@ spec:
           - --entrypoints.web-local.transport.respondingTimeouts.idleTimeout=0
 
           - --entrypoints.websecure-local.address=:443/tcp
-          - --entrypoints.websecure-local.http.middlewares=traefik-default-headers
+          - --entrypoints.websecure-local.http.middlewares=traefik-no-auth-chain
           - --entrypoints.websecure-local.http.tls=true
           - --entrypoints.websecure-local.transport.respondingTimeouts.readTimeout=300
           - --entrypoints.websecure-local.transport.respondingTimeouts.idleTimeout=0
 
           - --entrypoints.websecure-front.address=:8443/tcp
-          - --entrypoints.websecure-front.http.middlewares=traefik-default-headers
+          - --entrypoints.websecure-front.http.middlewares=traefik-no-auth-chain
           - --entrypoints.websecure-front.http.tls=true
           - --entrypoints.websecure-front.transport.respondingTimeouts.readTimeout=300
           - --entrypoints.websecure-front.transport.respondingTimeouts.idleTimeout=0
