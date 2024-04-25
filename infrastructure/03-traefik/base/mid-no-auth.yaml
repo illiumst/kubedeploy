@@ -1,0 +1,37 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: no-auth
+  namespace: traefik
+
+spec:
+  mid_error:
+    errors:
+      status:
+        - "400-599"
+      service: "srv_web@docker"
+      query: "https://steffenillium.de"
+
+  mid_compress:
+    compress: {}
+
+  mid_rate_limit:
+    rateLimit:
+      average: 50
+      burst: 200
+
+  mid_auth:
+    forwardAuth:
+      address: "http://oauth:4181"
+      trustForwardHeader: true
+      authResponseHeaders:
+        - "X-Forwarded-User"
+
+  noauth:
+    chain:
+      middlewares:
+        - mid_rate_limit
+        - mid_compress
+        - crowdsec
+        # - mid_error
+

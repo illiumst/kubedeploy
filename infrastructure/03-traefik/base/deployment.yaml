@@ -21,63 +21,66 @@ spec:
         app: traefik
     spec: 
       containers:
-      - resources: {}
+      - resources:
+          limits:
+            cpu: "0.1"
+            memory: "512Mi"
         name: traefik         
         args:
-        - --global.sendanonymoususage=false
-        - --global.checknewversion=false
-        - --entrypoints.metrics.address=:9100/tcp
-        - --entrypoints.traefik.address=:9000/tcp
-        - --entrypoints.dns.address=:53/udp
+          - --global.sendanonymoususage=false
+          - --global.checknewversion=false
+          - --entrypoints.metrics.address=:9100/tcp
+          - --entrypoints.traefik.address=:9000/tcp
+          - --entrypoints.dns.address=:53/udp
 
-        - --entrypoints.web-local.address=:80/tcp
-        - --entrypoints.web-local.transport.respondingTimeouts.readTimeout=300
-        - --entrypoints.web-local.transport.respondingTimeouts.idleTimeout=0
+          - --entrypoints.web-local.address=:80/tcp
+          - --entrypoints.web-local.transport.respondingTimeouts.readTimeout=300
+          - --entrypoints.web-local.transport.respondingTimeouts.idleTimeout=0
 
-        - --entrypoints.websecure-local.address=:443/tcp
-        - --entrypoints.websecure-local.http.middlewares=traefik-default-headers
-        - --entrypoints.websecure-local.http.tls=true
-        - --entrypoints.websecure-local.transport.respondingTimeouts.readTimeout=300
-        - --entrypoints.websecure-local.transport.respondingTimeouts.idleTimeout=0
+          - --entrypoints.websecure-local.address=:443/tcp
+          - --entrypoints.websecure-local.http.middlewares=traefik-default-headers
+          - --entrypoints.websecure-local.http.tls=true
+          - --entrypoints.websecure-local.transport.respondingTimeouts.readTimeout=300
+          - --entrypoints.websecure-local.transport.respondingTimeouts.idleTimeout=0
 
-        - --entrypoints.websecure-front.address=:8443/tcp
-        - --entrypoints.websecure-front.http.middlewares=traefik-default-headers
-        - --entrypoints.websecure-front.http.tls=true
-        - --entrypoints.websecure-front.transport.respondingTimeouts.readTimeout=300
-        - --entrypoints.websecure-front.transport.respondingTimeouts.idleTimeout=0
+          - --entrypoints.websecure-front.address=:8443/tcp
+          - --entrypoints.websecure-front.http.middlewares=traefik-default-headers
+          - --entrypoints.websecure-front.http.tls=true
+          - --entrypoints.websecure-front.transport.respondingTimeouts.readTimeout=300
+          - --entrypoints.websecure-front.transport.respondingTimeouts.idleTimeout=0
 
-        - --certificatesResolvers.default.acme.caServer=https://acme-v02.api.letsencrypt.org/directory
-        - --certificatesResolvers.default.acme.email=steffen.illium@gmail.com
-        - --certificatesResolvers.default.acme.dnsChallenge.provider=ionos
-        - --certificatesResolvers.default.acme.storage=/certs/acme.json
+          - --certificatesResolvers.default.acme.caServer=https://acme-v02.api.letsencrypt.org/directory
+          - --certificatesResolvers.default.acme.email=steffen.illium@gmail.com
+          - --certificatesResolvers.default.acme.dnsChallenge.provider=ionos
+          - --certificatesResolvers.default.acme.storage=/certs/acme.json
 
-        - --api.dashboard=true
-        - --ping=true
-        - --metrics.prometheus=true
-        - --metrics.prometheus.entrypoint=metrics
-        - --providers.kubernetescrd
-        # - --providers.kubernetescrd.labelSelector=local=true
-        - --providers.kubernetescrd.allowExternalNameServices=true
-        
-        - --accesslog=false
-        - --accesslog.fields.defaultmode=keep
-        - --accesslog.fields.headers.defaultmode=drop
-        - --serversTransport.insecureSkipVerify=true
-        - --log.level=INFO
+          - --api.dashboard=true
+          - --ping=true
+          - --metrics.prometheus=true
+          - --metrics.prometheus.entrypoint=metrics
+          - --providers.kubernetescrd
+          # - --providers.kubernetescrd.labelSelector=local=true
+          - --providers.kubernetescrd.allowExternalNameServices=true
+          
+          - --accesslog=false
+          - --accesslog.fields.defaultmode=keep
+          - --accesslog.fields.headers.defaultmode=drop
+          - --serversTransport.insecureSkipVerify=true
+          - --log.level=INFO
         env:
-        - name: POD_NAME
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.name
-        - name: POD_NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
-        - name: IONOS_API_KEY
-          valueFrom:
-            secretKeyRef:
-              name: ionos-secret
-              key: IONOS_API_KEY
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: IONOS_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: ionos-secret
+                key: IONOS_API_KEY
         image: docker.io/traefik:latest
         imagePullPolicy: IfNotPresent
         livenessProbe:

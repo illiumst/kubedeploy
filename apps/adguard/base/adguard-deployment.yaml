@@ -36,7 +36,10 @@ spec:
           mountPath: /opt/adguardhome/work
         - name: adguard-pvc
           mountPath: /opt/adguardhome/conf
-        resources: {}
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "512Mi"
       volumes:
         - name: adguard-pvc
           nfs:
