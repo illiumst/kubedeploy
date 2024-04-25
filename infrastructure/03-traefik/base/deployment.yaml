@@ -38,13 +38,13 @@ spec:
           - --entrypoints.web-local.transport.respondingTimeouts.idleTimeout=0
 
           - --entrypoints.websecure-local.address=:443/tcp
-          - --entrypoints.websecure-local.http.middlewares=default-headers
+          - --entrypoints.websecure-local.http.middlewares=traefik-default-headers
           - --entrypoints.websecure-local.http.tls=true
           - --entrypoints.websecure-local.transport.respondingTimeouts.readTimeout=300
           - --entrypoints.websecure-local.transport.respondingTimeouts.idleTimeout=0
 
           - --entrypoints.websecure-front.address=:8443/tcp
-          - --entrypoints.websecure-front.http.middlewares=default-headers
+          - --entrypoints.websecure-front.http.middlewares=traefik-default-headers
           - --entrypoints.websecure-front.http.tls=true
           - --entrypoints.websecure-front.transport.respondingTimeouts.readTimeout=300
           - --entrypoints.websecure-front.transport.respondingTimeouts.idleTimeout=0
@@ -59,11 +59,12 @@ spec:
           - --metrics.prometheus=true
           - --metrics.prometheus.entrypoint=metrics
           - --providers.kubernetescrd
+          # - --providers.kubernetescrd.labelSelector=local=true
           - --providers.kubernetescrd.allowExternalNameServices=true
           
           - --accesslog=false
           - --accesslog.fields.defaultmode=keep
-          - --accesslog.fields.headers.defaultmode=keep
+          - --accesslog.fields.headers.defaultmode=drop
           - --serversTransport.insecureSkipVerify=true
           - --log.level=INFO
         env:
