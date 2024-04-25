@@ -8,7 +8,6 @@ resources:
   - base/toolbox.yaml
   - base/cluster.yaml
   - base/operator.yaml
-  - base/psp.yaml
   - base/nfs-rbac.yaml
   - base/common.yaml
   - base/crds.yaml
