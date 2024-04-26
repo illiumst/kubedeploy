@@ -4,3 +4,4 @@ resources:
   - adguard
   - wgui
   - immich
+  - website-service.yaml
