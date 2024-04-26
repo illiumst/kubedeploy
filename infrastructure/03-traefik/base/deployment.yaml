@@ -62,10 +62,10 @@ spec:
           # - --providers.kubernetescrd.labelSelector=local=true
           - --providers.kubernetescrd.allowExternalNameServices=true
           
-          - --accesslog=false
+          - --accesslog=true
           - --accesslog.fields.defaultmode=keep
           - --accesslog.fields.headers.defaultmode=drop
-          - --serversTransport.insecureSkipVerify=true
+          - --serversTransport.insecureSkipVerify=false
           - --log.level=INFO
         env:
           - name: POD_NAME

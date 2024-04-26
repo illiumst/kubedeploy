@@ -15,4 +15,5 @@ spec:
     customRequestHeaders:
       X-Forwarded-Proto: https
     accessControlMaxAge: 300
+    sslRedirect: true
     referrerPolicy: "no-referrer"
