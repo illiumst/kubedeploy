@@ -9,6 +9,6 @@ spec:
       - name: ratelimit
       - name: compress
       - name: error
-      # - name: xfwd-exclude
+      - name: xfwd-exclude
       - name: default-headers
       
