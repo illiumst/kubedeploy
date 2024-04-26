@@ -11,6 +11,10 @@ spec:
     stsIncludeSubdomains: true
     stsPreload: true
     stsSeconds: 15552000
-    customFrameOptionsValue: SAMEORIGIN
+    featurePolicy: "camera 'none'; geolocation 'none'; microphone 'none'; payment 'none'; usb 'none'; vr 'none';"
+    customFrameOptionsValue: "SAMEORIGIN"
     customRequestHeaders:
       X-Forwarded-Proto: https
+    accessControlMaxAge: 300
+    sslRedirect: true
+    referrerPolicy: "no-referrer"
