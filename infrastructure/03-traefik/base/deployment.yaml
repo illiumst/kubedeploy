@@ -40,14 +40,14 @@ spec:
           - --entrypoints.websecure-local.address=:443/tcp
           - --entrypoints.websecure-local.http.middlewares=traefik-no-auth-chain
           - --entrypoints.websecure-local.http.tls=true
-          - --entrypoints.websecure-local.transport.respondingTimeouts.readTimeout=300
-          - --entrypoints.websecure-local.transport.respondingTimeouts.idleTimeout=0
+          # - --entrypoints.websecure-local.transport.respondingTimeouts.readTimeout=300
+          # - --entrypoints.websecure-local.transport.respondingTimeouts.idleTimeout=0
 
           - --entrypoints.websecure-front.address=:8443/tcp
           - --entrypoints.websecure-front.http.middlewares=traefik-no-auth-chain
           - --entrypoints.websecure-front.http.tls=true
-          - --entrypoints.websecure-front.transport.respondingTimeouts.readTimeout=300
-          - --entrypoints.websecure-front.transport.respondingTimeouts.idleTimeout=0
+          # - --entrypoints.websecure-front.transport.respondingTimeouts.readTimeout=300
+          # - --entrypoints.websecure-front.transport.respondingTimeouts.idleTimeout=0
 
           - --certificatesResolvers.default.acme.caServer=https://acme-v02.api.letsencrypt.org/directory
           - --certificatesResolvers.default.acme.email=steffen.illium@gmail.com
@@ -63,9 +63,9 @@ spec:
           - --providers.kubernetescrd.allowExternalNameServices=true
           
           - --accesslog=true
-          - --accesslog.fields.defaultmode=keep
-          - --accesslog.fields.headers.defaultmode=drop
-          - --serversTransport.insecureSkipVerify=false
+          # - --accesslog.fields.defaultmode=keep
+          # - --accesslog.fields.headers.defaultmode=drop
+          # - --serversTransport.insecureSkipVerify=false
           - --log.level=INFO
         env:
           - name: POD_NAME
