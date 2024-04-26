@@ -40,12 +40,15 @@ spec:
           - --entrypoints.websecure-local.address=:443/tcp
           - --entrypoints.websecure-local.http.middlewares=traefik-no-auth-chain
           - --entrypoints.websecure-local.http.tls=true
+          - --entryPoints.websecure-local.http.tls.certResolver=default
+
           # - --entrypoints.websecure-local.transport.respondingTimeouts.readTimeout=300
           # - --entrypoints.websecure-local.transport.respondingTimeouts.idleTimeout=0
 
           - --entrypoints.websecure-front.address=:8443/tcp
           - --entrypoints.websecure-front.http.middlewares=traefik-no-auth-chain
           - --entrypoints.websecure-front.http.tls=true
+          - --entryPoints.websecure-front.http.tls.certResolver=default
           # - --entrypoints.websecure-front.transport.respondingTimeouts.readTimeout=300
           # - --entrypoints.websecure-front.transport.respondingTimeouts.idleTimeout=0
 

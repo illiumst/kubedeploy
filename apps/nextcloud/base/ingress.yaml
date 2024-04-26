@@ -6,7 +6,6 @@ metadata:
 spec:
   entryPoints:
     - websecure-front
-    - web-local
     - websecure-local
   routes:
   - match: Host(`newcloud.steffenillium.de`)
@@ -16,3 +15,4 @@ spec:
       port: 80
     middlewares:
     - name: redirect
+  tls: {}

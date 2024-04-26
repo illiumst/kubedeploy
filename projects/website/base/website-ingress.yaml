@@ -14,3 +14,4 @@ spec:
     services:
     - name: website
       port: http
+  tls: {}
