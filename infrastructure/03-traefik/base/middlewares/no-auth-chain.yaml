@@ -8,7 +8,7 @@ spec:
     middlewares:
       - name: ratelimit
       - name: compress
-      # - name: error
+      - name: error
       - name: xfwd-exclude
       - name: default-headers
       

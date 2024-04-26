@@ -14,3 +14,5 @@ spec:
     services:
     - name: nextcloud
       port: 80
+    middlewares:
+    - name: nextcloud
