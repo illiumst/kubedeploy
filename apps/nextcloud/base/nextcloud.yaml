@@ -17,6 +17,14 @@ spec:
         app: nextcloud
     spec:
       containers:
+        - name: cron
+          image: nextcloud
+          volumeMounts:
+            - mountPath: /var/www/html
+              name: nextcloud-pvc
+              subPath: html
+          command: [ "/cron.sh" ]
+          resources: {}
         - image: mariadb
           name: mariadb
           args:
