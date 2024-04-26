@@ -34,8 +34,8 @@ spec:
           - --entrypoints.dns.address=:53/udp
 
           - --entrypoints.web-local.address=:80/tcp
-          - "--entrypoints.web-local.http.redirections.entrypoint.to=websecure-local"
-          - "--entrypoints.web-local.http.redirections.entrypoint.scheme=https"
+          - --entrypoints.web-local.http.redirections.entrypoint.to=websecure-local
+          - --entrypoints.web-local.http.redirections.entrypoint.scheme=https
 
           - --entrypoints.websecure-local.address=:443/tcp
           - --entrypoints.websecure-local.http.middlewares=traefik-no-auth-chain

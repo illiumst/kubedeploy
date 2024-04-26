@@ -39,7 +39,7 @@ spec:
   ports:
   # Front
   - name: websecure
-    port: 443
+    port: 8443
     protocol: TCP
     targetPort: websecure-front
     nodePort: 30443
