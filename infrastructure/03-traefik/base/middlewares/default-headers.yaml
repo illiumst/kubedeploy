@@ -6,7 +6,6 @@ metadata:
 spec:
   headers:
     browserXssFilter: true
-    Permissions-Policy: "geolocation=(self)"
     contentTypeNosniff: true
     forceSTSHeader: true
     stsIncludeSubdomains: true
