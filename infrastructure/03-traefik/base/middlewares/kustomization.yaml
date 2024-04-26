@@ -7,4 +7,4 @@ resources:
 - error.yaml
 - no-auth-chain.yaml
 - rate-limit.yaml
-# - xfwd_exclude.yaml
+- xfwd_exclude.yaml
