@@ -5,11 +5,11 @@ metadata:
   namespace: argocd
 spec:
   entryPoints:
-    - web-local
-    - websecure-local
+  - websecure-local
   routes:
   - match: Host(`argocd.steffenillium.de`)
     kind: Rule
+    tls: {}
     services:
     - name: argocd-server
       port: 80

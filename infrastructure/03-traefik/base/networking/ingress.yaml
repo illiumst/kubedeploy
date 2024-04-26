@@ -5,11 +5,11 @@ metadata:
   namespace: traefik
 spec:
   entryPoints:
-    - web-local
     - websecure-local
   routes:
   - match: Host(`traefik.steffenillium.de`)
     kind: Rule
+    tls: {}
     services:
     - name: api@internal
       kind: TraefikService

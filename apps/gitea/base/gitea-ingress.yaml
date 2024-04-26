@@ -11,6 +11,7 @@ spec:
   routes:
   - match: Host(`gitea.steffenillium.de`)
     kind: Rule
+    tls: {}
     services:
     - name: gitea
       port: http

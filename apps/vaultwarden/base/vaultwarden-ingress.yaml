@@ -6,11 +6,11 @@ metadata:
 spec:
   entryPoints:
     - websecure-front
-    - web-local
     - websecure-local
   routes:
   - match: Host(`vault.steffenillium.de`)
     kind: Rule
+    tls: {}
     services:
     - name: vaultwarden
       port: 80

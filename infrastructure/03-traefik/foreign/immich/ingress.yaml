@@ -5,12 +5,12 @@ metadata:
   namespace: traefik
 spec:
   entryPoints:
-    - web-local
     - websecure-local
     - websecure-front
   routes:
   - match: Host(`photos.steffenillium.de`) || Host(`immich.steffenillium.de`)
     kind: Rule
+    tls: {}
     services:
     - name: immich
       port: http
