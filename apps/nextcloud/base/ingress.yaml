@@ -15,5 +15,4 @@ spec:
     - name: nextcloud
       port: 80
     middlewares:
-    - name: response
     - name: redirect

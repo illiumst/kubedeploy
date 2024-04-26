@@ -7,16 +7,3 @@ spec:
     regex: "https://(.*)/.well-known/(card|cal)dav"
     replacement: "https://${1}/remote.php/dav/"
     permanent: true
-
----
-
-apiVersion: traefik.io/v1alpha1
-kind: Middleware
-metadata:
-  name: response
-spec:
-  headers:
-    customResponseHeaders:
-      ### Change this to none to remove the Robots error:
-        X-Robots-Tag: "noindex, nofollow"
-        server: ""
