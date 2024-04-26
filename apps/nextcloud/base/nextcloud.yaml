@@ -2,23 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: nextcloud-app
-  name: nextcloud-app
+    app: nextcloud
+  name: nextcloud
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nextcloud-app
+      app: nextcloud
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: nextcloud-app
+        app: nextcloud
     spec:
       containers:
         - image: mariadb
-          name: nextcloud-db
+          name: mariadb
           args:
             - --transaction-isolation=READ-COMMITTED
             - --binlog-format=ROW
@@ -46,7 +46,8 @@ spec:
               cpu: "0.2"
               memory: "2Gi"
           ports:
-            - containerPort: 3306
+            - name: mariadb
+              containerPort: 3306
               protocol: TCP
           volumeMounts:
             - mountPath: /var/lib/mysql
@@ -59,10 +60,11 @@ spec:
               cpu: "0.1"
               memory: "2Gi"
           ports:
-            - containerPort: 6379
+            - name: redis
+              containerPort: 6379
               protocol: TCP
         - image: nextcloud
-          name: nextcloud-app
+          name: nextcloud
           env:
             - name: MYSQL_DATABASE
               value: nextcloud
@@ -82,7 +84,7 @@ spec:
                   name: nextcloud-secret
                   key: MYSQL_PASSWORD
           ports:
-            - name: http
+            - name: nextcloud
               containerPort: 80
               protocol: TCP
           resources: {}

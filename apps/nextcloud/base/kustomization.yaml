@@ -6,8 +6,8 @@ namespace: nextcloud
 resources:
 - nextcloud.yaml
 # - nextcloud-app-pvc.yaml
-- nextcloud-app-service.yaml
+- service.yaml
 # - nextcloud-db-pvc
-- nextcloud-ingress.yaml
-- nextcloud-secret-sealed.yaml
-- nextcloud-namespace.yaml
+- ingress.yaml
+- secret-sealed.yaml
+- namespace.yaml

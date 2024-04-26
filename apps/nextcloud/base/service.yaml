@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nextcloud-service
+  name: nextcloud
 spec:
   ports:
     - name: http
       port: 80
-      targetPort: http
+      targetPort: nextcloud
   selector:
-    app: nextcloud-app
+    app: nextcloud
