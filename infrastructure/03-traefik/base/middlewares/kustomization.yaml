@@ -8,4 +8,3 @@ resources:
 - no-auth-chain.yaml
 - rate-limit.yaml
 - xfwd_exclude.yaml
-- nextcloud.yaml
