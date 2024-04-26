@@ -9,5 +9,5 @@ spec:
       - "400-599"
     service: 
       name: website
-      port: 443
+      port: 80
     query: "/404.html"
