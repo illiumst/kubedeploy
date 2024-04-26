@@ -1,0 +1,12 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: bouncer
+  namespace: traefik
+spec:
+  plugin:
+    bouncer:
+      enabled: true
+      crowdsecMode: stream
+      crowdsecLapiScheme: https
+      crowdsecLapiHost: crowdsec-service.crowdsec:8080
