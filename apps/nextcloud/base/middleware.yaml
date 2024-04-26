@@ -15,7 +15,8 @@ kind: Middleware
 metadata:
   name: response
 spec:
-  customResponseHeaders:
-    ### Change this to none to remove the Robots error:
-      X-Robots-Tag: "noindex, nofollow"
-      server: ""
+  headers:
+    customResponseHeaders:
+      ### Change this to none to remove the Robots error:
+        X-Robots-Tag: "noindex, nofollow"
+        server: ""
