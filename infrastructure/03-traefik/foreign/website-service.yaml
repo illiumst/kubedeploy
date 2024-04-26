@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: website
+  namespace: traefik
+spec:
+  type: ExternalName
+  externalName: website.website.svc.cluster.local
+  ports:
+  - port: 80

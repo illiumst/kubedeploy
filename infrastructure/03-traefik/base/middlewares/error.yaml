@@ -8,6 +8,6 @@ spec:
     status:
       - "400-599"
     service: 
-      name: traefik-front
+      name: website
       port: 443
-    query: "https://steffenillium.de/404.html"
+    query: "/404.html"
