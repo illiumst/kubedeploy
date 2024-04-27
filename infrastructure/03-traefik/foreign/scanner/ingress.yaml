@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: scanner
+  namespace: traefik
+spec:
+  entryPoints:
+    - websecure-local
+  tls: {}
+  routes:
+  - match: Host(`scanner.steffenillium.de`)
+    kind: Rule
+    services:
+    - name: scanner
+      port: http
+
