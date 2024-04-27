@@ -8,10 +8,10 @@ spec:
     - websecure-front
     - web-local
     - websecure-local
+  tls: {}
   routes:
   - match: Host(`gitea.steffenillium.de`)
     kind: Rule
-    tls: {}
     services:
     - name: gitea
       port: http

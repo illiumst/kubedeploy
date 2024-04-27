@@ -5,12 +5,11 @@ metadata:
   namespace: adguard
 spec:
   entryPoints:
-    - websecure-front
     - websecure-local
+  tls: {}
   routes:
   - match: Host(`adguard.steffenillium.de`) || Host(`dns.steffenillium.de`)
     kind: Rule
-    tls: {}
     services:
     - name: adguard-service
       port: http
@@ -24,10 +23,10 @@ metadata:
 spec:
   entryPoints:
     - websecure-local
+  tls: {}
   routes:
   - match: Host(`adguard-init.steffenillium.de`)
     kind: Rule
-    tls: {}
     services:
     - name: adguard-service
       port: http-initial

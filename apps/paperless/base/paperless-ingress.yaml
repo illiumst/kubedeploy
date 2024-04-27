@@ -6,10 +6,10 @@ metadata:
 spec:
   entryPoints:
     - websecure-local
+  tls: {}
   routes:
   - match: Host(`documents.steffenillium.de`)
     kind: Rule
-    tls: {}
     services:
     - name: paperless-service
       port: http
@@ -19,10 +19,10 @@ kind: IngressRoute
 metadata:
   name: paperless-ingress-front
   namespace: paperless
-  tls: {}
 spec:
   entryPoints:
     - websecure-front
+  tls: {}
   routes:
   - match: Host(`documents.steffenillium.de`)
     kind: Rule

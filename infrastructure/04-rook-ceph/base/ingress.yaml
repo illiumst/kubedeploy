@@ -6,10 +6,10 @@ metadata:
 spec:
   entryPoints:
     - websecure-local
+  tls: {}
   routes:
   - match: Host(`rook.steffenillium.de`)
     kind: Rule
-    tls: {}
     services:
     - name: rook-ceph-mgr-dashboard
       port: 7000

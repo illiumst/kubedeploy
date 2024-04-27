@@ -7,10 +7,10 @@ spec:
   entryPoints:
     - websecure-local
     - websecure-front
+  tls: {}
   routes:
   - match: Host(`photos.steffenillium.de`) || Host(`immich.steffenillium.de`)
     kind: Rule
-    tls: {}
     services:
     - name: immich
       port: http
