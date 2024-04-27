@@ -10,7 +10,8 @@ spec:
   routes:
   - match: Host(`www.steffenillium.de`) || Host(`steffenillium.de`) 
     kind: Rule
+    tls: {}
     services:
     - name: website
       port: http
-    tls: {}
+
