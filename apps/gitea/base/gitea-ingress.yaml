@@ -6,7 +6,6 @@ metadata:
 spec:
   entryPoints:
     - websecure-front
-    - web-local
     - websecure-local
   tls: {}
   routes:
