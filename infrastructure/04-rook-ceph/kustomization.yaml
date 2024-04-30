@@ -4,11 +4,10 @@ kind: Kustomization
 namespace: rook-ceph
 
 resources:
+  - nfs
   - base/ingress.yaml
   - base/toolbox.yaml
   - base/cluster.yaml
   - base/operator.yaml
-  - base/nfs-crd.yaml
-  - base/nfs-rbac.yaml
   - base/common.yaml
   - base/crds.yaml
