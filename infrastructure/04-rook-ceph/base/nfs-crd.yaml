@@ -1,0 +1,10 @@
+apiVersion: ceph.rook.io/v1
+kind: CephNFS
+metadata:
+  name: rooknfs
+  namespace: rook-ceph
+spec:
+  # Settings for the NFS server
+  server:
+    active: 1
+    logLevel: NIV_INFO
