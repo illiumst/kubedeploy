@@ -5,7 +5,7 @@ metadata:
     app: vaultwarden
   name: vaultwarden
 spec:
-  storageClassName: rook-ceph-block
+  storageClassName: rook-cephfs
   accessModes:
     - ReadWriteOnce
   resources:
