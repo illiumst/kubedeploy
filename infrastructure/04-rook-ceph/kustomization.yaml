@@ -5,6 +5,7 @@ namespace: rook-ceph
 
 resources:
   - nfs
+  - base/storageclass.yaml
   - base/ingress.yaml
   - base/toolbox.yaml
   - base/cluster.yaml
