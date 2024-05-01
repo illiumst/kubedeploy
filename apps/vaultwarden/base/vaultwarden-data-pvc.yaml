@@ -2,12 +2,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   labels:
-    app: vaultwarden-data-pvc
-  name: vaultwarden-data-pvc
+    app: vaultwarden
+  name: vaultwarden
 spec:
-  storageClassName: longhorn
+  storageClassName: rook-ceph-block
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
+      storage: 20Gi

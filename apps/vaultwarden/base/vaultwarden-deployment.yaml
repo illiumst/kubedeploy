@@ -87,13 +87,11 @@ spec:
               memory: "1Gi"
           volumeMounts:
             - mountPath: /data
-              name: vaultwarden-pvc
+              name: vaultwarden
       restartPolicy: Always
       volumes:
-        - name: vaultwarden-pvc
-          nfs:
-            server: 192.168.178.4
-            path: /mnt/storage/service/vaultwarden
-            readOnly: false
-        
+        - name: vaultwarden
+        - name: wordpress-persistent-storage
+          persistentVolumeClaim:
+            claimName: vaultwarden     
 
