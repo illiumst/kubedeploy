@@ -92,5 +92,4 @@ spec:
       volumes:
         - name: vaultwarden
           persistentVolumeClaim:
-            claimName: vaultwarden     
-
+            claimName: vaultwarden
