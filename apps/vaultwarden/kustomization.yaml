@@ -5,7 +5,7 @@ namespace: vaultwarden
 
 resources:
 - base/vaultwarden-ingress.yaml
-# - base/vaultwarden-data-pvc.yaml
+- base/vaultwarden-data-pvc.yaml
 - base/vaultwarden-deployment.yaml
 - base/vaultwarden-namespace.yaml
 - base/vaultwarden-secret-sealed.yaml
