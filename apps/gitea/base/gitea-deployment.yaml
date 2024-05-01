@@ -32,11 +32,9 @@ spec:
               memory: "2Gi"
           volumeMounts:
             - mountPath: /data
-              name: gitea-pvc
+              name: gitea
       restartPolicy: Always
       volumes:
-        - name: gitea-pvc
-          nfs:
-            server: 192.168.178.4
-            path: /mnt/storage/service/gitea
-            readOnly: false
+        - name: gitea
+          persistentVolumeClaim:
+            claimName: gitea 
