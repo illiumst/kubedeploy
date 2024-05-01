@@ -91,7 +91,6 @@ spec:
       restartPolicy: Always
       volumes:
         - name: vaultwarden
-        - name: wordpress-persistent-storage
           persistentVolumeClaim:
             claimName: vaultwarden     
 
