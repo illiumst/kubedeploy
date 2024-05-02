@@ -13,7 +13,7 @@ spec:
       # node stage secret name
       name: rook-csi-cephfs-node
       # node stage secret namespace where above secret is created
-      namespace: default
+      namespace: rook-ceph
     volumeAttributes:
       # optional file system to be mounted
       "fsName": "myfs"
