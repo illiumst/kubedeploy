@@ -149,12 +149,6 @@ spec:
       serviceAccountName: traefik
       terminationGracePeriodSeconds: 60
       volumes:
-        #- name: traefik
-        #  persistentVolumeClaim:
-        #    claimName: traefik-pvc
         - name: traefik
-          nfs:
-            server: 192.168.178.100
-            path: /traefik
-            readOnly: false
-
+          persistentVolumeClaim:
+            claimName: traefik

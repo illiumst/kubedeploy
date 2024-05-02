@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: traefik-pvc
+  name: traefik
   namespace: traefik
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: local-path
+  storageClassName: "rook-cephfs"
   resources:
     requests:
-      storage: 1Gi
+      storage: 500 Mi
