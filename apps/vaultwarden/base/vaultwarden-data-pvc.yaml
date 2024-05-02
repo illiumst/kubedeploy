@@ -11,14 +11,14 @@ spec:
     driver: rook-ceph.cephfs.csi.ceph.com
     nodeStageSecretRef:
       # node stage secret name
-      name: rook-csi-rbd-node
+      name: rook-csi-cephfs-node
       # node stage secret namespace where above secret is created
       namespace: rook-ceph
     volumeAttributes:
       # optional file system to be mounted
       "fsName": "myfs"
       # Required options from storageclass parameters need to be added in volumeAttributes
-      "clusterID": "rook-ceph"
+      "clusterID": "99c133b4-bd71-4eb9-9c00-ced76abf2a40"
       "staticVolume": "true"
       "rootPath": "/volumes/csi/vaultwarden/5d18ebea-40f6-4de5-8691-5c4fcfd6768e"
       # volumeHandle can be anything, need not to be same
@@ -31,8 +31,6 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  labels:
-    app: vaultwarden
   name: vaultwarden
 spec:
   storageClassName: "rook-cephfs"
