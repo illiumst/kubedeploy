@@ -141,11 +141,6 @@ spec:
           - mountPath: /tmp
             name: traefik
             subPath: tmp
-      securityContext:
-        fsGroupChangePolicy: OnRootMismatch
-        runAsGroup: 65532
-        runAsNonRoot: true
-        runAsUser: 65532
       serviceAccountName: traefik
       terminationGracePeriodSeconds: 60
       volumes:
