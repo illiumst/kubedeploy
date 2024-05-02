@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: emby
+  namespace: emby
+  labels:
+    app: emby
+  rules:
+  - host: emby.steffenillium.de
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: emby
+          servicePort: http
