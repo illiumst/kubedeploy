@@ -36,5 +36,7 @@ spec:
       restartPolicy: Always
       volumes:
         - name: gitea
-          persistentVolumeClaim:
-            claimName: gitea 
+          nfs:
+            server: 192.168.178.100
+            path: /gitea
+            readOnly: false
