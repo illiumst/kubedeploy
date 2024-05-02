@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: gitea-data-pvc
+  name: gitea
 spec:
   storageClassName: rook-cephfs
   accessModes:

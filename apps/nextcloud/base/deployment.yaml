@@ -107,7 +107,6 @@ spec:
         - name: nextcloud
           persistentVolumeClaim:
             claimName: nextcloud
-
         - name: nextcloud-data
           nfs:
             server: 192.168.178.4

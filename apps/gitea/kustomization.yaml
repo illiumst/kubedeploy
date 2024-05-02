@@ -4,11 +4,11 @@ kind: Kustomization
 namespace: gitea
 
 resources:
-  - base/gitea-ingress.yaml
-  - base/gitea-service.yaml
-  - base/gitea-deployment.yaml
-  # - base/gitea-data-pvc.yaml
-  - base/gitea-namespace.yaml
+  - base/ingress.yaml
+  - base/service.yaml
+  - base/deployment.yaml
+  - base/pvc.yaml
+  - base/namespace.yaml
 
 components:
   - ../../components/local-region-selector.yaml
