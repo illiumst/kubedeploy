@@ -54,7 +54,7 @@ spec:
       volumes:
       - name: config
         persistentVolumeClaim:
-          claimName: config
+          claimName: emby
           readOnly: false
       - name: media
         nfs:
