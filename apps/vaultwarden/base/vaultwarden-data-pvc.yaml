@@ -34,7 +34,7 @@ metadata:
     app: vaultwarden
   name: vaultwarden
 spec:
-  storageClassName: ""
+  storageClassName: "rook-cephfs"
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
