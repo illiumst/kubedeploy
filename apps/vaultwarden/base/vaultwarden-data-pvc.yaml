@@ -25,6 +25,7 @@ spec:
     # as PV name or volume name. keeping same for brevity
     volumeHandle: vaultwarden
   persistentVolumeReclaimPolicy: Retain
+  storageClassName: "rook-cephfs"
   volumeMode: Filesystem
 ---
 apiVersion: v1
