@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: emby
-  namespace: default
+  namespace: emby
 spec:
   ports:
   - name: http

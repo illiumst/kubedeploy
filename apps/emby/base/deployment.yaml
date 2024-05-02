@@ -20,11 +20,13 @@ spec:
         image: emby/embyserver:latest
         ports:
         - name: http
-          containerPort: 8096
+          containerPort: 8100
         - name: https
-          containerPort: 8920
+          containerPort: 8101
         - name: http-front
-          containerPort: 8080
+          containerPort: 8102
+        - name: https-front
+          containerPort: 8103
         volumeMounts:
         - mountPath: /config
           name: config
@@ -40,16 +42,18 @@ spec:
         - mountPath: /mnt/share_music
           name: media
           subPath: music
-        resources: {}
+        resources:
+          limits:
+            gpu.intel.com/i915: 1 # requesting 1 GPU
         livenessProbe:
           httpGet:
             path: /web/index.html
-            port: 8096
+            port: 8100
           timeoutSeconds: 30
         readinessProbe:
           httpGet:
             path: /web/index.html
-            port: 8096
+            port: 8100
           timeoutSeconds: 30
       volumes:
       - name: config
