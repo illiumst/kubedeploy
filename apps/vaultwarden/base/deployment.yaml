@@ -88,7 +88,5 @@ spec:
       restartPolicy: Always
       volumes:
         - name: vaultwarden
-          nfs:
-            server: 192.168.178.100
-            path: /vaultwarden
-            readOnly: false
+          persistentVolumeClaim:
+            claimName: vaultwarden
