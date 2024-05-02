@@ -9,9 +9,8 @@ spec:
     - websecure-front
   tls: {}
   routes:
-  - match: Host(`photos.steffenillium.de`) || Host(`immich.steffenillium.de`)
+  - match: Host(`photos.steffenillium.de`)
     kind: Rule
     services:
     - name: immich
       port: http
-
