@@ -7,7 +7,7 @@ provisioner: rook-ceph.cephfs.csi.ceph.com
 parameters:
   # clusterID is the namespace where the rook cluster is running
   # If you change this namespace, also change the namespace below where the secret namespaces are defined
-  clusterID: 9c133b4-bd71-4eb9-9c00-ced76abf2a40
+  clusterID: rook-ceph
 
   # CephFS filesystem name into which the volume shall be created
   fsName: myfs

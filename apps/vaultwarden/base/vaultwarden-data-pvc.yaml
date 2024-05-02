@@ -18,10 +18,10 @@ spec:
       # optional file system to be mounted
       "fsName": "myfs"
       # Required options from storageclass parameters need to be added in volumeAttributes
-      "clusterID": "99c133b4-bd71-4eb9-9c00-ced76abf2a40"
+      "clusterID": "rook-ceph"
       "staticVolume": "true"
       "rootPath": "/volumes/csi/vaultwarden/5d18ebea-40f6-4de5-8691-5c4fcfd6768e"
-      # volumeHandle can be anything, need not to be same
+    # volumeHandle can be anything, need not to be same
     # as PV name or volume name. keeping same for brevity
     volumeHandle: vaultwarden
   persistentVolumeReclaimPolicy: Retain
