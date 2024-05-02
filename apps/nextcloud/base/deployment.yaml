@@ -105,12 +105,14 @@ spec:
       restartPolicy: Always
       volumes:
         - name: nextcloud
-          nfs:
-            server: 192.168.178.100
-            path: /nextcloud
-            readOnly: false
+          persistentVolumeClaim:
+            claimName: nextcloud
+
         - name: nextcloud-data
           nfs:
             server: 192.168.178.4
             path: /mnt/storage/service/nextcloud/data
             readOnly: false
+
+
+            
