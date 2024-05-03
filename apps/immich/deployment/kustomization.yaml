@@ -3,6 +3,5 @@ kind: Kustomization
 resources:
 - database.yaml
 - machine-learning.yaml
-- microservices.yaml
 - redis.yaml
 - server.yaml

@@ -4,3 +4,4 @@ resources:
 - database.yaml
 - redis.yaml
 - server.yaml
+- machine-learning.yaml

@@ -7,7 +7,10 @@ metadata:
 spec:
   ports:
     - name: "http"
-      port: 2283
+      port: 3001
       targetPort: 3001
+    - name: "http"
+      port: 3002
+      targetPort: 3002
   selector:
     app: server
