@@ -1,0 +1,14 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: prometheus-server
+spec:
+  entryPoints:
+    - websecure-local
+  tls: {}
+  routes:
+  - match: Host(prometheus.steffenillium.de`)
+    kind: Rule
+    services:
+    - name: prometheus-server
+      port: 80
