@@ -4,5 +4,6 @@ kind: Kustomization
 namespace: immich
 
 resources:
-- base
 - deployment
+- base
+- service

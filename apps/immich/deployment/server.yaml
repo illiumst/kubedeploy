@@ -2,19 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: immich-server
-  name: immich-server
+    app: server
+  name: server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: immich-server
+      app: server
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: immich-server
+        app: server
     spec:
       containers:
         - args:
@@ -24,11 +24,11 @@ spec:
             - secretRef:
                 name: immich-secret
           image: ghcr.io/immich-app/immich-server:release
-          name: immich-server
+          name: server
           ports:
             - name: http
               containerPort: 3001
-              hostPort: 2283
+              hostPort: 3001
               protocol: TCP
           resources: {}
           volumeMounts:

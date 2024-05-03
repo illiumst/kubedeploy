@@ -2,19 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: immich-microservices
-  name: immich-microservices
+    app: microservices
+  name: microservices
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: immich-microservices
+      app: microservices
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: immich-microservices
+        app: microservices
     spec:
       containers:
         - args:
@@ -24,7 +24,7 @@ spec:
             - secretRef:
                 name: immich-secret
           image: ghcr.io/immich-app/immich-server:release
-          name: immich-microservices
+          name: microservices
           resources: {}
           volumeMounts:
             - mountPath: /usr/src/app/upload

@@ -26,6 +26,11 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: pgdata
+          ports:
+            - name: http
+              containerPort: 5432
+              hostPort: 5432
+              protocol: TCP
       restartPolicy: Always
       volumes:
         - name: pgdata
