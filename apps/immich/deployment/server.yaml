@@ -57,10 +57,11 @@ spec:
               subPath: upload
             - mountPath: /usr/src/app/external
               name: photos
+              readOnly: true
       restartPolicy: Always
       volumes:
         - name: photos
           nfs:
             server: 192.168.178.4
             path: /mnt/photos
-            readOnly: true
+            readOnly: false
