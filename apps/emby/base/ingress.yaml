@@ -8,7 +8,7 @@ spec:
     - websecure-local
   tls: {}
   routes:
-  - match: Host(`embyk.steffenillium.de`)
+  - match: Host(`emby.steffenillium.de`)
     kind: Rule
     services:
     - name: emby
