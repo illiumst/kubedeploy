@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: immich-server
+  name: immich-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: immich-server
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: immich-server
+    spec:
+      containers:
+        - args:
+            - start.sh
+            - immich
+          envFrom:
+            - secretRef:
+                name: immich-secret
+          image: ghcr.io/immich-app/immich-server:release
+          name: immich-server
+          ports:
+            - name: http
+              containerPort: 3001
+              hostPort: 2283
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - mountPath: /usr/src/app/upload
+              name: photos
+              subPath: upload
+            - mountPath: /usr/src/app/external
+              name: photos
+      restartPolicy: Always
+      volumes:
+        - name: photos
+          nfs:
+            server: 192.168.178.4
+            path: /mnt/photos
+            readOnly: true
