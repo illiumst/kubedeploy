@@ -26,7 +26,7 @@ spec:
           image: ghcr.io/immich-app/immich-server:release
           name: microservices
           ports:
-            - name: http
+            - name: microservices
               containerPort: 3002
               hostPort: 3002
               protocol: TCP
@@ -46,7 +46,7 @@ spec:
           image: ghcr.io/immich-app/immich-server:release
           name: server
           ports:
-            - name: http
+            - name: server
               containerPort: 3001
               hostPort: 3001
               protocol: TCP

@@ -6,11 +6,11 @@ metadata:
   name: server
 spec:
   ports:
-    - name: "http"
+    - name: "server"
       port: 3001
-      targetPort: 3001
-    - name: "http"
+      targetPort: server
+    - name: "microservices"
       port: 3002
-      targetPort: 3002
+      targetPort: microservices
   selector:
     app: server

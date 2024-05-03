@@ -8,6 +8,6 @@ spec:
   ports:
     - name: "http"
       port: 3003
-      targetPort: 3003
+      targetPort: http
   selector:
     app: machine-learning
