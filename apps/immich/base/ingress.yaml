@@ -11,5 +11,5 @@ spec:
   - match: Host(`embyk.steffenillium.de`)
     kind: Rule
     services:
-    - name: immich-server
+    - name: server
       port: server
