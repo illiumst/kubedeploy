@@ -1,0 +1,14 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: grafana
+spec:
+  entryPoints:
+    - websecure-local
+  tls: {}
+  routes:
+  - match: Host(`grafana.steffenillium.de`)
+    kind: Rule
+    services:
+    - name: grafana
+      port: http
