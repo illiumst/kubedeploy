@@ -33,7 +33,7 @@ spec:
         - mountPath: /mnt/share_movie
           name: media
           subPath: movie
-        - mountPath: /mnt/share_tvshow
+        - mountPath: /mnt/share_shows
           name: media
           subPath: tvshow
         - mountPath: /mnt/share_anime
