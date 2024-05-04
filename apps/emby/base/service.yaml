@@ -4,8 +4,7 @@ metadata:
   name: emby
   namespace: emby
   annotations:
-    metallb.universe.tf/allow-shared-ip: "shared-01"
-    metallb.universe.tf/loadBalancerIPs: 192.168.178.100
+    metallb.universe.tf/loadBalancerIPs: 192.168.178.104
 spec:
   ports:
   - name: http
