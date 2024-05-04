@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: emby
   namespace: emby
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "shared-01"
 spec:
   ports:
   - name: http
@@ -12,3 +14,5 @@ spec:
   selector:
     app: emby
   sessionAffinity: None
+  type: LoadBalancer
+  

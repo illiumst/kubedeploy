@@ -3,6 +3,8 @@ kind: Service
 metadata:
  name: rook-ceph-nfs-load-balancer
  namespace: rook-ceph
+ annotations:
+   metallb.universe.tf/allow-shared-ip: "shared-01"
 spec:
  ports:
    - name: nfs
