@@ -23,6 +23,8 @@ spec:
             - mountPath: /var/www/html
               name: nextcloud
               subPath: html
+            - mountPath: /var/www/html/data
+              name: nextcloud-data
           command: [ "/cron.sh" ]
           resources: {}
         - image: mariadb
