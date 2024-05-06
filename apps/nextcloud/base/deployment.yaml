@@ -21,8 +21,8 @@ spec:
           image: nextcloud:latest
           volumeMounts:
             - mountPath: /var/www/html
-              name: nextcloud
-              subPath: html
+              name: nextcloud-pvc
+              subPath: 99f37b73-8f14-44b2-9211-af5de21de749/html
             - mountPath: /var/www/html/data
               name: nextcloud-data
           command: [ "/cron.sh" ]
