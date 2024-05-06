@@ -30,8 +30,9 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: gitea
+              subPath: 7797b859-3356-4aa6-90e0-71ae175836c6
       restartPolicy: Always
       volumes:
         - name: gitea
           persistentVolumeClaim:
-            claimName: gitea-pvc
+            claimName: gitea
