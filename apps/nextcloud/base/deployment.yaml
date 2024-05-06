@@ -109,7 +109,7 @@ spec:
       volumes:
         - name: nextcloud-pvc
           persistentVolumeClaim:
-            claimName: nextcloud
+            claimName: nextcloud-pvc
         - name: nextcloud-data
           nfs:
             server: 192.168.178.4
