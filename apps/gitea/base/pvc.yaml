@@ -31,7 +31,7 @@ spec:
       namespace: rook-ceph
     volumeAttributes:
       # optional file system to be mounted
-      "fsName": "myfs"
+      # "fsName": "myfs"
       # Required options from storageclass parameters need to be added in volumeAttributes
       "clusterID": "99c133b4-bd71-4eb9-9c00-ced76abf2a40"
       "staticVolume": "true"
