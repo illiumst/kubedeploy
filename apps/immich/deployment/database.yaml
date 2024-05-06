@@ -26,6 +26,7 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: pgdata
+              subPath: 22790538-185c-426e-a10f-b4cc54d02874
           ports:
             - name: http
               containerPort: 5432
