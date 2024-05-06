@@ -2,27 +2,29 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: whisper
-  name: whisper
+    app: piper
+  name: piper
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: whisper
+      app: piper
   template:
     metadata:
       labels:
-        app: whisper
+        app: piper
     spec:
       containers:
-        - image: linuxserver/faster-whisper:latest
-          name: whisper
+        - image: lscr.io/linuxserver/piper:latest
+          name: piper
           env:
             - name: TZ
               value: Europe/Berlin
+            - name: PIPER_VOICE
+              value: en_US-hfc_female-medium
           ports:
             - name: http
-              containerPort: 10300
+              containerPort: 10200
               protocol: TCP
           resources: {}
       restartPolicy: Always
