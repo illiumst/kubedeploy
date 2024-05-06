@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: voice
 
 resources:
-- whisper
-- piper
-- namespace.yaml
+- base/deployment.yaml
+- base/ingress.yaml
+- base/service.yaml
+- base/namespace.yaml
