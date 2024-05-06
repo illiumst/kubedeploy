@@ -23,7 +23,7 @@ spec:
   capacity:
     storage: 30Gi
   csi:
-    driver: cephfs.csi.ceph.com
+    driver: rook-ceph.cephfs.csi.ceph.com
     nodeStageSecretRef:
       # node stage secret name
       name: rook-csi-cephfs-node
