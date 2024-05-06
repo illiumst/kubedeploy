@@ -84,9 +84,10 @@ spec:
           resources: {}
           volumeMounts:
             - mountPath: /data
-              name: vaultwarden
+              name: vaultwarden-pvc
+              subPath: a732584e-b9e2-425d-8e9e-8ba5a932e611
       restartPolicy: Always
       volumes:
-        - name: vaultwarden
+        - name: vaultwarden-pvc
           persistentVolumeClaim:
-            claimName: vaultwarden
+            claimName: vaultwarden-pvc
