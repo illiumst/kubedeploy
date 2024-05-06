@@ -5,6 +5,5 @@ namespace: voice
 
 resources:
 - base/deployment.yaml
-- base/ingress.yaml
 - base/service.yaml
 - base/namespace.yaml
