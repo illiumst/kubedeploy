@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: immich-machine-learning
+  name: immich-machine-learning
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: immich-machine-learning
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: immich-machine-learning
+    spec:
+      containers:
+        - image: ghcr.io/immich-app/immich-machine-learning:release
+          name: immich-machine-learning
+          resources: {}
+          ports:
+            - name: http
+              containerPort: 3003
+              hostPort: 3003
+              protocol: TCP          
+          volumeMounts:
+            - mountPath: /cache
+              name: model-cache
+      restartPolicy: Always
+      volumes:
+        - name: model-cache
+          persistentVolumeClaim:
+            claimName: model-cache

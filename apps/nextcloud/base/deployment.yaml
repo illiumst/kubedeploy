@@ -18,11 +18,13 @@ spec:
     spec:
       containers:
         - name: cron
-          image: nextcloud
+          image: nextcloud:latest
           volumeMounts:
             - mountPath: /var/www/html
-              name: nextcloud-pvc
+              name: nextcloud
               subPath: html
+            - mountPath: /var/www/html/data
+              name: nextcloud-data
           command: [ "/cron.sh" ]
           resources: {}
         - image: mariadb
@@ -59,7 +61,7 @@ spec:
               protocol: TCP
           volumeMounts:
             - mountPath: /var/lib/mysql
-              name: nextcloud-pvc
+              name: nextcloud
               subPath: db-storage
         - image: redis:alpine
           name: redis
@@ -98,15 +100,20 @@ spec:
           resources: {}
           volumeMounts:
             - mountPath: /var/www/html
-              name: nextcloud-pvc
+              name: nextcloud
               subPath: html
             - mountPath: /var/www/html/data
-              name: nextcloud-pvc
-              subPath: data
+              name: nextcloud-data
       restartPolicy: Always
       volumes:
-        - name: nextcloud-pvc
+        - name: nextcloud
+          persistentVolumeClaim:
+            claimName: nextcloud
+        - name: nextcloud-data
           nfs:
             server: 192.168.178.4
-            path: /mnt/storage/service/nextcloud
+            path: /mnt/storage/service/nextcloud/data
             readOnly: false
+
+
+            

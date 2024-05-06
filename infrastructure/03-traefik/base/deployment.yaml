@@ -133,23 +133,17 @@ spec:
           readOnlyRootFilesystem: true
         volumeMounts:
           - mountPath: /certs
-            name: traefik-pvc
+            name: traefik
             subPath: certs
           - mountPath: /data
-            name: traefik-pvc
+            name: traefik
             subPath: data
           - mountPath: /tmp
-            name: traefik-pvc
+            name: traefik
             subPath: tmp
-      securityContext:
-        fsGroupChangePolicy: OnRootMismatch
-        runAsGroup: 65532
-        runAsNonRoot: true
-        runAsUser: 65532
       serviceAccountName: traefik
       terminationGracePeriodSeconds: 60
       volumes:
-        - name: traefik-pvc
+        - name: traefik
           persistentVolumeClaim:
-            claimName: traefik-pvc
-
+            claimName: traefik

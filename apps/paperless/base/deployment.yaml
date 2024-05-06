@@ -25,7 +25,7 @@ spec:
               memory: "1Gi"
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
-              name: paperless-pvc
+              name: paperless
               subPath: pgdata
           ports:
             - containerPort: 5432
@@ -52,13 +52,12 @@ spec:
           resources: {}
           volumeMounts:
             - mountPath: /usr/src/paperless/data
-              name: paperless-pvc
+              name: paperless
               subPath: app
             - mountPath: /usr/src/paperless/media
-              name: paperless-pvc
-              subPath: media
+              name: paperless-media
             - mountPath: /usr/src/paperless/consume
-              name: paperless-pvc
+              name: paperless
               subPath: consume
           env:
             - name: DEBUG
@@ -103,8 +102,11 @@ spec:
               memory: "1Gi"
       restartPolicy: Always
       volumes:
-        - name: paperless-pvc
+        - name: paperless
+          persistentVolumeClaim:
+            claimName: paperless
+        - name:  paperless-media
           nfs:
             server: 192.168.178.4
-            path: /mnt/storage/service/paperless
+            path: /mnt/storage/service/paperless/media
             readOnly: false

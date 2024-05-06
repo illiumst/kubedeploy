@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: server
+  name: server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: server
+    spec:
+      containers:
+        - args:
+            - start.sh
+            - microservices
+          envFrom:
+            - secretRef:
+                name: immich-secret
+          image: ghcr.io/immich-app/immich-server:release
+          name: microservices
+          ports:
+            - name: microservices
+              containerPort: 3002
+              hostPort: 3002
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - mountPath: /usr/src/app/upload
+              name: photos
+              subPath: upload
+            - mountPath: /usr/src/app/external
+              name: photos
+        - args:
+            - start.sh
+            - immich
+          envFrom:
+            - secretRef:
+                name: immich-secret
+          image: ghcr.io/immich-app/immich-server:release
+          name: server
+          ports:
+            - name: server
+              containerPort: 3001
+              hostPort: 3001
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - mountPath: /usr/src/app/upload
+              name: photos
+              subPath: upload
+            - mountPath: /usr/src/app/external
+              name: photos
+              readOnly: true
+      restartPolicy: Always
+      volumes:
+        - name: photos
+          nfs:
+            server: 192.168.178.4
+            path: /mnt/photos
+            readOnly: false

@@ -1,16 +1,15 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: immich
-  namespace: traefik
+  name: emby
+  namespace: emby
 spec:
   entryPoints:
     - websecure-local
-    - websecure-front
   tls: {}
   routes:
-  - match: Host(`photos.steffenillium.de`)
+  - match: Host(`emby.steffenillium.de`)
     kind: Rule
     services:
-    - name: immich
+    - name: emby
       port: http

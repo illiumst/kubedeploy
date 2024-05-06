@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emby
+  labels:
+    app: emby
+  namespace: emby
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: emby
+  template:
+    metadata:
+      labels:
+        app: emby
+    spec:
+      containers:
+      - name: emby
+        image: emby/embyserver:latest
+        ports:
+        - name: http
+          containerPort: 8100
+        - name: https
+          containerPort: 8101
+        - name: http-front
+          containerPort: 8102
+        - name: https-front
+          containerPort: 8103
+        volumeMounts:
+        - mountPath: /config
+          name: config
+        - mountPath: /mnt/share_movie
+          name: media
+          subPath: movie
+        - mountPath: /mnt/share_shows
+          name: media
+          subPath: tvshow
+        - mountPath: /mnt/share_anime
+          name: media
+          subPath: anime
+        - mountPath: /mnt/share_music
+          name: media
+          subPath: music
+        resources:
+          limits:
+            gpu.intel.com/i915: 1 # requesting 1 GPU
+        livenessProbe:
+          httpGet:
+            path: /web/index.html
+            port: 8100
+          timeoutSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /web/index.html
+            port: 8100
+          timeoutSeconds: 30
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+          claimName: emby
+          readOnly: false
+      - name: media
+        nfs:
+          server: 192.168.178.4
+          path: /mnt/media

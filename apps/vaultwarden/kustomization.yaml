@@ -4,12 +4,12 @@ kind: Kustomization
 namespace: vaultwarden
 
 resources:
-- base/vaultwarden-ingress.yaml
-- base/vaultwarden-data-pvc.yaml
-- base/vaultwarden-deployment.yaml
-- base/vaultwarden-namespace.yaml
-- base/vaultwarden-secret-sealed.yaml
-- base/vaultwarden-service.yaml
+- base/ingress.yaml
+- base/pvc.yaml
+- base/deployment.yaml
+- base/namespace.yaml
+- base/secret-sealed.yaml
+- base/service.yaml
 
 components:
   - ../../components/local-region-selector.yaml

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: emby
+  namespace: emby
+  annotations:
+    metallb.universe.tf/loadBalancerIPs: 192.168.178.104
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: http
+  selector:
+    app: emby
+  sessionAffinity: None
+  type: LoadBalancer
+  
