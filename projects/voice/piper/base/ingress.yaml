@@ -4,7 +4,7 @@ metadata:
   name: piper
 spec:
   entryPoints:
-    - websecure-local
+    - traefik
   tls: {}
   routes:
   - match: Host(`piper.steffenillium.de`)
