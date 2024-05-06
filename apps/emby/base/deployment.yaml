@@ -32,6 +32,7 @@ spec:
         volumeMounts:
         - mountPath: /config
           name: config
+          subPath: 98acbfcc-f2fb-4299-a5ec-57874ab9ffd1
         - mountPath: /mnt/share_movie
           name: media
           subPath: movie
