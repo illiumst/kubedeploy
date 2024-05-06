@@ -1,12 +1,44 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: emby
+  name: emby-pvc
 spec:
-  storageClassName: "rook-cephfs"
-  volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
   resources:
     requests:
       storage: 30Gi
+  storageClassName: ""
+  volumeMode: Filesystem
+  # volumeName should be same as PV name
+  volumeName: emby
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: emby
+spec:
+  accessModes:
+  - ReadWriteMany
+  capacity:
+    storage: 30Gi
+  csi:
+    driver: rook-ceph.cephfs.csi.ceph.com
+    nodeStageSecretRef:
+      # node stage secret name
+      name: rook-csi-cephfs-node-user
+      # node stage secret namespace where above secret is created
+      namespace: rook-ceph
+    volumeAttributes:
+      # optional file system to be mounted
+      # "fsName": "myfs"
+      # Required options from storageclass parameters need to be added in volumeAttributes
+      "clusterID": "rook-ceph"
+      "staticVolume": "true"
+      "rootPath": /volumes/csi/emby
+    # volumeHandle can be anything, need not to be same
+    # as PV name or volume name. keeping same for brevity
+    volumeHandle: emby
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+
