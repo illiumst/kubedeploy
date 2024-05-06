@@ -61,8 +61,8 @@ spec:
               protocol: TCP
           volumeMounts:
             - mountPath: /var/lib/mysql
-              name: nextcloud
-              subPath: db-storage
+              name: nextcloud-pvc
+              subPath: 99f37b73-8f14-44b2-9211-af5de21de749/db-storage
         - image: redis:alpine
           name: redis
           resources:
@@ -100,15 +100,16 @@ spec:
           resources: {}
           volumeMounts:
             - mountPath: /var/www/html
-              name: nextcloud
-              subPath: html
+              name: nextcloud-pvc
+              subPath: 99f37b73-8f14-44b2-9211-af5de21de749/html
+
             - mountPath: /var/www/html/data
               name: nextcloud-data
       restartPolicy: Always
       volumes:
-        - name: nextcloud
+        - name: nextcloud-pvc
           persistentVolumeClaim:
-            claimName: nextcloud
+            claimName: nextcloud-pvc
         - name: nextcloud-data
           nfs:
             server: 192.168.178.4
