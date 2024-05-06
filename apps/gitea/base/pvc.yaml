@@ -11,7 +11,7 @@ spec:
   storageClassName: ""
   volumeMode: Filesystem
   # volumeName should be same as PV name
-  volumeName: gitea-pv
+  volumeName: gitea
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -38,7 +38,7 @@ spec:
       "rootPath": /volumes/csi/gitea
     # volumeHandle can be anything, need not to be same
     # as PV name or volume name. keeping same for brevity
-    volumeHandle: data-pv
+    volumeHandle: gitea
   persistentVolumeReclaimPolicy: Retain
   volumeMode: Filesystem
 
