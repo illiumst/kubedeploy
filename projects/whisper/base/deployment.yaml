@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: whisper
+  name: whisper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: whisper
+  template:
+    metadata:
+      labels:
+        app: whisper
+    spec:
+      containers:
+        - image: linuxserver/faster-whisper:latest
+          name: whisper
+          env:
+            - TZ=Europe/Berlin
+          ports:
+            - name: http
+              containerPort: 10300
+              protocol: TCP
+          resources: {}
+      restartPolicy: Always
