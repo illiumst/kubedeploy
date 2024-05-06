@@ -26,10 +26,7 @@ spec:
             - name: ssh
               containerPort: 22
               protocol: TCP
-          resources:
-            limits:
-              cpu: "0.3"
-              memory: "2Gi"
+          resources: {}
           volumeMounts:
             - mountPath: /data
               name: gitea
@@ -37,4 +34,4 @@ spec:
       volumes:
         - name: gitea
           persistentVolumeClaim:
-            claimName: gitea 
+            claimName: gitea-pvc

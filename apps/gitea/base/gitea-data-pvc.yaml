@@ -1,11 +1,44 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: gitea-data-pvc
+  name: gitea-pvc
 spec:
-  storageClassName:  rook-cephfs
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
-      storage: 20Gi
+      storage: 30Gi
+  storageClassName: ""
+  volumeMode: Filesystem
+  # volumeName should be same as PV name
+  volumeName: gitea-pv
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: gitea-pv
+spec:
+  accessModes:
+  - ReadWriteMany
+  capacity:
+    storage: 30Gi
+  csi:
+    driver: cephfs.csi.ceph.com
+    nodeStageSecretRef:
+      # node stage secret name
+      name: rook-csi-cephfs-node
+      # node stage secret namespace where above secret is created
+      namespace: rook-ceph
+    volumeAttributes:
+      # optional file system to be mounted
+      "fsName": "myfs"
+      # Required options from storageclass parameters need to be added in volumeAttributes
+      "clusterID": "99c133b4-bd71-4eb9-9c00-ced76abf2a40"
+      "staticVolume": "true"
+      "rootPath": /volumes/csi/gitea
+    # volumeHandle can be anything, need not to be same
+    # as PV name or volume name. keeping same for brevity
+    volumeHandle: data-pv
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+
