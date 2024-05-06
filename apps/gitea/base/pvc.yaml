@@ -35,7 +35,7 @@ spec:
       # Required options from storageclass parameters need to be added in volumeAttributes
       "clusterID": "99c133b4-bd71-4eb9-9c00-ced76abf2a40"
       "staticVolume": "true"
-      "rootPath": /volumes/csi/gitea/134cd303-caa5-40b4-97aa-12ca19943bd2
+      "rootPath": /volumes/csi/gitea
     # volumeHandle can be anything, need not to be same
     # as PV name or volume name. keeping same for brevity
     volumeHandle: data-pv
