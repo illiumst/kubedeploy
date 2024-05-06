@@ -18,7 +18,8 @@ spec:
         - image: linuxserver/faster-whisper:latest
           name: whisper
           env:
-            - TZ=Europe/Berlin
+            - name: TZ
+              value: Europe/Berlin
           ports:
             - name: http
               containerPort: 10300
