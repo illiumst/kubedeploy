@@ -28,4 +28,4 @@ spec:
     kind: Rule
     services:
     - name: sftpgo
-      port: webdav
+      port: http
