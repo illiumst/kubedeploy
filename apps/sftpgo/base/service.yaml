@@ -15,9 +15,10 @@ spec:
     protocol: TCP
     targetPort: http
   - name: webdav
-    port: 80
+    port: 8081
     protocol: TCP
     targetPort: webdav
+    appProtocol: webdav
   - name: telemetry
     port: 10000
     protocol: TCP
