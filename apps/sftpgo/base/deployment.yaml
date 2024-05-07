@@ -77,5 +77,5 @@ spec:
             name: sftpgo
         - name: consume
           nfs:
-            server: rook-ceph-nfs-load-balancer.rook-ceph.svc.cluster.local
+            server: 192.168.178.101
             path: /consume
