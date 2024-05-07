@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sftpgo
+  namespace: sftpgo
+spec:
+  ports:
+  - appProtocol: sftp-ssh
+    name: sftp
+    port: 22
+    protocol: TCP
+    targetPort: sftp
+  - appProtocol: http
+    name: http
+    port: 80
+    protocol: TCP
+    targetPort: http
+  selector:
+    app.kubernetes.io/name: sftpgo
+  type: ClusterIP

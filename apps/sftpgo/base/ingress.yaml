@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: sftpgo
+  namespace: sftpgo
+spec:
+  entryPoints:
+    - websecure-local
+  tls: {}
+  routes:
+  - match: Host(`sftpgo.steffenillium.de`)
+    kind: Rule
+    services:
+    - name: sftpgo
+      port: http

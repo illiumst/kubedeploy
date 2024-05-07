@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  sftpgo.json: '{}'
+kind: ConfigMap
+metadata:
+  name: sftpgo
+  namespace: sftpgo
