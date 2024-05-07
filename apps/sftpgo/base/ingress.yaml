@@ -21,7 +21,7 @@ metadata:
   namespace: sftpgo
 spec:
   entryPoints:
-    - dav
+    - websecure-local
   tls: {}
   routes:
   - match: Host(`webdav.steffenillium.de`)
