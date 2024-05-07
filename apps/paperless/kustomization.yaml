@@ -6,7 +6,7 @@ namespace: paperless
 resources:
 - base/pvc.yaml
 - base/paperless-secret-sealed.yaml
-- base/paperless-ingress.yaml
+- base/ingress.yaml
 - base/paperless-service.yaml
 - base/deployment.yaml
 - base/paperless-namespace.yaml
