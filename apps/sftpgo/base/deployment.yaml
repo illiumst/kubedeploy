@@ -48,6 +48,10 @@ spec:
         resources: {}
         securityContext: {}
         volumeMounts:
+        - mountPath: /etc/sftpgo
+          name: data
+          subPath: etc
+          readOnly: false
         - mountPath: /srv/sftpgo
           name: data
           subPath: srv
@@ -59,10 +63,6 @@ spec:
         - mountPath: /consume
           name: consume
           readOnly: false
-        - mountPath: /etc/sftpgo/sftpgo.json
-          name: config
-          readOnly: true
-          subPath: sftpgo.json
       hostNetwork: false
       securityContext: {}
       serviceAccountName: sftpgo
