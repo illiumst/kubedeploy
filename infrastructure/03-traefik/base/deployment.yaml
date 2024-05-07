@@ -33,6 +33,7 @@ spec:
           - --entrypoints.traefik.address=:9000/tcp
           - --entrypoints.dns.address=:53/udp
           - --entrypoints.dns.address=:22/tcp
+          - --entrypoints.webdav.address=:81/tcp
 
           - --entrypoints.web-local.address=:80/tcp
           - --entrypoints.web-local.http.redirections.entrypoint.to=websecure-local
