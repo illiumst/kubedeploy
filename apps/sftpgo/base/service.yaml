@@ -20,6 +20,11 @@ spec:
     port: 8081
     protocol: TCP
     targetPort: webdav
+  - appProtocol: http
+    name: telemetry
+    port: 10000
+    protocol: TCP
+    targetPort: telemetry
   selector:
     app.kubernetes.io/name: sftpgo
   type: ClusterIP
