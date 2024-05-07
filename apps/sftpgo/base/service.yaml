@@ -15,6 +15,11 @@ spec:
     port: 80
     protocol: TCP
     targetPort: http
+  - appProtocol: http
+    name: webdav
+    port: 81
+    protocol: TCP
+    targetPort: webdav
   selector:
     app.kubernetes.io/name: sftpgo
   type: ClusterIP

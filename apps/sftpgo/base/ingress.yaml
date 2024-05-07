@@ -29,3 +29,19 @@ spec:
     services:
     - name: sftpgo
       port: ssh
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: sftpgo-webdav
+  namespace: sftpgo
+spec:
+  entryPoints:
+    - webdav
+  tls: {}
+  routes:
+  - match: Host(`webdav.steffenillium.de`)
+    kind: Rule
+    services:
+    - name: sftpgo
+      port: webdav
