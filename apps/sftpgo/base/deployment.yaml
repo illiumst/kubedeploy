@@ -26,23 +26,6 @@ spec:
       - args:
         - sftpgo
         - serve
-        env:
-        - name: SFTPGO_SFTPD__BINDINGS__0__PORT
-          value: "2022"
-        - name: SFTPGO_SFTPD__BINDINGS__0__ADDRESS
-          value: 0.0.0.0
-        - name: SFTPGO_HTTPD__BINDINGS__0__PORT
-          value: "8080"
-        - name: SFTPGO_HTTPD__BINDINGS__0__ADDRESS
-          value: 0.0.0.0
-        - name: SFTPGO_TELEMETRY__BIND_PORT
-          value: "10000"
-        - name: SFTPGO_TELEMETRY__BIND_ADDRESS
-          value: 0.0.0.0
-        - name: SFTPGO_WEBDAVD__BINDINGS__0__PORT
-          value: "8081"
-        - name: SFTPGO_WEBDAVD__BIND_ADDRESS
-          value: 0.0.0.0
         image: ghcr.io/drakkan/sftpgo:latest
         imagePullPolicy: IfNotPresent
         livenessProbe:
@@ -67,6 +50,17 @@ spec:
         resources: {}
         securityContext: {}
         volumeMounts:
+        - mountPath: /srv/sftpgo
+          name: data
+          subPath: srv
+          readOnly: false
+        - mountPath: /var/lib/sftpgo
+          name: data
+          subPath: lib
+          readOnly: false
+        - mountPath: /consume
+          name: consume
+          readOnly: false
         - mountPath: /etc/sftpgo/sftpgo.json
           name: config
           readOnly: true
@@ -75,6 +69,13 @@ spec:
       securityContext: {}
       serviceAccountName: sftpgo
       volumes:
-      - configMap:
-          name: sftpgo
-        name: config
+        - name: data
+          persistentVolumeClaim:
+            claimName: sftpgo
+        - name: config
+          configMap:
+            name: sftpgo
+        - name: consume
+          nfs:
+            server: rook-ceph-nfs-load-balancer.rook-ceph.svc.cluster.local
+            path: /consume

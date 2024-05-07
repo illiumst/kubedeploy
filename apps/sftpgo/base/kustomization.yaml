@@ -6,3 +6,4 @@ resources:
 - sa.yaml
 - service.yaml
 - ingress.yaml
+- pvc.yaml
