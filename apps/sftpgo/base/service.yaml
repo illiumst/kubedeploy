@@ -10,18 +10,11 @@ spec:
     port: 22
     protocol: TCP
     targetPort: sftp
-  - appProtocol: http
-    name: http
+  - name: http
     port: 80
     protocol: TCP
     targetPort: http
-  - appProtocol: http
-    name: webdav
-    port: 8081
-    protocol: TCP
-    targetPort: webdav
-  - appProtocol: http
-    name: telemetry
+  - name: telemetry
     port: 10000
     protocol: TCP
     targetPort: telemetry

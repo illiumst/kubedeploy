@@ -4,9 +4,7 @@ kind: Deployment
 metadata:
   labels:
     app.kubernetes.io/instance: sftpgo
-    app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: sftpgo
-    app.kubernetes.io/version: latest
     app: sftpgo
   name: sftpgo
   namespace: sftpgo
@@ -28,10 +26,10 @@ spec:
         - serve
         image: ghcr.io/drakkan/sftpgo:latest
         imagePullPolicy: IfNotPresent
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: telemetry
+        # livenessProbe:
+        #   httpGet:
+        #     path: /healthz
+        #     port: telemetry
         name: sftpgo
         ports:
         - containerPort: 2022
@@ -43,10 +41,10 @@ spec:
         - containerPort: 10000
           name: telemetry
           protocol: TCP
-        readinessProbe:
-          httpGet:
-            path: /healthz
-            port: telemetry
+        # readinessProbe:
+        #   httpGet:
+        #     path: /healthz
+        #     port: telemetry
         resources: {}
         securityContext: {}
         volumeMounts:
