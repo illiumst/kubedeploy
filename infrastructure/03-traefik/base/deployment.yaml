@@ -32,6 +32,7 @@ spec:
           - --entrypoints.metrics.address=:9100/tcp
           - --entrypoints.traefik.address=:9000/tcp
           - --entrypoints.dns.address=:53/udp
+          - --entrypoints.dav.address=:81/udp
 
           - --entrypoints.web-local.address=:80/tcp
           - --entrypoints.web-local.http.redirections.entrypoint.to=websecure-local
@@ -100,6 +101,9 @@ spec:
         - containerPort: 53
           name: dns
           protocol: UDP
+        - containerPort: 8081
+          name: webdav
+          protocol: TCP
         - containerPort: 9100
           name: metrics
           protocol: TCP

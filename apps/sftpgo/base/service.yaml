@@ -17,7 +17,7 @@ spec:
     targetPort: http
   - appProtocol: http
     name: webdav
-    port: 81
+    port: 8081
     protocol: TCP
     targetPort: webdav
   selector:
