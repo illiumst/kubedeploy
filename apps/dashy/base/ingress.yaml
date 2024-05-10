@@ -11,5 +11,5 @@ spec:
   - match: Host(`dashy.steffenillium.de`)
     kind: Rule
     services:
-    - name: dashy-service
+    - name: dashy
       port: http
