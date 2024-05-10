@@ -9,7 +9,7 @@ resources:
 - base/ingress.yaml
 - base/paperless-service.yaml
 - base/deployment.yaml
-- base/paperless-namespace.yaml
+- base/namespace.yaml
 
 components:
   - ../../components/local-region-selector.yaml
