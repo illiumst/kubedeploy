@@ -38,7 +38,7 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /app/user-data
-              subpath: b2475220-0041-4aef-9436-ec17e00485a9
+              subPath: b2475220-0041-4aef-9436-ec17e00485a9
       restartPolicy: Always
       volumes:
         - name: config
