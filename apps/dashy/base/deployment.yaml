@@ -43,4 +43,4 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
-            claimName: dashy  
+            claimName: dashy-pvc
