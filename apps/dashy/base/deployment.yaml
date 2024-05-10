@@ -19,7 +19,7 @@ spec:
         - env:
             - name: NODE_ENV
               value: production
-          image: ghcr.io/lissy93/dashy.:latest
+          image: ghcr.io/lissy93/dashy:latest
           livenessProbe:
             exec:
               command:
