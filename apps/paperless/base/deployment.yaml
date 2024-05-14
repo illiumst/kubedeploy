@@ -65,7 +65,7 @@ spec:
             - name: PAPERLESS_ALLOWED_HOSTS
               value: steffenillium.de,localhost
             - name: PAPERLESS_CONSUMER_POLLING
-              value: 20
+              value: "20"
             - name: PAPERLESS_CONSUMER_RECURSIVE
               value: "true"
             - name: PAPERLESS_CORS_ALLOWED_HOSTS
