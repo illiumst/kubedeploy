@@ -67,6 +67,7 @@ spec:
           readOnly: false
         - mountPath: /consume
           name: consume
+          subPath: consume
           readOnly: false
       hostNetwork: false
       securityContext: {}
@@ -79,6 +80,5 @@ spec:
           configMap:
             name: sftpgo
         - name: consume
-          nfs:
-            server: 192.168.178.100
-            path: /consume
+          persistentVolumeClaim:
+            claimName: paperless-pvc
