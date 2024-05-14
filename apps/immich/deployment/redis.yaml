@@ -21,7 +21,7 @@ spec:
           resources:
             limits:
               cpu: "0.1"
-              memory: "250G"
+              memory: "250M"
           ports:
             - name: http
               containerPort: 6379
