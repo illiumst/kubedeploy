@@ -48,7 +48,7 @@ spec:
       # Required options from storageclass parameters need to be added in volumeAttributes
       "clusterID": "rook-ceph"
       "staticVolume": "true"
-      "rootPath": /volumes/csi/paperless
+      "rootPath": /volumes/csi/paperless/716a7a59-c361-48a1-ae89-f935919f7e59
     # volumeHandle can be anything, need not to be same
     # as PV name or volume name. keeping same for brevity
     volumeHandle: consume
