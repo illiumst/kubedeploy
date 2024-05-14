@@ -81,4 +81,4 @@ spec:
             name: sftpgo
         - name: consume
           persistentVolumeClaim:
-            claimName: paperless-pvc
+            claimName: consume-pvc

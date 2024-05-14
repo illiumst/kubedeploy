@@ -14,7 +14,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: paperless-pvc
+  name: consume-pvc
 spec:
   accessModes:
     - ReadWriteMany
@@ -24,12 +24,12 @@ spec:
   storageClassName: ""
   volumeMode: Filesystem
   # volumeName should be same as PV name
-  volumeName: paperless
+  volumeName: consume
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: paperless
+  name: consume
 spec:
   accessModes:
   - ReadWriteMany
@@ -51,7 +51,7 @@ spec:
       "rootPath": /volumes/csi/paperless
     # volumeHandle can be anything, need not to be same
     # as PV name or volume name. keeping same for brevity
-    volumeHandle: paperless
+    volumeHandle: consume
   persistentVolumeReclaimPolicy: Retain
   volumeMode: Filesystem
 
