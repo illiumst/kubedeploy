@@ -53,8 +53,8 @@ spec:
                   key: MYSQL_PASSWORD
           resources:
             limits:
-              cpu: "0.2"
-              memory: "2Gi"
+              cpu: "0.3"
+              memory: "1G
           ports:
             - name: mariadb
               containerPort: 3306
@@ -68,7 +68,7 @@ spec:
           resources:
             limits:
               cpu: "0.1"
-              memory: "2Gi"
+              memory: "250M"
           ports:
             - name: redis
               containerPort: 6379
@@ -97,12 +97,14 @@ spec:
             - name: nextcloud
               containerPort: 80
               protocol: TCP
-          resources: {}
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: "2G"
           volumeMounts:
             - mountPath: /var/www/html
               name: nextcloud-pvc
               subPath: 99f37b73-8f14-44b2-9211-af5de21de749/html
-
             - mountPath: /var/www/html/data
               name: nextcloud-data
       restartPolicy: Always

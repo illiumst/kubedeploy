@@ -50,7 +50,10 @@ spec:
         #   httpGet:
         #     path: /healthz
         #     port: telemetry
-        resources: {}
+        resources:
+            limits:
+              cpu: "0.1"
+              memory: "400M"
         securityContext: {}
         volumeMounts:
         - mountPath: /etc/sftpgo

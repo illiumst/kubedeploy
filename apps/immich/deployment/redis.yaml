@@ -18,7 +18,10 @@ spec:
       containers:
         - image: registry.hub.docker.com/library/redis:6.2-alpine@sha256:84882e87b54734154586e5f8abd4dce69fe7311315e2fc6d67c29614c8de2672
           name: immich-redis
-          resources: {}
+          resources:
+            limits:
+              cpu: "0.1"
+              memory: "250G"
           ports:
             - name: http
               containerPort: 6379

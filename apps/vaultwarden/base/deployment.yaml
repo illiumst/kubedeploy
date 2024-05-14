@@ -81,7 +81,10 @@ spec:
           ports:
             - containerPort: 80
               protocol: TCP
-          resources: {}
+          resources:
+            limits:
+              cpu: "0.3"
+              memory: "1G"
           volumeMounts:
             - mountPath: /data
               name: vaultwarden-pvc

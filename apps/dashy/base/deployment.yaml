@@ -34,7 +34,10 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
-          resources: {}
+          resources:
+            limits:
+              cpu: "0.1"
+              memory: "500M"
           volumeMounts:
             - name: config
               mountPath: /app/user-data

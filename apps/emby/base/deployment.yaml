@@ -48,6 +48,8 @@ spec:
         resources:
           limits:
             gpu.intel.com/i915: 1 # requesting 1 GPU
+            cpu: "0.3"
+            memory: "2G"
         livenessProbe:
           httpGet:
             path: /web/index.html

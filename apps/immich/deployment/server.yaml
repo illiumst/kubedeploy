@@ -30,7 +30,10 @@ spec:
               containerPort: 3002
               hostPort: 3002
               protocol: TCP
-          resources: {}
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: "2G"
           volumeMounts:
             - mountPath: /usr/src/app/upload
               name: photos
@@ -50,7 +53,10 @@ spec:
               containerPort: 3001
               hostPort: 3001
               protocol: TCP
-          resources: {}
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: "2G"
           volumeMounts:
             - mountPath: /usr/src/app/upload
               name: photos

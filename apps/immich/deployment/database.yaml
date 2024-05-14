@@ -22,7 +22,10 @@ spec:
           envFrom:
             - secretRef:
                 name: immich-secret
-          resources: {}
+          resources:
+            limits:
+              cpu: "0.2"
+              memory: "1G"
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: pgdata

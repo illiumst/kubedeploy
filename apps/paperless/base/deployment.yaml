@@ -22,7 +22,7 @@ spec:
           resources:
             limits:
               cpu: "0.2"
-              memory: "1Gi"
+              memory: "1G"
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: paperless-pvc
@@ -49,7 +49,10 @@ spec:
             - name: http 
               containerPort: 8000
               protocol: TCP
-          resources: {}
+          resources:
+            limits:
+              cpu: "0.2"
+              memory: "2G"
           volumeMounts:
             - mountPath: /usr/src/paperless/data
               name: paperless-pvc
@@ -101,7 +104,7 @@ spec:
           resources:
             limits:
               cpu: "0.1"
-              memory: "1Gi"
+              memory: "250M"
       restartPolicy: Always
       volumes:
         - name: paperless-pvc
