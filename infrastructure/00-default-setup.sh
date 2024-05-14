@@ -5,7 +5,6 @@ kubectl apply -k ./01-metallb
 
 # Install argoCD for deployment and secret management
 kubectl apply -k ./02-argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/argocd-image-updater/stable/manifests/install.yaml
 
 # Start NFD - if your cluster doesn't have NFD installed yet
 kubectl apply -k 'https://github.com/intel/intel-device-plugins-for-kubernetes/deployments/nfd?ref=v0.29.0'
