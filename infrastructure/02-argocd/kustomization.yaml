@@ -23,7 +23,7 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/args
         value:
-          - "--interval=60m"
+          - "--interval=12h"
 
     target:
       group: apps
