@@ -38,7 +38,7 @@ spec:
             - mountPath: /usr/src/app/upload
               name: photos
               subPath: upload
-            - mountPath: /usr/src/app/external
+            - mountPath:  /mnt/media/external
               name: photos
         - args:
             - start.sh
@@ -61,7 +61,7 @@ spec:
             - mountPath: /usr/src/app/upload
               name: photos
               subPath: upload
-            - mountPath: /usr/src/app/external
+            - mountPath: /mnt/media/external
               name: photos
               readOnly: true
       restartPolicy: Always
