@@ -20,10 +20,11 @@ patches:
   - path: patches/argocd-cm-patch.yaml
   - path: patches/argocd-cmd-params-cm.yaml
   - patch: |-
-      - path: /spec/template/spec/containers/0/command
-        value: |- 
-         - /usr/local/bin/argocd-image-updater --interval=60m
-         - run
+      - op: replace
+        path: /spec/template/spec/containers/0/args
+        value:
+          - "--interval=60m"
+
     target:
       group: apps
       version: v1
