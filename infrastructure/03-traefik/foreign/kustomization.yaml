@@ -3,5 +3,5 @@ resources:
   - fritz
   - adguard
   - wgui
-  - immich
+  # - immich
   - website-service.yaml
