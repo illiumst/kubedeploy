@@ -30,16 +30,15 @@ spec:
               containerPort: 3002
               hostPort: 3002
               protocol: TCP
-          resources:
-            limits:
-              cpu: "0.5"
-              memory: "2G"
+          resources: {}
           volumeMounts:
             - mountPath: /usr/src/app/upload
               name: photos
               subPath: upload
-            - mountPath:  /mnt/media/external
+              readOnly: false
+            - mountPath: /mnt/media/external
               name: photos
+              readOnly: false
         - args:
             - start.sh
             - immich
@@ -53,17 +52,15 @@ spec:
               containerPort: 3001
               hostPort: 3001
               protocol: TCP
-          resources:
-            limits:
-              cpu: "0.5"
-              memory: "2G"
+          resources: {}
           volumeMounts:
             - mountPath: /usr/src/app/upload
               name: photos
               subPath: upload
+              readOnly: false
             - mountPath: /mnt/media/external
               name: photos
-              readOnly: true
+              readOnly: false
       restartPolicy: Always
       volumes:
         - name: photos
