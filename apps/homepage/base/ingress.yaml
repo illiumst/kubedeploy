@@ -13,3 +13,8 @@ spec:
     services:
     - name: homepage
       port: http
+      sticky:
+        cookie:
+          httpOnly: true
+          secure: true
+          sameSite: none
