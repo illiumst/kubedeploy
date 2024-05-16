@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: homepage
+  name: homepage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: homepage
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: homepage
+    spec:
+      containers:
+        - image: ghcr.io/gethomepage/homepage:latest
+          name: homepage
+          ports:
+            - containerPort: 3000
+              hostPort: 3000
+              protocol: TCP
+              name: http
+          resources:
+            limits:
+              cpu: "0.1"
+              memory: "250M"
+          volumeMounts:
+            - mountPath: /app/config
+              name: homepage-pvc
+      restartPolicy: Always
+      volumes:
+        - name: homepage-pvc
+          persistentVolumeClaim:
+            claimName: homepage-pvc
