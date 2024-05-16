@@ -5,7 +5,7 @@ metadata:
   labels:
     app: homepage
 rules:
-- apiGroups:
+  - apiGroups:
       - ""
     resources:
       - namespaces
