@@ -46,16 +46,13 @@ spec:
             - name: MYSQL_USER
               value: nextcloud
             - name: REDIS_HOST
-              value: 127.0.0.1
+              value: redis
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: nextcloud-secret
                   key: MYSQL_PASSWORD
-          resources:
-            limits:
-              cpu: "0.3"
-              memory: "1G"
+          resources: {}
           ports:
             - name: mariadb
               containerPort: 3306
@@ -64,23 +61,13 @@ spec:
             - mountPath: /var/lib/mysql
               name: nextcloud-pvc
               subPath: 99f37b73-8f14-44b2-9211-af5de21de749/db-storage
-        - image: redis:alpine
-          name: redis
-          resources:
-            limits:
-              cpu: "0.1"
-              memory: "250M"
-          ports:
-            - name: redis
-              containerPort: 6379
-              protocol: TCP
         - image: nextcloud
           name: nextcloud
           env:
             - name: MYSQL_DATABASE
               value: nextcloud
             - name: MYSQL_HOST
-              value: 127.0.0.1:3306
+              value: maridb:3306
             - name: MYSQL_USER
               value: nextcloud
             - name: PHP_MEMORY_LIMIT
@@ -88,7 +75,7 @@ spec:
             - name: PHP_UPLOAD_LIMIT
               value: 100G
             - name: REDIS_HOST
-              value: 127.0.0.1
+              value: redis
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -98,10 +85,7 @@ spec:
             - name: nextcloud
               containerPort: 80
               protocol: TCP
-          resources:
-            limits:
-              cpu: "0.5"
-              memory: "2G"
+          resources: {}
           volumeMounts:
             - mountPath: /var/www/html
               name: nextcloud-pvc
@@ -118,6 +102,4 @@ spec:
             server: 192.168.178.4
             path: /mnt/storage/service/nextcloud/data
             readOnly: false
-
-
-            
+          
