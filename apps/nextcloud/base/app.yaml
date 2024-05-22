@@ -28,39 +28,6 @@ spec:
               name: nextcloud-data
           command: [ "/cron.sh" ]
           resources: {}
-        - image: mariadb
-          name: mariadb
-          args:
-            - --transaction-isolation=READ-COMMITTED
-            - --binlog-format=ROW
-            - --innodb-file-per-table=1
-            - --skip-innodb-read-only-compressed
-          env:
-            - name: MARIADB_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: nextcloud-secret
-                  key: MARIADB_ROOT_PASSWORD
-            - name: MYSQL_DATABASE
-              value: nextcloud
-            - name: MYSQL_USER
-              value: nextcloud
-            - name: REDIS_HOST
-              value: redis
-            - name: MYSQL_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: nextcloud-secret
-                  key: MYSQL_PASSWORD
-          resources: {}
-          ports:
-            - name: mariadb
-              containerPort: 3306
-              protocol: TCP
-          volumeMounts:
-            - mountPath: /var/lib/mysql
-              name: nextcloud-pvc
-              subPath: 99f37b73-8f14-44b2-9211-af5de21de749/db-storage
         - image: nextcloud
           name: nextcloud
           env:
