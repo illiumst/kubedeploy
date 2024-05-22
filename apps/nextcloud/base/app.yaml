@@ -20,6 +20,24 @@ spec:
       containers:
         - name: cron
           image: nextcloud:latest
+          env:
+            - name: MYSQL_DATABASE
+              value: nextcloud
+            - name: MYSQL_HOST
+              value: maridb:3306
+            - name: MYSQL_USER
+              value: nextcloud
+            - name: PHP_MEMORY_LIMIT
+              value: 2G
+            - name: PHP_UPLOAD_LIMIT
+              value: 100G
+            - name: REDIS_HOST
+              value: redis
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: nextcloud-secret
+                  key: MYSQL_PASSWORD
           volumeMounts:
             - mountPath: /var/www/html
               name: nextcloud-pvc
