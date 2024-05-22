@@ -4,9 +4,13 @@ kind: Kustomization
 namespace: nextcloud
 
 resources:
-- deployment.yaml
+- app.yaml
+- redis.yaml
+- database.yaml
 - pvc.yaml
-- service.yaml
+- app-service.yaml
+- database-service.yaml
+- redis-service.yaml
 - ingress.yaml
 - middleware.yaml
 - secret-sealed.yaml

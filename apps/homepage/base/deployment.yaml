@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: homepage
+  name: homepage
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: homepage
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: homepage
+    spec:
+      serviceAccountName: homepage
+      automountServiceAccountToken: true
+      dnsPolicy: ClusterFirst
+      enableServiceLinks: true
+      containers:
+        - image: ghcr.io/gethomepage/homepage:latest
+          name: homepage
+          ports:
+            - containerPort: 3000
+              hostPort: 3000
+              protocol: TCP
+              name: http
+          resources:
+            limits:
+              cpu: "0.1"
+              memory: "250M"
+          volumeMounts:
+            - mountPath: /app/config
+              name: homepage-pvc
+      restartPolicy: Always
+      hostAliases:
+        - ip: "192.168.178.102"
+          hostnames:
+          - "emby.steffenillium.de"
+          - "traefik.steffenillium.de"
+          - "photos.steffenillium.de"
+          - "newcloud.steffenillium.de"
+          - "documents.steffenillium.de"
+      volumes:
+        - name: homepage-pvc
+          persistentVolumeClaim:
+            claimName: homepage-pvc

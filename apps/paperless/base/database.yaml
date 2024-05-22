@@ -6,6 +6,7 @@ metadata:
   name: paperless-webserver
 spec:
   replicas: 1
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: paperless-webserver
@@ -46,10 +47,7 @@ spec:
             - name: http 
               containerPort: 8000
               protocol: TCP
-          resources:
-            limits:
-              cpu: "0.2"
-              memory: "2G"
+          resources: {}
           volumeMounts:
             - mountPath: /usr/src/paperless/data
               name: paperless-pvc
@@ -98,10 +96,7 @@ spec:
           ports:
             - containerPort: 6379
               protocol: TCP
-          resources:
-            limits:
-              cpu: "0.1"
-              memory: "250M"
+          resources: {}
       restartPolicy: Always
       volumes:
         - name: paperless-pvc

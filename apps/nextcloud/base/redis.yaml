@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: redis
+  name: redis
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: redis
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+        - image: redis:alpine
+          name: redis
+          resources:
+            limits: {}
+          ports:
+            - name: redis
+              containerPort: 6379
+              protocol: TCP
+      
+      restartPolicy: Always
+           

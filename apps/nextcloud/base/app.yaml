@@ -6,6 +6,7 @@ metadata:
   name: nextcloud
 spec:
   replicas: 1
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: nextcloud
@@ -19,6 +20,24 @@ spec:
       containers:
         - name: cron
           image: nextcloud:latest
+          env:
+            - name: MYSQL_DATABASE
+              value: nextcloud
+            - name: MYSQL_HOST
+              value: maridb:3306
+            - name: MYSQL_USER
+              value: nextcloud
+            - name: PHP_MEMORY_LIMIT
+              value: 2G
+            - name: PHP_UPLOAD_LIMIT
+              value: 100G
+            - name: REDIS_HOST
+              value: redis
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: nextcloud-secret
+                  key: MYSQL_PASSWORD
           volumeMounts:
             - mountPath: /var/www/html
               name: nextcloud-pvc
@@ -27,59 +46,13 @@ spec:
               name: nextcloud-data
           command: [ "/cron.sh" ]
           resources: {}
-        - image: mariadb
-          name: mariadb
-          args:
-            - --transaction-isolation=READ-COMMITTED
-            - --binlog-format=ROW
-            - --innodb-file-per-table=1
-            - --skip-innodb-read-only-compressed
-          env:
-            - name: MARIADB_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: nextcloud-secret
-                  key: MARIADB_ROOT_PASSWORD
-            - name: MYSQL_DATABASE
-              value: nextcloud
-            - name: MYSQL_USER
-              value: nextcloud
-            - name: REDIS_HOST
-              value: 127.0.0.1
-            - name: MYSQL_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: nextcloud-secret
-                  key: MYSQL_PASSWORD
-          resources:
-            limits:
-              cpu: "0.3"
-              memory: "1G"
-          ports:
-            - name: mariadb
-              containerPort: 3306
-              protocol: TCP
-          volumeMounts:
-            - mountPath: /var/lib/mysql
-              name: nextcloud-pvc
-              subPath: 99f37b73-8f14-44b2-9211-af5de21de749/db-storage
-        - image: redis:alpine
-          name: redis
-          resources:
-            limits:
-              cpu: "0.1"
-              memory: "250M"
-          ports:
-            - name: redis
-              containerPort: 6379
-              protocol: TCP
         - image: nextcloud
           name: nextcloud
           env:
             - name: MYSQL_DATABASE
               value: nextcloud
             - name: MYSQL_HOST
-              value: 127.0.0.1:3306
+              value: maridb:3306
             - name: MYSQL_USER
               value: nextcloud
             - name: PHP_MEMORY_LIMIT
@@ -87,7 +60,7 @@ spec:
             - name: PHP_UPLOAD_LIMIT
               value: 100G
             - name: REDIS_HOST
-              value: 127.0.0.1
+              value: redis
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -97,10 +70,7 @@ spec:
             - name: nextcloud
               containerPort: 80
               protocol: TCP
-          resources:
-            limits:
-              cpu: "0.5"
-              memory: "2G"
+          resources: {}
           volumeMounts:
             - mountPath: /var/www/html
               name: nextcloud-pvc
@@ -117,6 +87,4 @@ spec:
             server: 192.168.178.4
             path: /mnt/storage/service/nextcloud/data
             readOnly: false
-
-
-            
+          

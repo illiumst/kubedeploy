@@ -7,6 +7,7 @@ metadata:
   namespace: emby
 spec:
   replicas: 1
+  revisionHistoryLimit: 1
   strategy:
     type: Recreate
   selector:
@@ -47,7 +48,7 @@ spec:
           subPath: music
         resources:
           limits:
-            gpu.intel.com/i915: 1 # requesting 1 GPU
+            gpu.intel.com/i915: "1" # requesting 1 GPU
             cpu: "0.3"
             memory: "2G"
         livenessProbe:

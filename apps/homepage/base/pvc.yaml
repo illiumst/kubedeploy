@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: dashy-pvc
+  name: homepage-pvc
 spec:
   accessModes:
     - ReadWriteMany
@@ -11,12 +11,12 @@ spec:
   storageClassName: ""
   volumeMode: Filesystem
   # volumeName should be same as PV name
-  volumeName: dashy
+  volumeName: homepage
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: dashy
+  name: homepage
 spec:
   accessModes:
   - ReadWriteMany
@@ -35,10 +35,10 @@ spec:
       # Required options from storageclass parameters need to be added in volumeAttributes
       "clusterID": "rook-ceph"
       "staticVolume": "true"
-      "rootPath": /volumes/csi/dashy
+      "rootPath": /volumes/csi/homepage
     # volumeHandle can be anything, need not to be same
     # as PV name or volume name. keeping same for brevity
-    volumeHandle: dashy
+    volumeHandle: homepage
   persistentVolumeReclaimPolicy: Retain
   volumeMode: Filesystem
 
