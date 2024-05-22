@@ -2,57 +2,29 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: paperless-webserver
-  name: paperless-webserver
+    app: paperless
+  name: paperless
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: paperless-webserver
+      app: paperless
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: paperless-webserver
+        app: paperless
     spec:
       containers:
-        - image: docker.io/library/postgres:13
-          name: paperless-db
-          resources:
-            limits:
-              cpu: "0.2"
-              memory: "1G"
-          volumeMounts:
-            - mountPath: /var/lib/postgresql/data
-              name: paperless-pvc
-              subPath: 716a7a59-c361-48a1-ae89-f935919f7e59/pgdata
-          ports:
-            - containerPort: 5432
-              protocol: TCP
-          env:
-            - name: POSTGRES_DB
-              value: paperless
-            - name: POSTGRES_USER
-              valueFrom:
-                secretKeyRef:
-                  name: paperless-secret
-                  key: POSTGRES_USER
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: paperless-secret
-                  key: POSTGRES_PASSWORD
         - image: ghcr.io/paperless-ngx/paperless-ngx:latest
-          name: paperless-webserver
+          name: paperless
           ports:
             - name: http 
               containerPort: 8000
               protocol: TCP
           resources:
-            limits:
-              cpu: "0.2"
-              memory: "2G"
+            limits: {}
           volumeMounts:
             - mountPath: /usr/src/paperless/data
               name: paperless-pvc

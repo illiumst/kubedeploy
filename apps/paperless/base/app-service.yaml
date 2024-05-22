@@ -2,14 +2,14 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: paperless-service
-  name: paperless-service
+    app: paperless
+  name: paperless
 spec:
   ports:
     - name: http
       port: 80
       targetPort: http
   selector:
-    app: paperless-webserver
+    app: paperless
 status:
   loadBalancer: {}
