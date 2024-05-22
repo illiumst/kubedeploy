@@ -10,6 +10,8 @@ resources:
 - base/app-service.yaml
 - base/database-service.yaml
 - base/app.yaml
+- base/redis.yaml
+- base/redis-service.yaml
 - base/database.yaml
 - base/namespace.yaml
 
