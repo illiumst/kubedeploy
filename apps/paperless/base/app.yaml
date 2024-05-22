@@ -57,8 +57,10 @@ spec:
               value: "true"
             - name: PAPERLESS_OCR_ROTATE_PAGES_THRESHOLD
               value: "10"
+            - name: PAPERLESS_DBHOST
+              value: database
             - name: PAPERLESS_REDIS
-              value: redis://localhost:6379
+              value: redis://redis:6379
             - name: PAPERLESS_TIME_ZONE
               value: Europe/Berlin
             - name: PAPERLESS_URL
@@ -68,15 +70,6 @@ spec:
                 secretKeyRef:
                   name: paperless-secret
                   key: PAPERLESS_SECRET_KEY
-        - image: docker.io/library/redis:7
-          name: paperless-broker
-          ports:
-            - containerPort: 6379
-              protocol: TCP
-          resources:
-            limits:
-              cpu: "0.1"
-              memory: "250M"
       restartPolicy: Always
       volumes:
         - name: paperless-pvc
