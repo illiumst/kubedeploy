@@ -43,6 +43,7 @@ rules:
   - tlsstores
   - traefikservices
   - serverstransports
+  - serverstransporttcps
   verbs:
   - get
   - list
