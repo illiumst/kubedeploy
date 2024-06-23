@@ -17,32 +17,7 @@ spec:
         app: server
     spec:
       containers:
-        - args:
-            - start.sh
-            - microservices
-          envFrom:
-            - secretRef:
-                name: immich-secret
-          image: ghcr.io/immich-app/immich-server:release
-          name: microservices
-          ports:
-            - name: microservices
-              containerPort: 3002
-              hostPort: 3002
-              protocol: TCP
-          resources: {}
-          volumeMounts:
-            - mountPath: /usr/src/app/upload
-              name: photos
-              subPath: upload
-              readOnly: false
-            - mountPath: /mnt/media/external
-              name: photos
-              readOnly: false
-        - args:
-            - start.sh
-            - immich
-          envFrom:
+        - envFrom:
             - secretRef:
                 name: immich-secret
           image: ghcr.io/immich-app/immich-server:release
@@ -51,6 +26,10 @@ spec:
             - name: server
               containerPort: 3001
               hostPort: 3001
+              protocol: TCP
+            - name: microservices 
+              containerPort: 3002
+              hostPort: 3002
               protocol: TCP
           resources: {}
           volumeMounts:
