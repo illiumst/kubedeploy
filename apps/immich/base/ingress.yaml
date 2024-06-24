@@ -6,6 +6,7 @@ metadata:
 spec:
   entryPoints:
     - websecure-local
+    - websecure-front
   tls: {}
   routes:
   - match: Host(`photos.steffenillium.de`)
